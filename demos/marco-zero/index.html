@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Marco Zero Topografia — demonstração conceitual Nítido Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f1ecdf;--ink:#17362b;--orange:#d95e2b;--line:#cfc6af;--white:#fffdf8;--muted:#68756e;--grid:#dbd4c1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.55}a{color:inherit}.wrap{width:min(1160px,calc(100% - 38px));margin:auto}
+.notice{background:var(--ink);color:#f4efe3;text-align:center;padding:9px 16px;font:500 12px DM Mono,monospace}
+header{padding:20px 0;border-bottom:1px solid var(--line)}.nav{display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font:700 24px Source Serif 4,serif;letter-spacing:.06em}.brand small{display:block;font:500 10px DM Mono,monospace;letter-spacing:.1em;color:var(--orange);margin-top:3px}.nav a{text-decoration:none;font-size:14px}
+.hero{padding:72px 0 46px}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}.ey{font:500 12px DM Mono,monospace;color:var(--orange);letter-spacing:.1em;text-transform:uppercase}.hero h1{font:600 clamp(48px,6vw,82px)/.96 Source Serif 4,serif;letter-spacing:-.035em;margin:13px 0 20px;max-width:9ch}.hero p{font-size:18px;color:var(--muted);max-width:38em}
+.map{aspect-ratio:1.25;border:1px solid var(--line);background:var(--white);border-radius:2px;padding:14px;overflow:hidden}.map svg{width:100%;height:100%}.parcel{stroke-dasharray:720;stroke-dashoffset:720;animation:draw 2.5s ease forwards .3s}@keyframes draw{to{stroke-dashoffset:0}}
+.services{padding:40px 0 74px}.services h2,.quiz-section h2{font:600 clamp(34px,4vw,52px)/1 Source Serif 4,serif;margin:0 0 26px;max-width:15ch}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.service{padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,253,248,.55)}.service span{font:500 11px DM Mono,monospace;color:var(--orange)}.service h3{font:600 27px Source Serif 4,serif;margin:12px 0 10px}.service p{color:var(--muted);font-size:14px;margin:0}
+.quiz-section{padding:76px 0;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.quiz-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}.aside p{color:var(--muted);margin-top:14px}.panel{border:1px solid var(--line);background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 18px 45px rgba(56,47,29,.06)}.progress{height:5px;background:#eee8d8}.progress span{display:block;height:100%;background:var(--orange);width:33%;transition:.25s width}.panel-head{padding:21px 24px;border-bottom:1px solid #e5dece;display:flex;justify-content:space-between;gap:20px}.stepno{font:500 11px DM Mono,monospace;color:var(--orange)}.panel-body{padding:26px 24px}.question{font:600 28px/1.1 Source Serif 4,serif;margin:0 0 20px}.options{display:grid;gap:9px}.option{border:1px solid #d8d0bd;background:#fffdf8;border-radius:9px;padding:13px 14px;cursor:pointer;text-align:left;color:var(--ink)}.option:hover,.option.selected{border-color:var(--ink);background:#edf0e9}.field{display:grid;gap:8px}.field label{font-size:13px;font-weight:600}.field input,.field select{height:48px;border:1px solid #d2cab8;border-radius:8px;padding:0 12px;background:white;color:var(--ink);font:inherit}.error{color:#aa2d1b;font-size:13px;min-height:1.4em;margin-top:9px}.actions{padding:18px 24px;border-top:1px solid #e5dece;display:flex;justify-content:space-between;gap:10px}.btn{min-height:45px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:8px;padding:0 17px;font-weight:700;cursor:pointer}.btn.alt{background:transparent;color:var(--ink)}.btn:disabled{opacity:.35;cursor:not-allowed}
+.result{display:none;padding:24px;background:#edf0e9;border:1px solid #cfd8ca;border-radius:10px}.result h3{font:600 28px Source Serif 4,serif;margin:0 0 10px}.result p{color:#526057}.result ul{padding-left:20px;color:#526057}.disclaimer{font-size:12px;color:#7a817d;margin-top:16px;border-top:1px solid #d6ddd2;padding-top:14px}
+.photo-strip{padding:70px 0}.photo{height:390px;border-radius:14px;overflow:hidden;position:relative}.photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.75)}.photo span{position:absolute;left:18px;bottom:18px;background:rgba(23,54,43,.92);color:white;padding:10px 12px;border-radius:7px;font-size:12px}
+footer{padding:34px 0 50px;color:var(--muted);font-size:13px}.back{color:var(--orange);text-decoration:none}
+@media(max-width:850px){.hero-grid,.quiz-grid{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr}.hero{padding-top:48px}.photo{height:300px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.parcel{animation:none;stroke-dashoffset:0}.progress span{transition:none}}
+</style></head>
+<body>
+<div class="notice">Projeto conceitual — empresa, serviços e orientações ilustrativos. O questionário não substitui análise técnica, registral ou jurídica.</div>
+<header><div class="wrap nav"><div class="brand">MARCO ZERO<small>TOPOGRAFIA · TERRITÓRIO · REGULARIZAÇÃO</small></div><a href="/">← Nítido Studio</a></div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><span class="ey">Leitura técnica, linguagem clara</span><h1>Antes da medição, vem a pergunta certa.</h1><p>Serviços de topografia e organização territorial apresentados com clareza. Nesta demonstração, um questionário ajuda a preparar a conversa inicial sem emitir conclusão técnica.</p></div>
+<div class="map" aria-label="Ilustração animada de uma parcela rural"><svg viewBox="0 0 600 470" role="img" aria-label="Mapa vetorial com curvas de nível e parcela">
+<defs><pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#e0dac8" stroke-width="1"/></pattern></defs><rect width="600" height="470" fill="url(#g)"/>
+<g fill="none" stroke="#c4baa0" stroke-width="2"><path d="M10 115c120-80 200 90 330 10s180 50 250 5"/><path d="M-10 165c130-74 220 87 350 17s175 45 270 15"/><path d="M0 220c130-60 230 80 350 20s165 35 260 20"/><path d="M-20 275c150-58 250 70 370 17s170 35 280 25"/></g>
+<path class="parcel" d="M112 82 345 54 498 158 454 368 213 411 83 282Z" fill="#17362b" fill-opacity=".09" stroke="#17362b" stroke-width="4"/>
+<g fill="#d95e2b"><circle cx="112" cy="82" r="7"/><circle cx="345" cy="54" r="7"/><circle cx="498" cy="158" r="7"/><circle cx="454" cy="368" r="7"/><circle cx="213" cy="411" r="7"/><circle cx="83" cy="282" r="7"/></g>
+<g font-family="DM Mono,monospace" font-size="14" fill="#17362b"><text x="120" y="73">V-01</text><text x="354" y="45">V-02</text><text x="510" y="160">V-03</text><text x="365" y="235" font-size="22">412,6 ha</text></g>
+</svg></div>
+</div></section>
+
+<section class="services"><div class="wrap"><span class="ey">Serviços demonstrativos</span><h2 style="margin-top:12px">O nome do serviço vem depois do objetivo.</h2><div class="service-grid">
+<div class="service"><span>01</span><h3>Levantamento topográfico</h3><p>Representação planialtimétrica para projetos, implantação e leitura do terreno.</p></div>
+<div class="service"><span>02</span><h3>Georreferenciamento</h3><p>Apresentação informativa do serviço, condicionada à análise profissional e às exigências aplicáveis.</p></div>
+<div class="service"><span>03</span><h3>Divisão e desmembramento</h3><p>Organização inicial da demanda para que o profissional possa avaliar documentos, finalidade e área.</p></div>
+</div></div></section>
+
+<section class="quiz-section" id="orientacao"><div class="wrap quiz-grid">
+<div class="aside"><span class="ey">Orientação inicial</span><h2 style="margin-top:12px">Três perguntas para organizar a conversa.</h2><p>O resultado é apenas uma orientação demonstrativa. Ele não determina qual serviço é juridicamente necessário e não substitui consulta com profissional habilitado.</p></div>
+<div>
+ <div class="panel" id="panel">
+  <div class="progress"><span id="bar"></span></div>
+  <div class="panel-head"><span class="stepno" id="stepNo">ETAPA 1 DE 3</span><span class="stepno">DADOS NÃO SÃO ENVIADOS</span></div>
+  <div class="panel-body">
+   <div class="step" data-step="1"><h3 class="question">Qual é o objetivo principal com a área?</h3><div class="options" data-name="goal"><button class="option" data-value="Negociação do imóvel">Vender ou comprar</button><button class="option" data-value="Crédito ou garantia">Financiar ou oferecer em garantia</button><button class="option" data-value="Divisão">Dividir entre partes ou herdeiros</button><button class="option" data-value="Projeto">Implantar projeto ou obra</button></div></div>
+   <div class="step" data-step="2" hidden><h3 class="question">Qual a faixa de tamanho da área?</h3><div class="options" data-name="size"><button class="option" data-value="Até 25 ha">Até 25 ha</button><button class="option" data-value="25 a 100 ha">25 a 100 ha</button><button class="option" data-value="100 a 500 ha">100 a 500 ha</button><button class="option" data-value="Acima de 500 ha">Acima de 500 ha</button></div></div>
+   <div class="step" data-step="3" hidden><h3 class="question">Como está a documentação disponível?</h3><div class="field"><label for="docs">Selecione a situação que mais se aproxima</label><select id="docs"><option value="">Selecione</option><option>Matrícula e documentos básicos em mãos</option><option>Tenho parte dos documentos</option><option>Ainda preciso localizar a documentação</option><option>Não sei avaliar</option></select></div></div>
+   <p class="error" id="error" role="alert"></p>
+  </div>
+  <div class="actions"><button class="btn alt" id="back" disabled>Voltar</button><button class="btn" id="next">Avançar</button></div>
+ </div>
+ <div class="result" id="result"><h3>Resumo para uma conversa profissional</h3><p id="summary"></p><ul><li>Separe matrícula e documentos que já possuir.</li><li>Tenha o município e uma estimativa da área.</li><li>Explique o objetivo da demanda antes de pedir preço de um serviço específico.</li></ul><div class="disclaimer">Orientação inicial fictícia. A definição de escopo depende de análise técnica e, quando aplicável, registral ou jurídica.</div><button class="btn alt" id="restart" style="margin-top:18px">Refazer demonstração</button></div>
+</div>
+</div></section>
+
+<section class="photo-strip"><div class="wrap"><div class="photo"><img src="https://unsplash.com/photos/OIZPlqDEbPM/download?force=true&w=1600" alt="Profissional de levantamento usando estação total em campo"><span>Imagem licenciada via Unsplash · levantamento em campo</span></div></div></section>
+</main>
+<footer><div class="wrap">Demonstração criada pelo Nítido Studio · <a class="back" href="/">Voltar ao Nítido Studio</a></div></footer>
+<script>
+let step=1;const data={goal:'',size:'',docs:''};const steps=[...document.querySelectorAll('.step')],bar=document.getElementById('bar'),stepNo=document.getElementById('stepNo'),back=document.getElementById('back'),next=document.getElementById('next'),error=document.getElementById('error');
+document.querySelectorAll('.options').forEach(group=>group.addEventListener('click',e=>{const b=e.target.closest('.option');if(!b)return;group.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');data[group.dataset.name]=b.dataset.value;error.textContent=''}));
+function draw(){steps.forEach(s=>s.hidden=Number(s.dataset.step)!==step);stepNo.textContent=`ETAPA ${step} DE 3`;bar.style.width=(step/3*100)+'%';back.disabled=step===1;next.textContent=step===3?'Ver orientação':'Avançar';error.textContent=''}
+function valid(){if(step===1&&!data.goal)return 'Escolha um objetivo para continuar.';if(step===2&&!data.size)return 'Escolha uma faixa de tamanho.';if(step===3&&!document.getElementById('docs').value)return 'Selecione a situação da documentação.';return ''}
+next.onclick=()=>{const msg=valid();if(msg){error.textContent=msg;return}if(step<3){step++;draw();return}data.docs=document.getElementById('docs').value;document.getElementById('panel').style.display='none';document.getElementById('result').style.display='block';document.getElementById('summary').textContent=`Objetivo informado: ${data.goal}. Área: ${data.size}. Documentação: ${data.docs}. Em uma situação real, um profissional usaria esse contexto para avaliar qual serviço faz sentido e quais documentos precisam ser conferidos.`}
+back.onclick=()=>{if(step>1){step--;draw()}}
+document.getElementById('restart').onclick=()=>{step=1;data.goal='';data.size='';data.docs='';document.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));document.getElementById('docs').value='';document.getElementById('result').style.display='none';document.getElementById('panel').style.display='block';draw()}
+draw();
+</script>
+</body></html>
