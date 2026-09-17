@@ -1,1 +1,458 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vet Campo Cerrado — demonstração conceitual · Nítido Studio</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Projeto conceitual do Nítido Studio: site para veterinária de grandes animais com consulta de cobertura e jornada de atendimento simulada. Empresa e dados ilustrativos.">
+<meta name="theme-color" content="#FAF6EE">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#FAF6EE;--areia:#EFE6D5;--terra:#6B3F22;--terra2:#8C5A36;--mato:#2F5B3A;--mato-claro:#E3EDE2;--tinta:#2A211A;--cinza:#6E6259;--linha:#DCCFB9;
+  --urg:#B42318;--urg-escuro:#8E1B12;--urg-claro:#FDECEA;
+  --serif:"Newsreader",Georgia,serif;--sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pad:clamp(16px,4vw,56px);--max:1200px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.55}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--mato);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:8px;top:-60px;background:var(--tinta);color:#fff;padding:10px 14px;z-index:100}
+.skip:focus{top:8px}
+.conceito{background:#FFFFFF;color:#000;font:500 14px/1.3 var(--sans)}
+.conceito .wrap{display:flex;gap:12px 20px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}
+.conceito strong{font-weight:700}
+.conceito a{font-weight:700;text-decoration:none;border-bottom:2px solid #1B33F0;white-space:nowrap}
+
+/* faixa de urgência sempre visível */
+.faixa-urg{background:var(--urg);color:#fff}
+.faixa-urg .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.faixa-urg p{margin:0;font-weight:600}
+.faixa-urg a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+header.topo{background:var(--creme);border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:20}
+.topo .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:70px}
+.marca{display:flex;gap:12px;align-items:center;text-decoration:none}
+.marca svg{width:38px;height:38px}
+.marca b{font:600 23px/1 var(--serif);letter-spacing:-.01em}
+.marca span{display:block;font:500 12px/1 var(--sans);color:var(--cinza);margin-top:3px}
+.topo nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-weight:600;font-size:15px}
+.topo nav a{text-decoration:none}.topo nav a:hover{color:var(--mato)}
+@media (max-width:760px){.topo nav{display:none}}
+
+/* abertura documental */
+.abertura{padding:clamp(28px,5vw,64px) 0 clamp(40px,6vw,72px)}
+.abertura .grade{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:end}
+@media (max-width:900px){.abertura .grade{grid-template-columns:1fr}}
+.cred{font-size:14px;font-weight:600;color:var(--terra2);letter-spacing:.02em}
+h1{font:400 clamp(44px,6vw,86px)/1 var(--serif);letter-spacing:-.02em;margin:14px 0 20px}
+h1 i{color:var(--mato)}
+.lead{font-size:clamp(18px,1.5vw,21px);color:var(--cinza);max-width:32em;margin:0}
+.foto{position:relative;border-radius:4px;overflow:hidden;background:var(--areia);margin:0}
+.foto .luz{position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 80% 10%,rgba(255,214,150,.85),transparent 55%),
+  linear-gradient(180deg,#D9B98C 0%,#B58A5A 42%,#6E5A33 62%,#4E4A2A 100%)}
+.foto .horizonte{position:absolute;left:0;right:0;bottom:0;height:46%;background:
+  radial-gradient(60% 40% at 30% 0%,rgba(84,92,48,.9),transparent 70%),
+  linear-gradient(180deg,rgba(70,78,40,.85),rgba(40,44,24,.95))}
+.foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:#fff;font-size:14px;line-height:1.35;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent)}
+.foto .pend{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--tinta);font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px}
+.foto.alta{aspect-ratio:4/5;max-height:560px;width:100%}
+@media (max-width:900px){.foto.alta{aspect-ratio:16/11}}
+.foto.larga{aspect-ratio:16/10}
+
+/* dois caminhos */
+.caminhos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+@media (max-width:820px){.caminhos{grid-template-columns:1fr}}
+.caminho{padding:clamp(24px,4vw,44px) clamp(0px,3vw,36px) clamp(24px,4vw,44px) 0}
+.caminho+.caminho{border-left:1px solid var(--linha);padding-left:clamp(20px,3vw,36px)}
+@media (max-width:820px){.caminho+.caminho{border-left:0;border-top:1px solid var(--linha);padding-left:0}}
+.caminho .rot{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.caminho.urg .rot{color:var(--urg)}
+.caminho.urg .rot::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--urg);box-shadow:0 0 0 4px var(--urg-claro)}
+.caminho.prog .rot{color:var(--mato)}
+.caminho h2{font:400 clamp(30px,3.4vw,44px)/1.05 var(--serif);margin:12px 0 10px}
+.caminho p{color:var(--cinza);margin:0 0 18px}
+.caminho ul{margin:0 0 20px;padding-left:18px;color:var(--tinta)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:999px;border:2px solid var(--tinta);background:var(--tinta);color:#fff;font-weight:700;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--mato);border-color:var(--mato)}
+.btn.urg{background:var(--urg);border-color:var(--urg)}
+.btn.urg:hover{background:var(--urg-escuro);border-color:var(--urg-escuro)}
+.btn.alt{background:transparent;color:var(--tinta)}
+.btn.alt:hover{background:var(--tinta);color:#fff}
+
+.sec{padding:clamp(56px,8vw,104px) 0}
+.sec h2.t{font:400 clamp(34px,4.4vw,56px)/1.04 var(--serif);letter-spacing:-.015em;margin:0 0 12px}
+.sec p.sub{color:var(--cinza);max-width:40em;margin:0 0 32px}
+
+/* cobertura */
+.cob{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.cob{grid-template-columns:1fr}}
+.cartao{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:clamp(20px,3vw,32px)}
+.campo{margin-bottom:16px}
+.campo label{display:block;font-weight:700;margin-bottom:8px}
+.campo input,.campo select,.campo textarea{width:100%;min-height:50px;padding:10px 14px;border:1.5px solid var(--tinta);border-radius:10px;background:#fff}
+.campo .ajuda{font-size:14px;color:var(--cinza);margin:6px 0 0}
+.linha-busca{display:flex;gap:10px;flex-wrap:wrap}
+.linha-busca input{flex:1;min-width:200px}
+.erro{color:var(--urg-escuro);font-size:14px;margin:8px 0 0}
+.erro[hidden]{display:none}
+[aria-invalid="true"]{border-color:var(--urg)!important}
+.resultado{margin-top:18px;border-radius:12px;padding:18px 20px}
+.resultado[hidden]{display:none}
+.resultado.sim{background:var(--mato-claro);border:1px solid #BFD3BD}
+.resultado.nao{background:var(--areia);border:1px solid var(--linha)}
+.resultado h3{font:500 24px/1.15 var(--serif);margin:0 0 8px}
+.resultado p{margin:0 0 8px}
+.resultado small{color:var(--cinza)}
+.mapa svg{width:100%;height:auto;display:block}
+.mapa .legenda{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--cinza);margin-top:10px}
+.mapa .legenda span{display:inline-flex;align-items:center;gap:8px}
+.mapa .legenda i{width:14px;height:14px;border-radius:50%;display:inline-block}
+.muni{cursor:pointer}
+.muni circle{transition:r .2s}
+.muni.on circle{stroke:#2A211A;stroke-width:3}
+
+/* jornada */
+.jornada{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:900px){.jornada{grid-template-columns:1fr}}
+.trilha{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--linha)}
+.trilha li{padding:10px 0 18px 20px;position:relative;color:var(--cinza)}
+.trilha li::before{content:"";position:absolute;left:-7px;top:14px;width:12px;height:12px;border-radius:50%;background:var(--creme);border:2px solid var(--linha)}
+.trilha li[aria-current="step"]{color:var(--tinta);font-weight:700}
+.trilha li[aria-current="step"]::before{background:var(--mato);border-color:var(--mato)}
+.trilha li.feito::before{background:var(--linha)}
+@media (max-width:900px){.trilha{display:flex;border-left:0;border-top:2px solid var(--linha);overflow-x:auto}.trilha li{padding:16px 16px 0 0;white-space:nowrap;font-size:14px}.trilha li::before{left:0;top:-7px}}
+.passo h3{font:400 30px/1.1 var(--serif);margin:0 0 6px}
+.passo .ajuda{color:var(--cinza);margin:0 0 20px}
+fieldset{border:0;margin:0 0 18px;padding:0}
+legend{font-weight:700;margin-bottom:10px;padding:0}
+.escolhas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:600px){.escolhas{grid-template-columns:1fr}}
+.escolhas label{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--linha);border-radius:12px;padding:14px;cursor:pointer;background:#fff;line-height:1.35}
+.escolhas input{accent-color:var(--mato);width:18px;height:18px;margin:2px 0 0;flex:none}
+.escolhas label:has(input:checked){border-color:var(--tinta);box-shadow:0 0 0 2px var(--tinta) inset}
+.escolhas small{display:block;color:var(--cinza);font-size:14px}
+.escolhas label.urgente:has(input:checked){border-color:var(--urg);box-shadow:0 0 0 2px var(--urg) inset}
+.alerta-urg{background:var(--urg-claro);border:1px solid #F4B9B2;border-radius:12px;padding:14px 16px;margin:0 0 18px;color:var(--urg-escuro)}
+.alerta-urg[hidden]{display:none}
+.nav-j{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--linha);padding-top:18px;margin-top:8px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.revisao{list-style:none;padding:0;margin:0 0 18px;border-top:1px solid var(--linha)}
+.revisao li{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--linha);align-items:baseline}
+.revisao span{color:var(--cinza);font-size:14px}
+.revisao button{background:none;border:0;color:var(--mato);text-decoration:underline;cursor:pointer;min-height:32px;padding:0}
+@media (max-width:560px){.revisao li{grid-template-columns:1fr auto}.revisao li strong{grid-column:1/-1;order:3}}
+.confirma{background:var(--tinta);color:#fff;border-radius:12px;padding:18px 20px;margin-top:16px}
+.confirma h4{font:500 24px/1.15 var(--serif);margin:0 0 6px}
+.confirma p{margin:0 0 6px;color:#E8DFD3}
+
+/* serviços programados */
+.servicos{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.servicos{grid-template-columns:1fr}}
+.servicos dl{margin:0;border-top:1px solid var(--linha)}
+.servicos dt{font:500 24px/1.2 var(--serif);padding-top:18px}
+.servicos dd{margin:4px 0 0;padding-bottom:18px;border-bottom:1px solid var(--linha);color:var(--cinza)}
+
+footer{border-top:1px solid var(--linha);padding:32px 0 48px;color:var(--cinza);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){.muni circle{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#cobertura">Pular para a consulta de cobertura</a>
+<div class="conceito" role="note"><div class="wrap"><span><strong>Projeto conceitual — empresa e dados ilustrativos.</strong> Cobertura e atendimento são simulados; nenhuma solicitação é enviada.</span><a href="../../index.html#projetos">← Voltar ao Nítido Studio</a></div></div>
+<div class="faixa-urg"><div class="wrap"><p>Animal em risco agora? Numa emergência real, ligue direto para um veterinário da sua região.</p><a href="#jornada" data-tipo-inicial="urgente">Ver como seria o pedido urgente</a></div></div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio">
+      <svg viewBox="0 0 38 38" aria-hidden="true"><circle cx="19" cy="19" r="18" fill="#2F5B3A"/><path d="M9 25c4-7 9-10 20-11-3 5-8 9-15 11" fill="none" stroke="#FAF6EE" stroke-width="2.2" stroke-linecap="round"/><circle cx="26" cy="12" r="2" fill="#FAF6EE"/></svg>
+      <span><b>Vet Campo Cerrado</b><span>Grandes animais · conceito</span></span>
+    </a>
+    <nav aria-label="Seções"><ul><li><a href="#cobertura">Área de atendimento</a></li><li><a href="#jornada">Pedir atendimento</a></li><li><a href="#programados">Serviços programados</a></li></ul></nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="abertura">
+    <div class="wrap grade">
+      <div>
+        <p class="cred">Bovinos e equinos · atendimento a campo · demonstração</p>
+        <h1>Quem cuida do rebanho <i>vai até ele.</i></h1>
+        <p class="lead">Um site que separa, logo de início, o que é urgente do que pode ser agendado. E que responde a primeira pergunta de todo produtor: vocês chegam até a minha fazenda?</p>
+      </div>
+      <figure class="foto alta">
+        <div class="luz"></div><div class="horizonte"></div>
+        <span class="pend">Fotografia documental a produzir</span>
+        <figcaption>Cena prevista: veterinária examinando uma vaca no curral ao fim da tarde, luz lateral quente. Composição de referência, sem foto real.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-label="Dois tipos de atendimento">
+    <div class="wrap caminhos">
+      <div class="caminho urg">
+        <span class="rot">Urgência a campo</span>
+        <h2>Parto difícil, cólica, acidente.</h2>
+        <p>Situações que não podem esperar ganham um caminho curto, visível em qualquer página.</p>
+        <ul><li>Orientação imediata para buscar ajuda</li><li>Informações que o veterinário vai pedir</li><li>Nenhuma promessa de horário de chegada</li></ul>
+        <a class="btn urg" href="#jornada" data-tipo-inicial="urgente">Simular pedido urgente</a>
+      </div>
+      <div class="caminho prog">
+        <span class="rot">Serviços programados</span>
+        <h2>Reprodução, manejo sanitário, exames.</h2>
+        <p>Visitas planejadas com antecedência, organizadas pelo calendário da propriedade.</p>
+        <ul><li>Protocolos reprodutivos</li><li>Calendário sanitário do rebanho</li><li>Exames e consultoria técnica</li></ul>
+        <a class="btn alt" href="#jornada" data-tipo-inicial="programado">Simular agendamento</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cobertura" aria-labelledby="tCob">
+    <div class="wrap">
+      <h2 class="t" id="tCob">Vocês atendem a minha região?</h2>
+      <p class="sub">Consulte pelo município. A área e os tipos de atendimento abaixo são fictícios, criados para esta demonstração.</p>
+      <div class="cob">
+        <div class="cartao">
+          <form id="formCob" novalidate>
+            <div class="campo">
+              <label for="muni">Município da propriedade</label>
+              <div class="linha-busca">
+                <input id="muni" list="listaMunis" autocomplete="off" placeholder="Comece a digitar" aria-describedby="muniAjuda muniErro">
+                <button class="btn" type="submit">Consultar</button>
+              </div>
+              <datalist id="listaMunis"></datalist>
+              <p class="ajuda" id="muniAjuda">Experimente “Luís Eduardo Magalhães” (dentro) ou “Correntina” (fora da área demonstrativa).</p>
+              <p class="erro" id="muniErro" hidden></p>
+            </div>
+          </form>
+          <div class="resultado" id="resCob" role="status" aria-live="polite" hidden></div>
+        </div>
+        <div class="mapa">
+          <svg viewBox="0 0 460 360" role="img" aria-labelledby="mapaT mapaD">
+            <title id="mapaT">Mapa esquemático da área de atendimento demonstrativa</title>
+            <desc id="mapaD">Municípios em verde estão na área fictícia de atendimento; em cinza, fora dela. Posições aproximadas e não cartográficas.</desc>
+            <rect width="460" height="360" rx="14" fill="#EFE6D5"/>
+            <path d="M40 60 Q140 20 260 50 T430 90 L420 300 Q300 340 180 320 T40 280 Z" fill="#E6DAC4" stroke="#DCCFB9"/>
+            <ellipse cx="220" cy="170" rx="150" ry="115" fill="#2F5B3A" fill-opacity=".12" stroke="#2F5B3A" stroke-dasharray="6 5"/>
+            <g id="pontos" font-family="Figtree,sans-serif" font-size="12"></g>
+          </svg>
+          <div class="legenda"><span><i style="background:#2F5B3A"></i>Na área demonstrativa</span><span><i style="background:#A89C8C"></i>Fora da área demonstrativa</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="jornada" aria-labelledby="tJor" style="background:var(--areia)">
+    <div class="wrap">
+      <h2 class="t" id="tJor">Pedir atendimento</h2>
+      <p class="sub">A jornada que o site proporia. Nada é enviado e nenhum dado pessoal é solicitado.</p>
+      <div class="jornada">
+        <ol class="trilha" id="trilha">
+          <li data-t="1" aria-current="step">Tipo de atendimento</li>
+          <li data-t="2">O que está acontecendo</li>
+          <li data-t="3">Local</li>
+          <li data-t="4">Revisão</li>
+        </ol>
+        <form class="cartao" id="formJ" novalidate>
+          <p class="sr" id="jStatus" aria-live="polite"></p>
+          <div class="passo" data-passo="1">
+            <h3 tabindex="-1">Qual tipo de atendimento?</h3>
+            <p class="ajuda">Isso muda as próximas perguntas.</p>
+            <fieldset aria-describedby="j1e"><legend class="sr">Tipo</legend>
+              <div class="escolhas">
+                <label class="urgente"><input type="radio" name="tipo" value="urgente"> <span><strong>Urgente</strong><small>O animal precisa de avaliação o quanto antes</small></span></label>
+                <label><input type="radio" name="tipo" value="programado"> <span><strong>Programado</strong><small>Visita planejada para os próximos dias ou semanas</small></span></label>
+              </div>
+            </fieldset>
+            <p class="erro" id="j1e" hidden>Escolha o tipo de atendimento.</p>
+          </div>
+          <div class="passo" data-passo="2" hidden>
+            <h3 tabindex="-1">O que está acontecendo?</h3>
+            <p class="alerta-urg" id="alertaUrg" hidden><strong>Em uma emergência real,</strong> não espere por um site: ligue diretamente para um veterinário da sua região. Esta etapa apenas demonstra quais informações ajudam no primeiro contato.</p>
+            <fieldset aria-describedby="j2ae"><legend>Espécie</legend>
+              <div class="escolhas">
+                <label><input type="radio" name="especie" value="Bovino"> <span>Bovino</span></label>
+                <label><input type="radio" name="especie" value="Equino"> <span>Equino</span></label>
+              </div>
+            </fieldset>
+            <p class="erro" id="j2ae" hidden>Escolha a espécie.</p>
+            <fieldset aria-describedby="j2be"><legend id="motivoLegenda">Motivo</legend>
+              <div class="escolhas" id="motivos"></div>
+            </fieldset>
+            <p class="erro" id="j2be" hidden>Escolha o motivo.</p>
+          </div>
+          <div class="passo" data-passo="3" hidden>
+            <h3 tabindex="-1">Onde fica a propriedade?</h3>
+            <p class="ajuda">Use a mesma lista da consulta de cobertura.</p>
+            <div class="campo">
+              <label for="jMuni">Município</label>
+              <select id="jMuni" aria-describedby="j3e"><option value="">Selecione</option></select>
+              <p class="erro" id="j3e" hidden>Selecione o município.</p>
+            </div>
+            <div class="campo">
+              <label for="jRef">Referência de acesso (opcional)</label>
+              <input id="jRef" type="text" maxlength="80" placeholder="Ex.: estrada de terra, 12 km após a ponte">
+              <p class="ajuda">Não informe nome, telefone ou documentos nesta demonstração.</p>
+            </div>
+          </div>
+          <div class="passo" data-passo="4" hidden>
+            <h3 tabindex="-1">Revise o pedido</h3>
+            <ul class="revisao" id="revisao"></ul>
+            <div id="avisoFora"></div>
+            <button class="btn" type="button" id="simularJ">Simular envio do pedido</button>
+            <div id="confJ" role="status"></div>
+          </div>
+          <div class="nav-j">
+            <button class="btn alt" type="button" id="jVoltar" disabled>← Voltar</button>
+            <button class="btn" type="button" id="jAvancar">Continuar →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="programados" aria-labelledby="tProg">
+    <div class="wrap servicos">
+      <div>
+        <h2 class="t" id="tProg">Serviços programados</h2>
+        <p class="sub">Para quem planeja o ano do rebanho. Descrições gerais, criadas para a demonstração.</p>
+        <figure class="foto larga">
+          <div class="luz"></div><div class="horizonte"></div>
+          <span class="pend">Fotografia documental a produzir</span>
+          <figcaption>Cena prevista: manejo de lote no brete, poeira contra a luz, pessoas de costas. Sem foto real.</figcaption>
+        </figure>
+      </div>
+      <dl>
+        <dt>Reprodução</dt><dd>Exames reprodutivos, protocolos de inseminação e acompanhamento de estação de monta.</dd>
+        <dt>Manejo sanitário</dt><dd>Planejamento do calendário de vacinas e vermifugação conforme orientação técnica e exigências oficiais.</dd>
+        <dt>Clínica e exames</dt><dd>Avaliação de animais, coleta de material e encaminhamento a laboratório.</dd>
+        <dt>Consultoria</dt><dd>Visitas periódicas para indicadores do rebanho e ajustes de manejo.</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Vet Campo Cerrado é uma clínica fictícia criada pelo <a href="../../index.html">Nítido Studio</a> para demonstração. Nenhum profissional ou horário real está associado a esta página.</span><a href="../../index.html#pacotes">Ver pacotes do Nítido Studio →</a></div></footer>
+
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  // Municípios reais do Oeste da Bahia; cobertura FICTÍCIA. Posições esquemáticas.
+  var MUNIS=[
+    {n:"Luís Eduardo Magalhães",d:true,x:120,y:165,tipos:"urgência e programado"},
+    {n:"Barreiras",d:true,x:300,y:128,tipos:"urgência e programado"},
+    {n:"São Desidério",d:true,x:215,y:222,tipos:"urgência e programado"},
+    {n:"Riachão das Neves",d:true,x:270,y:78,tipos:"programado"},
+    {n:"Formosa do Rio Preto",d:false,x:190,y:48,tipos:""},
+    {n:"Correntina",d:false,x:300,y:295,tipos:""},
+    {n:"Jaborandi",d:false,x:190,y:300,tipos:""},
+    {n:"Cocos",d:false,x:110,y:318,tipos:""},
+    {n:"Baianópolis",d:true,x:360,y:200,tipos:"programado"},
+    {n:"Angical",d:false,x:395,y:105,tipos:""}
+  ];
+  var norm=function(s){return (s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/\s+/g," ").trim();};
+  MUNIS.sort(function(a,b){return a.n.localeCompare(b.n,"pt-BR");});
+  $("listaMunis").innerHTML=MUNIS.map(function(m){return '<option value="'+m.n+'">';}).join("");
+  $("jMuni").insertAdjacentHTML("beforeend",MUNIS.map(function(m){return '<option value="'+m.n+'">'+m.n+'</option>';}).join(""));
+  $("pontos").innerHTML=MUNIS.map(function(m){
+    return '<g class="muni" data-n="'+m.n+'"><circle cx="'+m.x+'" cy="'+m.y+'" r="7" fill="'+(m.d?"#2F5B3A":"#A89C8C")+'"/><text x="'+(m.x+11)+'" y="'+(m.y+4)+'" fill="#2A211A">'+m.n+'</text></g>';
+  }).join("");
+
+  function acha(v){var t=norm(v);return MUNIS.find(function(m){return norm(m.n)===t;});}
+  function marcaMapa(nome){document.querySelectorAll(".muni").forEach(function(g){g.classList.toggle("on",g.dataset.n===nome);});}
+  function consultar(v){
+    var inp=$("muni"), err=$("muniErro"), res=$("resCob");
+    if(!v.trim()){err.textContent="Digite o nome de um município.";err.hidden=false;inp.setAttribute("aria-invalid","true");res.hidden=true;inp.focus();return;}
+    var m=acha(v);
+    if(!m){err.textContent="Não encontramos “"+v.trim()+"” na lista desta demonstração. Escolha um município sugerido.";err.hidden=false;inp.setAttribute("aria-invalid","true");res.hidden=true;inp.focus();return;}
+    err.hidden=true;inp.setAttribute("aria-invalid","false");marcaMapa(m.n);
+    res.hidden=false;
+    if(m.d){
+      res.className="resultado sim";
+      res.innerHTML='<h3>'+m.n+' está na área demonstrativa.</h3><p>Tipos de atendimento previstos: <strong>'+m.tipos+'</strong>.</p><p><small>Dado fictício. Uma clínica real informaria aqui como confirmar disponibilidade, sem prometer horário de chegada.</small></p><a class="btn" href="#jornada" data-muni="'+m.n+'">Simular pedido para '+m.n+'</a>';
+    }else{
+      res.className="resultado nao";
+      res.innerHTML='<h3>'+m.n+' fica fora da área demonstrativa.</h3><p>Numa situação real, o site sugeriria procurar um veterinário mais próximo ou consultar a possibilidade de visita programada.</p><p><small>Dado fictício, apenas para mostrar o resultado negativo.</small></p>';
+    }
+  }
+  $("formCob").addEventListener("submit",function(e){e.preventDefault();consultar($("muni").value);});
+  $("pontos").addEventListener("click",function(e){var g=e.target.closest(".muni");if(g){$("muni").value=g.dataset.n;consultar(g.dataset.n);}});
+
+  // jornada
+  var MOTIVOS={
+    urgente:[["Parto difícil",""],["Cólica","Mais comum em equinos"],["Ferimento ou acidente",""],["Animal caído ou sem se levantar",""]],
+    programado:[["Reprodução","Exames e protocolos"],["Manejo sanitário","Calendário do rebanho"],["Exames e coleta",""],["Consultoria técnica",""]]
+  };
+  var f=$("formJ"), passo=1, passos=f.querySelectorAll(".passo");
+  function v(n){var el=f.elements[n];return el?el.value:"";}
+  function montaMotivos(){
+    var t=v("tipo")||"programado", atual=v("motivo");
+    $("motivos").innerHTML=MOTIVOS[t].map(function(m){return '<label><input type="radio" name="motivo" value="'+m[0]+'"'+(m[0]===atual?" checked":"")+'> <span>'+m[0]+(m[1]?'<small>'+m[1]+'</small>':'')+'</span></label>';}).join("");
+    $("alertaUrg").hidden = t!=="urgente";
+  }
+  function erro(id,on,nome){$(id).hidden=!on; if(nome) f.querySelectorAll('[name="'+nome+'"]').forEach(function(i){i.setAttribute("aria-invalid",on?"true":"false");});}
+  function valida(n){
+    var ok=true, primeiro=null;
+    function rad(nome,id){var x=v(nome);erro(id,!x,nome);if(!x){ok=false;if(!primeiro)primeiro=f.querySelector('[name="'+nome+'"]');}}
+    if(n===1) rad("tipo","j1e");
+    if(n===2){rad("especie","j2ae");rad("motivo","j2be");}
+    if(n===3){var s=$("jMuni");erro("j3e",!s.value);s.setAttribute("aria-invalid",s.value?"false":"true");if(!s.value){ok=false;primeiro=s;}}
+    if(!ok){$("jStatus").textContent="Preencha os campos indicados.";primeiro.focus();}
+    return ok;
+  }
+  f.addEventListener("change",function(e){
+    if(e.target.name==="tipo"){ var mudou=true; montaMotivos(); erro("j1e",false,"tipo"); }
+    if(e.target.name==="especie") erro("j2ae",false,"especie");
+    if(e.target.name==="motivo") erro("j2be",false,"motivo");
+    if(e.target.id==="jMuni" && e.target.value){erro("j3e",false);e.target.setAttribute("aria-invalid","false");}
+  });
+  function ir(n,foco){
+    passo=n;
+    passos.forEach(function(p){p.hidden=Number(p.dataset.passo)!==n;});
+    $("trilha").querySelectorAll("li").forEach(function(li){var t=Number(li.dataset.t);li.classList.toggle("feito",t<n);if(t===n)li.setAttribute("aria-current","step");else li.removeAttribute("aria-current");});
+    $("jVoltar").disabled=n===1; $("jAvancar").hidden=n===4;
+    $("jAvancar").textContent = n===3?"Revisar →":"Continuar →";
+    $("jStatus").textContent="Etapa "+n+" de 4";
+    if(n===2) montaMotivos();
+    if(n===4) revisar();
+    if(foco!==false){var h=f.querySelector('.passo[data-passo="'+n+'"] h3');if(h)h.focus();}
+  }
+  function revisar(){
+    var m=$("jMuni").value, info=MUNIS.find(function(x){return x.n===m;});
+    var L=[["Tipo",v("tipo")==="urgente"?"Urgente":"Programado",1],["Espécie",v("especie"),2],["Motivo",v("motivo"),2],["Município",m,3]];
+    if($("jRef").value.trim()) L.push(["Acesso",$("jRef").value.trim(),3]);
+    $("revisao").innerHTML=L.map(function(l){var s=document.createElement("strong");s.textContent=l[1];return '<li><span>'+l[0]+'</span>'+s.outerHTML+'<button type="button" data-ir="'+l[2]+'">Editar<span class="sr"> '+l[0]+'</span></button></li>';}).join("");
+    var fora = info && (!info.d || (v("tipo")==="urgente" && info.tipos.indexOf("urgência")<0));
+    $("avisoFora").innerHTML = fora ? '<p class="alerta-urg" style="display:block">Pela cobertura fictícia, '+m+' não tem esse tipo de atendimento. Uma clínica real explicaria aqui as alternativas.</p>' : '';
+    $("confJ").innerHTML="";
+  }
+  $("revisao").addEventListener("click",function(e){var b=e.target.closest("[data-ir]");if(b)ir(Number(b.dataset.ir));});
+  $("jAvancar").addEventListener("click",function(){if(valida(passo))ir(passo+1);});
+  $("jVoltar").addEventListener("click",function(){if(passo>1)ir(passo-1);});
+  $("simularJ").addEventListener("click",function(){
+    $("confJ").innerHTML='<div class="confirma"><h4>Simulação concluída.</h4><p>Nenhum pedido foi enviado e nenhum profissional foi acionado.</p><p>Numa clínica real, aqui apareceria o canal oficial de contato e a orientação de como a equipe retorna.</p></div>';
+  });
+  f.addEventListener("submit",function(e){e.preventDefault();});
+  f.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.tagName==="INPUT"){e.preventDefault();if(passo<4)$("jAvancar").click();}});
+
+  // atalhos que pré-selecionam o tipo ou município
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("[data-tipo-inicial],[data-muni]"); if(!a) return;
+    if(a.dataset.tipoInicial){var r=f.querySelector('[name="tipo"][value="'+a.dataset.tipoInicial+'"]');if(r){r.checked=true;montaMotivos();erro("j1e",false,"tipo");}ir(1,false);}
+    if(a.dataset.muni){$("jMuni").value=a.dataset.muni;}
+    setTimeout(function(){var h=f.querySelector('.passo[data-passo="'+passo+'"] h3');if(h)h.focus({preventScroll:true});},350);
+  });
+  ir(1,false);
+})();
+</script>
+</body>
+</html>
