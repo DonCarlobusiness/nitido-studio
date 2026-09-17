@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Marco Zero Topografia — demonstração conceitual · Nítido Studio</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Projeto conceitual do Nítido Studio: site editorial para escritório de topografia com questionário de orientação inicial. Empresa e dados ilustrativos.">
+<meta name="theme-color" content="#F1ECDF">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#F1ECDF;--papel2:#E7E0CE;--linha:#CFC5AC;--tinta:#1C3328;--tinta2:#4A5E52;--marco:#D9582B;--marco-escuro:#B2441C;--branco:#FBF9F3;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(16px,4vw,56px);--max:1200px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.55}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--marco);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:8px;top:-60px;background:var(--tinta);color:var(--papel);padding:10px 14px;z-index:100}
+.skip:focus{top:8px}
+.conceito{background:#FFFFFF;color:#000;font:500 14px/1.3 var(--sans)}
+.conceito .wrap{display:flex;gap:12px 20px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}
+.conceito strong{font-weight:600}
+.conceito a{font-weight:600;text-decoration:none;border-bottom:2px solid #1B33F0;white-space:nowrap}
+
+header.topo{border-bottom:1px solid var(--tinta)}
+.topo .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:76px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca svg{width:36px;height:36px}
+.marca b{font:600 22px/1 var(--serif);letter-spacing:-.01em}
+.marca span{display:block;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta2);margin-top:4px}
+.topo nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;font:500 14px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.topo nav a{text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+.topo nav a:hover{border-color:var(--marco)}
+@media (max-width:760px){.topo nav ul{gap:18px;font-size:12px}}
+
+/* hero editorial */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px);align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.rubrica{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--marco-escuro);display:flex;gap:14px;align-items:center}
+.rubrica::after{content:"";flex:1;height:1px;background:var(--linha)}
+h1{font:350 clamp(42px,5.2vw,74px)/1 var(--serif);letter-spacing:-.025em;margin:22px 0 24px;font-variation-settings:"SOFT" 30,"WONK" 0}
+h1 i{font-style:italic;font-weight:300;color:var(--marco-escuro)}
+.hero p.lead{font-size:clamp(18px,1.5vw,21px);max-width:32em;color:var(--tinta2);margin:0 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:0;border:1.5px solid var(--tinta);background:var(--tinta);color:var(--papel);font:500 15px/1 var(--mono);letter-spacing:.04em;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--marco-escuro);border-color:var(--marco-escuro)}
+.btn.alt{background:transparent;color:var(--tinta)}
+.btn.alt:hover{background:var(--tinta);color:var(--papel)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+.prancha{background:var(--branco);border:1px solid var(--tinta);position:relative}
+.prancha svg{display:block;width:100%;height:auto}
+.prancha .carimbo{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--tinta);font:400 11px/1.3 var(--mono)}
+.prancha .carimbo div{padding:8px 10px;border-right:1px solid var(--tinta)}
+.prancha .carimbo div:last-child{border-right:0}
+.prancha .carimbo b{display:block;font-weight:500;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta2)}
+.curva{fill:none;stroke:var(--tinta);stroke-width:1;opacity:.35}
+.curva.mestra{stroke-width:1.6;opacity:.6}
+.parcela{fill:rgba(217,88,43,.08);stroke:var(--marco);stroke-width:2.5;stroke-linejoin:round}
+.anim .parcela{stroke-dasharray:1200;stroke-dashoffset:1200;fill-opacity:0;animation:desenha 2.4s .3s cubic-bezier(.6,.1,.3,1) forwards}
+.anim .vert{opacity:0;animation:aparece .3s forwards}
+@keyframes desenha{80%{fill-opacity:0}to{stroke-dashoffset:0;fill-opacity:1}}
+@keyframes aparece{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.anim .parcela{animation:none;stroke-dashoffset:0;fill-opacity:1}.anim .vert{animation:none;opacity:1}}
+
+/* seções numeradas */
+.sec{padding:clamp(56px,8vw,112px) 0;border-top:1px solid var(--tinta)}
+.cab-sec{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;margin-bottom:clamp(28px,4vw,48px)}
+@media (max-width:700px){.cab-sec{grid-template-columns:1fr;gap:8px}}
+.cab-sec .num{font:400 14px/1 var(--mono);color:var(--marco-escuro);padding-top:12px}
+.cab-sec h2{font:350 clamp(34px,4.4vw,58px)/1.02 var(--serif);letter-spacing:-.02em;margin:0 0 12px}
+.cab-sec p{margin:0;max-width:40em;color:var(--tinta2)}
+
+.servicos{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px}
+@media (max-width:700px){.servicos{grid-template-columns:1fr}}
+.servicos dl{margin:0;grid-column:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);border-top:1px solid var(--linha)}
+@media (max-width:700px){.servicos dl{grid-column:1;grid-template-columns:1fr}}
+.servicos dt,.servicos dd{padding:22px 0;border-bottom:1px solid var(--linha);margin:0}
+.servicos dt{font:400 26px/1.15 var(--serif);padding-right:24px}
+.servicos dt small{display:block;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta2);margin-top:8px}
+.servicos dd{color:var(--tinta2)}
+@media (max-width:700px){.servicos dt{border-bottom:0;padding-bottom:6px}.servicos dd{padding-top:0}}
+.nota{font-size:14px;color:var(--tinta2);border-left:3px solid var(--marco);padding:4px 0 4px 14px;margin:24px 0 0;max-width:46em}
+
+/* questionário */
+.quest{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.quest{grid-template-columns:1fr}}
+.folha{background:var(--branco);border:1px solid var(--tinta);padding:clamp(20px,3.5vw,40px)}
+.progresso{display:flex;gap:0;list-style:none;margin:0 0 28px;padding:0;border:1px solid var(--tinta)}
+.progresso li{flex:1;padding:10px 12px;font:500 12px/1.2 var(--mono);letter-spacing:.04em;border-right:1px solid var(--tinta);color:var(--tinta2)}
+.progresso li:last-child{border-right:0}
+.progresso li[aria-current="step"]{background:var(--tinta);color:var(--papel)}
+.progresso li.feito{background:var(--papel2);color:var(--tinta)}
+.progresso b{display:block;font-weight:500;font-size:11px}
+@media (max-width:520px){.progresso li span{display:none}}
+.etapa h3{font:400 30px/1.1 var(--serif);margin:0 0 6px;letter-spacing:-.01em}
+.etapa .ajuda{margin:0 0 22px;color:var(--tinta2);font-size:15px}
+fieldset{border:0;margin:0 0 22px;padding:0}
+legend{font:600 16px/1.3 var(--sans);margin-bottom:12px;padding:0}
+.opcoes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:600px){.opcoes{grid-template-columns:1fr}}
+.opcoes label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--linha);padding:12px 14px;cursor:pointer;background:var(--papel);line-height:1.35}
+.opcoes label:hover{border-color:var(--tinta)}
+.opcoes input{accent-color:var(--tinta);margin:3px 0 0;width:18px;height:18px;flex:none}
+.opcoes label:has(input:checked){border-color:var(--tinta);background:#fff;box-shadow:inset 3px 0 0 var(--marco)}
+.opcoes small{display:block;color:var(--tinta2);font-size:13px}
+.campo{margin-bottom:20px}
+.campo label{display:block;font-weight:600;margin-bottom:8px}
+.campo select,.campo input{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--tinta);background:#fff;border-radius:0}
+.erro{color:#A3290F;font-size:14px;margin:8px 0 0;display:flex;gap:6px;align-items:flex-start}
+.erro[hidden]{display:none}
+[aria-invalid="true"]{border-color:#A3290F!important;box-shadow:0 0 0 2px rgba(163,41,15,.15)}
+.nav-q{display:flex;justify-content:space-between;gap:12px;margin-top:10px;border-top:1px solid var(--linha);padding-top:20px}
+.resumo{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--linha)}
+.resumo li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--linha);align-items:baseline}
+.resumo span{font:500 12px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--tinta2)}
+.resumo button{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;font-size:14px;color:var(--marco-escuro);min-height:32px}
+@media (max-width:560px){.resumo li{grid-template-columns:1fr auto}.resumo li strong{grid-column:1/-1;order:3}}
+.orient{border:1.5px solid var(--tinta);background:var(--papel);padding:20px 22px;margin-bottom:18px}
+.orient h4{font:400 24px/1.15 var(--serif);margin:0 0 10px}
+.orient ul{margin:0 0 12px;padding-left:20px}
+.orient li{margin-bottom:6px}
+.orient .docs{font-size:15px;color:var(--tinta2)}
+.aviso-legal{font-size:14px;color:var(--tinta2);border-left:3px solid var(--marco);padding-left:12px;margin:0 0 18px}
+.sim-ok{background:var(--tinta);color:var(--papel);padding:14px 16px;margin-top:14px;font-size:15px}
+.lateral{display:grid;gap:18px;position:sticky;top:24px}
+@media (max-width:900px){.lateral{position:static}}
+.lateral .box{border-top:1px solid var(--tinta);padding-top:14px}
+.lateral h3{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px;color:var(--marco-escuro)}
+.lateral p{margin:0;font-size:15px;color:var(--tinta2)}
+
+/* método */
+.metodo{display:grid;grid-template-columns:120px repeat(4,minmax(0,1fr));gap:0 20px}
+.metodo .passo{grid-column:auto;border-top:1.5px solid var(--tinta);padding-top:16px}
+.metodo .passo b{font:400 13px/1 var(--mono);color:var(--marco-escuro)}
+.metodo .passo h3{font:400 24px/1.15 var(--serif);margin:10px 0 8px}
+.metodo .passo p{margin:0;color:var(--tinta2);font-size:15px}
+@media (max-width:900px){.metodo{grid-template-columns:1fr 1fr;gap:28px 20px}.metodo>div:first-child{display:none}}
+@media (max-width:520px){.metodo{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--tinta);padding:32px 0 48px;font-size:14px;color:var(--tinta2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+</style>
+</head>
+<body>
+<a class="skip" href="#orientacao">Pular para o questionário</a>
+<div class="conceito" role="note"><div class="wrap"><span><strong>Projeto conceitual — empresa e dados ilustrativos.</strong> O questionário não coleta dados e não substitui a análise de um profissional.</span><a href="../../index.html#projetos">← Voltar ao Nítido Studio</a></div></div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="none" stroke="#1C3328" stroke-width="1.5"/><path d="M18 4v28M4 18h28" stroke="#1C3328" stroke-width="1"/><path d="M18 9 L25 26 H11 Z" fill="#D9582B"/></svg>
+      <span><b>Marco Zero</b><span>Topografia · conceito</span></span>
+    </a>
+    <nav aria-label="Seções"><ul><li><a href="#servicos">Serviços</a></li><li><a href="#orientacao">Orientação</a></li><li><a href="#metodo">Método</a></li></ul></nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="rubrica">Levantamentos · regularização rural</p>
+        <h1>Antes de medir a terra, entender <i>o que ela precisa.</i></h1>
+        <p class="lead">Georreferenciamento, CAR, desmembramento ou levantamento para obra? Responda três perguntas e chegue à conversa com o profissional sabendo por onde começar.</p>
+        <div class="btns"><a class="btn" href="#orientacao">Começar orientação</a><a class="btn alt" href="#servicos">Entender os serviços</a></div>
+      </div>
+      <figure class="prancha" style="margin:0">
+        <svg id="mapa" class="anim" viewBox="0 0 600 420" role="img" aria-labelledby="mapaT">
+          <title id="mapaT">Prancha ilustrativa com curvas de nível e o contorno de um terreno sendo desenhado, com vértices marcados</title>
+          <defs><pattern id="grade" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#CFC5AC" stroke-width=".8"/></pattern></defs>
+          <rect width="600" height="420" fill="url(#grade)"/>
+          <g id="curvas"></g>
+          <path class="parcela" d="M118 96 L316 62 L478 128 L452 316 L262 352 L96 262 Z"/>
+          <g id="vertices" font-family="Plex Mono,monospace" font-size="11" fill="#1C3328"></g>
+          <g font-family="Plex Mono,monospace" font-size="10" fill="#4A5E52"><text x="18" y="404">N ↑</text><text x="470" y="404">ESC. GRÁFICA 0—200 m</text></g>
+        </svg>
+        <figcaption class="carimbo"><div><b>Folha</b>01/01</div><div><b>Área</b>412,6 ha (ilustr.)</div><div><b>Datum</b>SIRGAS 2000</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="servicos" aria-labelledby="tServ">
+    <div class="wrap">
+      <div class="cab-sec"><span class="num">§ 01</span><div><h2 id="tServ">Serviços, em linguagem clara</h2><p>Nomes parecidos, finalidades diferentes. Esta é a explicação que o site oferece antes de qualquer orçamento.</p></div></div>
+      <div class="servicos">
+        <dl>
+          <dt>Georreferenciamento de imóvel rural<small>Perímetro com coordenadas</small></dt>
+          <dd>Levanta as coordenadas dos vértices que formam o limite do imóvel, seguindo as normas técnicas do INCRA. Costuma ser exigido pelo cartório em operações como venda, desmembramento ou unificação de áreas, conforme a legislação e o tamanho do imóvel.</dd>
+          <dt>CAR — Cadastro Ambiental Rural<small>Registro ambiental</small></dt>
+          <dd>Registro eletrônico com informações ambientais do imóvel, como áreas de preservação e vegetação nativa. É um cadastro declaratório e não substitui o georreferenciamento nem regulariza a titularidade da terra.</dd>
+          <dt>Desmembramento e unificação<small>Dividir ou juntar áreas</small></dt>
+          <dd>Levantamento e peças técnicas para dividir uma matrícula em partes (em partilhas ou vendas parciais, por exemplo) ou unir áreas vizinhas. Envolve cartório e, conforme o caso, outros órgãos.</dd>
+          <dt>Levantamento planialtimétrico<small>Relevo e curvas de nível</small></dt>
+          <dd>Mede posições e altitudes do terreno para gerar curvas de nível. Serve de base para projetos de estradas internas, açudes, galpões, sistemas de irrigação e loteamentos.</dd>
+        </dl>
+      </div>
+      <p class="nota">Descrições gerais para fins de demonstração. Exigências e prazos variam conforme o cartório, o órgão e a situação do imóvel.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="orientacao" aria-labelledby="tOri">
+    <div class="wrap">
+      <div class="cab-sec"><span class="num">§ 02</span><div><h2 id="tOri">Orientação inicial em três etapas</h2><p>Não é um diagnóstico. É um ponto de partida para a conversa com um profissional habilitado.</p></div></div>
+      <div class="quest">
+        <form class="folha" id="quest" novalidate aria-describedby="qStatus">
+          <ol class="progresso" id="prog">
+            <li data-p="1" aria-current="step"><b>1/3</b><span>Finalidade</span></li>
+            <li data-p="2"><b>2/3</b><span>Situação</span></li>
+            <li data-p="3"><b>3/3</b><span>Área</span></li>
+          </ol>
+          <p class="sr" id="qStatus" aria-live="polite"></p>
+
+          <div class="etapa" data-etapa="1">
+            <h3 tabindex="-1">O que você pretende fazer com a área?</h3>
+            <p class="ajuda">Escolha a opção mais próxima. Dá para ajustar depois.</p>
+            <fieldset aria-describedby="e1"><legend class="sr">Finalidade</legend>
+              <div class="opcoes">
+                <label><input type="radio" name="fim" value="venda"> <span>Vender, comprar ou transferir<small>Escritura e registro</small></span></label>
+                <label><input type="radio" name="fim" value="credito"> <span>Pedir financiamento ou crédito<small>Exigências do banco</small></span></label>
+                <label><input type="radio" name="fim" value="divisao"> <span>Dividir a área<small>Herança, sociedade ou venda parcial</small></span></label>
+                <label><input type="radio" name="fim" value="ambiental"> <span>Regularização ambiental<small>Cadastro e informações ambientais</small></span></label>
+                <label><input type="radio" name="fim" value="obra"> <span>Projeto ou obra na área<small>Estrada, açude, galpão, irrigação</small></span></label>
+                <label><input type="radio" name="fim" value="naosei"> <span>Ainda não sei<small>Quero entender as opções</small></span></label>
+              </div>
+            </fieldset>
+            <p class="erro" id="e1" hidden>Escolha uma finalidade para continuar.</p>
+          </div>
+
+          <div class="etapa" data-etapa="2" hidden>
+            <h3 tabindex="-1">Qual é a situação do imóvel hoje?</h3>
+            <p class="ajuda">Se não souber, marque “não sei”. Isso também orienta a conversa.</p>
+            <fieldset aria-describedby="e2a"><legend>O imóvel tem matrícula no cartório?</legend>
+              <div class="opcoes">
+                <label><input type="radio" name="matricula" value="sim"> <span>Sim</span></label>
+                <label><input type="radio" name="matricula" value="nao"> <span>Não<small>Posse ou documento particular</small></span></label>
+                <label><input type="radio" name="matricula" value="naosei"> <span>Não sei</span></label>
+              </div>
+            </fieldset>
+            <p class="erro" id="e2a" hidden>Informe a situação da matrícula.</p>
+            <fieldset aria-describedby="e2b"><legend>Já existe georreferenciamento certificado?</legend>
+              <div class="opcoes">
+                <label><input type="radio" name="geo" value="sim"> <span>Sim</span></label>
+                <label><input type="radio" name="geo" value="nao"> <span>Não</span></label>
+                <label><input type="radio" name="geo" value="naosei"> <span>Não sei</span></label>
+              </div>
+            </fieldset>
+            <p class="erro" id="e2b" hidden>Informe se já existe georreferenciamento.</p>
+          </div>
+
+          <div class="etapa" data-etapa="3" hidden>
+            <h3 tabindex="-1">Sobre a área</h3>
+            <p class="ajuda">Informações aproximadas bastam.</p>
+            <div class="campo">
+              <label for="tamanho">Tamanho aproximado</label>
+              <select id="tamanho" name="tamanho" aria-describedby="e3a">
+                <option value="">Selecione</option>
+                <option value="ate100">Até 100 hectares</option>
+                <option value="100a500">De 100 a 500 hectares</option>
+                <option value="500a2500">De 500 a 2.500 hectares</option>
+                <option value="mais2500">Mais de 2.500 hectares</option>
+                <option value="urbano">Área urbana ou lote</option>
+              </select>
+              <p class="erro" id="e3a" hidden>Selecione um tamanho aproximado.</p>
+            </div>
+            <fieldset aria-describedby="e3b"><legend>Para quando você precisa?</legend>
+              <div class="opcoes">
+                <label><input type="radio" name="prazo" value="urgente"> <span>Há um prazo próximo<small>Banco, cartório ou negociação</small></span></label>
+                <label><input type="radio" name="prazo" value="planejando"> <span>Estou planejando</span></label>
+              </div>
+            </fieldset>
+            <p class="erro" id="e3b" hidden>Escolha uma opção de prazo.</p>
+          </div>
+
+          <div class="etapa" data-etapa="4" hidden>
+            <h3 tabindex="-1">Resumo e orientação inicial</h3>
+            <p class="ajuda">Confira as respostas. Você pode editar qualquer uma.</p>
+            <ul class="resumo" id="resumo"></ul>
+            <div class="orient" id="orient"></div>
+            <p class="aviso-legal">Esta orientação é genérica e demonstrativa. Não determina obrigações legais nem conclusões técnicas: só um profissional habilitado, com os documentos do imóvel, pode confirmar o serviço necessário.</p>
+            <button class="btn" type="button" id="simular">Simular pedido de conversa</button>
+            <div id="simRes" role="status"></div>
+          </div>
+
+          <div class="nav-q">
+            <button class="btn alt" type="button" id="voltar" disabled>← Voltar</button>
+            <button class="btn" type="button" id="avancar">Avançar →</button>
+          </div>
+        </form>
+        <aside class="lateral" aria-label="Sobre o questionário">
+          <div class="box"><h3>Por que perguntar antes</h3><p>Quem chega sabendo a finalidade e a situação do imóvel economiza uma rodada de explicações e recebe um orçamento mais preciso.</p></div>
+          <div class="box"><h3>Privacidade</h3><p>Nenhuma resposta sai deste navegador. Não pedimos nome, telefone ou documentos nesta demonstração.</p></div>
+          <div class="box"><h3>Dados fictícios</h3><p>A prancha, a área e o escritório são ilustrativos, criados pelo Nítido Studio.</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="metodo" aria-labelledby="tMet">
+    <div class="wrap">
+      <div class="cab-sec"><span class="num">§ 03</span><div><h2 id="tMet">Do escritório ao campo</h2><p>Como o site apresentaria o processo, em quatro momentos.</p></div></div>
+      <div class="metodo">
+        <div aria-hidden="true"></div>
+        <div class="passo"><b>01</b><h3>Documentos</h3><p>Leitura da matrícula, de mapas antigos e da finalidade do serviço.</p></div>
+        <div class="passo"><b>02</b><h3>Campo</h3><p>Levantamento com equipamentos de posicionamento e registro dos marcos.</p></div>
+        <div class="passo"><b>03</b><h3>Processamento</h3><p>Cálculo, desenho técnico e memorial descritivo.</p></div>
+        <div class="passo"><b>04</b><h3>Protocolos</h3><p>Entrega das peças e acompanhamento junto aos órgãos, quando contratado.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Marco Zero Topografia é um escritório fictício criado pelo <a href="../../index.html">Nítido Studio</a> para demonstração.</span><a href="../../index.html#pacotes">Ver pacotes do Nítido Studio →</a></div></footer>
+
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  // curvas de nível procedurais (determinísticas)
+  (function(){
+    var g=$("curvas"), ns="http://www.w3.org/2000/svg", html="";
+    function ruido(a,k){return Math.sin(a*3+k*.7)*9+Math.sin(a*5-k*1.3)*5+Math.cos(a*2+k)*7;}
+    for(var k=0;k<14;k++){
+      var r=26+k*22, cx=300+Math.sin(k*.5)*18, cy=210+Math.cos(k*.4)*10, pts=[];
+      for(var i=0;i<=64;i++){var a=i/64*Math.PI*2, rr=r+ruido(a,k)*(1+k*.08);pts.push((cx+Math.cos(a)*rr*1.25).toFixed(1)+","+(cy+Math.sin(a)*rr*.82).toFixed(1));}
+      html+='<polyline class="curva'+(k%5===4?" mestra":"")+'" points="'+pts.join(" ")+'"/>';
+    }
+    g.innerHTML=html;
+    var V=[[118,96,"M-01"],[316,62,"M-02"],[478,128,"M-03"],[452,316,"M-04"],[262,352,"M-05"],[96,262,"M-06"]], vh="";
+    V.forEach(function(v,i){vh+='<g class="vert" style="animation-delay:'+(0.5+i*.32).toFixed(2)+'s"><rect x="'+(v[0]-5)+'" y="'+(v[1]-5)+'" width="10" height="10" fill="#FBF9F3" stroke="#D9582B" stroke-width="2"/><text x="'+(v[0]+9)+'" y="'+(v[1]-8)+'">'+v[2]+'</text></g>';});
+    $("vertices").innerHTML=vh;
+  })();
+
+  var form=$("quest"), etapa=1, etapas=form.querySelectorAll(".etapa");
+  var ROT={fim:{venda:"Vender, comprar ou transferir",credito:"Financiamento ou crédito",divisao:"Dividir a área",ambiental:"Regularização ambiental",obra:"Projeto ou obra",naosei:"Ainda não sei"},
+    matricula:{sim:"Tem matrícula",nao:"Sem matrícula",naosei:"Não sabe"},
+    geo:{sim:"Georreferenciamento existente",nao:"Sem georreferenciamento",naosei:"Não sabe"},
+    tamanho:{ate100:"Até 100 ha","100a500":"100 a 500 ha","500a2500":"500 a 2.500 ha",mais2500:"Mais de 2.500 ha",urbano:"Área urbana ou lote"},
+    prazo:{urgente:"Há um prazo próximo",planejando:"Planejando"}};
+  function val(n){var el=form.elements[n]; return el ? el.value : "";}
+  function setErro(id,on,campo){
+    $(id).hidden=!on;
+    if(campo){ if(campo.setAttribute) campo.setAttribute("aria-invalid",on?"true":"false"); }
+  }
+  function validar(n){
+    var ok=true, primeiro=null;
+    function checaRadio(nome,erro){
+      var v=val(nome), fs=$(erro).previousElementSibling;
+      setErro(erro,!v); if(fs) fs.querySelectorAll("input").forEach(function(i){i.setAttribute("aria-invalid",v?"false":"true");});
+      if(!v){ok=false; if(!primeiro) primeiro=form.querySelector('input[name="'+nome+'"]');}
+    }
+    if(n===1) checaRadio("fim","e1");
+    if(n===2){checaRadio("matricula","e2a");checaRadio("geo","e2b");}
+    if(n===3){
+      var t=$("tamanho"); setErro("e3a",!t.value,t); if(!t.value){ok=false;primeiro=t;}
+      checaRadio("prazo","e3b");
+    }
+    if(!ok){ $("qStatus").textContent="Há campos a preencher nesta etapa."; primeiro.focus(); }
+    return ok;
+  }
+  form.addEventListener("change",function(e){
+    var n=e.target.name; if(!n) return;
+    var mapa={fim:"e1",matricula:"e2a",geo:"e2b",tamanho:"e3a",prazo:"e3b"};
+    if(mapa[n] && e.target.value){ $(mapa[n]).hidden=true; form.querySelectorAll('[name="'+n+'"]').forEach(function(i){i.setAttribute("aria-invalid","false");}); }
+  });
+
+  function mostrar(n,foco){
+    etapa=n;
+    etapas.forEach(function(el){el.hidden = Number(el.dataset.etapa)!==n;});
+    form.querySelectorAll("#prog li").forEach(function(li){
+      var p=Number(li.dataset.p);
+      li.classList.toggle("feito",p<n);
+      if(p===Math.min(n,3) && n<=3) li.setAttribute("aria-current","step"); else li.removeAttribute("aria-current");
+    });
+    $("voltar").disabled = n===1;
+    $("avancar").hidden = n===4;
+    $("avancar").textContent = n===3 ? "Ver resumo →" : "Avançar →";
+    $("qStatus").textContent = n<=3 ? "Etapa "+n+" de 3" : "Resumo das respostas";
+    if(n===4) montarResumo();
+    if(foco!==false){var h=form.querySelector('.etapa[data-etapa="'+n+'"] h3'); if(h) h.focus();}
+  }
+  $("avancar").addEventListener("click",function(){ if(validar(etapa)) mostrar(etapa+1); });
+  $("voltar").addEventListener("click",function(){ if(etapa>1) mostrar(etapa-1); });
+
+  function orientacao(r){
+    var serv=[], docs=["Matrícula atualizada ou documento de posse","Documento de identificação do proprietário (apenas na conversa com o profissional)"];
+    if(r.fim==="venda"||r.fim==="divisao"){ serv.push("Verificar com o cartório se a operação exige georreferenciamento certificado");}
+    if(r.fim==="divisao") serv.push("Levantamento para desmembramento ou partilha da área");
+    if(r.fim==="credito") serv.push("Confirmar com o banco quais peças técnicas e cadastros são pedidos");
+    if(r.fim==="ambiental") serv.push("Conversa sobre o Cadastro Ambiental Rural (CAR) e os mapas necessários");
+    if(r.fim==="obra"){ serv.push("Levantamento planialtimétrico (curvas de nível) para o projeto"); docs=["Croqui ou ideia do que será construído","Matrícula ou documento de posse"]; }
+    if(r.fim==="naosei") serv.push("Conversa inicial para entender a finalidade e os documentos disponíveis");
+    if(r.geo==="sim" && (r.fim==="venda"||r.fim==="divisao")) serv.push("Avaliar se o georreferenciamento existente atende à nova operação");
+    if(r.geo==="naosei") docs.push("Buscar no cartório ou com o antigo responsável técnico se já houve certificação");
+    if(r.matricula!=="sim") serv.push("Entender a situação documental antes de medir — pode envolver outros profissionais");
+    if(r.tamanho==="urbano") serv.push("Para áreas urbanas, as exigências costumam seguir regras municipais e do cartório local");
+    docs.push("Mapas, memoriais ou plantas antigas, se houver");
+    return {serv:serv, docs:docs};
+  }
+  function montarResumo(){
+    var r={fim:val("fim"),matricula:val("matricula"),geo:val("geo"),tamanho:$("tamanho").value,prazo:val("prazo")};
+    var linhas=[["Finalidade",ROT.fim[r.fim],1],["Matrícula",ROT.matricula[r.matricula],2],["Georreferenciamento",ROT.geo[r.geo],2],["Tamanho",ROT.tamanho[r.tamanho],3],["Prazo",ROT.prazo[r.prazo],3]];
+    $("resumo").innerHTML=linhas.map(function(l){return '<li><span>'+l[0]+'</span><strong>'+l[1]+'</strong><button type="button" data-ir="'+l[2]+'">Editar<span class="sr"> '+l[0]+'</span></button></li>';}).join("");
+    var o=orientacao(r);
+    $("orient").innerHTML='<h4>Pontos para levar à conversa</h4><ul>'+o.serv.map(function(s){return "<li>"+s+"</li>";}).join("")+'</ul><p class="docs"><strong>Separe, se tiver:</strong> '+o.docs.join("; ")+'.</p>'+(r.prazo==="urgente"?'<p class="docs" style="margin:10px 0 0"><strong>Com prazo próximo:</strong> informe a data ao profissional logo no primeiro contato.</p>':'');
+    $("simRes").innerHTML="";
+  }
+  $("resumo").addEventListener("click",function(e){var b=e.target.closest("[data-ir]"); if(b) mostrar(Number(b.dataset.ir));});
+  $("simular").addEventListener("click",function(){ $("simRes").innerHTML='<div class="sim-ok"><strong>Simulação concluída.</strong> Num escritório real, este resumo seguiria para a equipe. Aqui, nenhuma informação foi enviada ou armazenada.</div>'; });
+  form.addEventListener("submit",function(e){e.preventDefault();});
+  form.addEventListener("keydown",function(e){ if(e.key==="Enter" && e.target.tagName==="INPUT"){ e.preventDefault(); if(etapa<4) $("avancar").click(); }});
+  mostrar(1,false);
+})();
+</script>
+</body>
+</html>
