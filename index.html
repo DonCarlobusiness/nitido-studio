@@ -3,634 +3,661 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Nítido Studio — sites que deixam seu negócio nítido para quem procura</title>
-<meta name="description" content="Criamos, administramos e anunciamos o site do seu negócio. Três pacotes para empresas locais e de médio porte no Brasil e na América Latina. Base em Luís Eduardo Magalhães, Bahia.">
-<meta property="og:title" content="Nítido Studio">
-<meta property="og:description" content="Sites que deixam seu negócio nítido para quem procura — criação, administração mensal e tráfego pago.">
+<title>Nítido Studio — sites sob medida para empresas · Luís Eduardo Magalhães, BA</title>
+<meta name="description" content="Estúdio de sites em Luís Eduardo Magalhães (BA). Criação sob medida, manutenção mensal e gestão de anúncios para pequenas e médias empresas, com escopo e preços claros.">
+<link rel="canonical" href="https://nitidostudio.vercel.app/">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+<meta property="og:title" content="Nítido Studio — sites sob medida para empresas">
+<meta property="og:description" content="Criação, manutenção e anúncios com escopo claro. Base em Luís Eduardo Magalhães, Bahia.">
+<meta property="og:url" content="https://nitidostudio.vercel.app/">
+<meta property="og:image" content="https://nitidostudio.vercel.app/assets/img/rota-pecas-desktop.webp">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000'/%3E%3Cpath d='M14 24V14h10M40 14h10v10M50 40v10H40M24 50H14V40' fill='none' stroke='%231B33F0' stroke-width='5'/%3E%3Cpath d='M24 43V21h4l9 14V21h4v22h-4l-9-14v14z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --fundo:#FFFFFF; --tinta:#000000; --foco:#1B33F0; --nevoa:#6F7583; --nevoa-clara:#9AA0AE;
-  --superficie:#EEF0F4; --linha:#D9DCE3; --foco-suave:#E4E8FF; --foco-texto:#FFFFFF;
-  --erro:#B3261E;
-  --fam:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --larg:1160px; --pad:clamp(20px,5vw,64px); --sec:clamp(72px,12vw,140px);
-  --ease:cubic-bezier(.2,.7,.2,1); --dur:520ms;
+  --fundo:#FFFFFF;--tinta:#0A0A0B;--foco:#1B33F0;--foco-hover:#1426C4;--foco-suave:#E8EBFE;--nevoa:#5C6270;--nevoa2:#8A909C;--superficie:#F3F4F7;--linha:#E1E3E9;--linha-forte:#0A0A0B;
+  --on-foco:#FFFFFF;--zap:#128C4B;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --max:1240px;--pad:clamp(16px,4.5vw,64px);--sec:clamp(72px,11vw,148px);
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --fundo:#000000; --tinta:#FFFFFF; --foco:#6B7CFF; --nevoa:#A0A6B4; --nevoa-clara:#6F7583;
-    --superficie:#111318; --linha:#2A2E38; --foco-suave:#161B3A; --foco-texto:#000000;
-  }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--fundo:#060607;--tinta:#F4F5F7;--foco:#7C8BFF;--foco-hover:#98A4FF;--foco-suave:#12173A;--nevoa:#A3A8B3;--nevoa2:#7C8290;--superficie:#111216;--linha:#23252C;--linha-forte:#F4F5F7;--on-foco:#060607}
 }
-:root[data-theme="dark"]{
-  --fundo:#000000; --tinta:#FFFFFF; --foco:#6B7CFF; --nevoa:#A0A6B4; --nevoa-clara:#6F7583;
-  --superficie:#111318; --linha:#2A2E38; --foco-suave:#161B3A; --foco-texto:#000000;
-}
+:root[data-theme="dark"]{--fundo:#060607;--tinta:#F4F5F7;--foco:#7C8BFF;--foco-hover:#98A4FF;--foco-suave:#12173A;--nevoa:#A3A8B3;--nevoa2:#7C8290;--superficie:#111216;--linha:#23252C;--linha-forte:#F4F5F7;--on-foco:#060607}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--fam);font-size:clamp(17px,1.05vw + 12px,19px);line-height:1.5;font-weight:400;font-variation-settings:"opsz" 14}
-img,svg,video{max-width:100%;display:block}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--display);font-size:clamp(17px,.4vw + 15px,19px);line-height:1.55;font-variation-settings:"opsz" 14}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:2px}
-.wrap{max-width:var(--larg);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
-h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.02;font-variation-settings:"opsz" 96}
-h1{font-size:clamp(38px,6.3vw,88px);font-weight:700;letter-spacing:-.035em}
-h2{font-size:clamp(32px,4.6vw,60px)}
-h3{font-size:clamp(22px,2.2vw,28px);line-height:1.15;font-variation-settings:"opsz" 40}
 p{margin:0}
-.lede{font-size:clamp(19px,1.5vw,24px);line-height:1.4;max-width:34em;color:var(--tinta)}
-.muted{color:var(--nevoa)}
-.sec{padding-top:var(--sec);padding-bottom:var(--sec)}
-.sec + .sec{padding-top:0}
-.cabec{display:grid;gap:22px;max-width:44em;margin-bottom:clamp(40px,6vw,72px)}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.025em;line-height:1.02;font-variation-settings:"opsz" 96}
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-80px;background:var(--tinta);color:var(--fundo);padding:12px 16px;z-index:100;font-weight:600}
+.skip:focus{top:12px}
+.rotulo{font:500 12px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--nevoa)}
+.rotulo b{color:var(--foco);font-weight:500}
+
+/* marca: cantos de foco */
+.cantos{position:relative;display:inline-block;padding:3px 9px}
+.cantos i{position:absolute;width:8px;height:8px;border:2px solid var(--foco)}
+.cantos i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.cantos i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.cantos i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.cantos i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
 
 /* botões */
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;border:2px solid var(--tinta);background:var(--tinta);color:var(--fundo);font:inherit;font-weight:600;text-decoration:none;cursor:pointer;transition:transform 160ms var(--ease),background 160ms,color 160ms,border-color 160ms}
-.btn:hover{background:var(--foco);border-color:var(--foco);color:var(--foco-texto)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:2px solid var(--tinta);background:var(--tinta);color:var(--fundo);font:600 16px/1 var(--display);text-decoration:none;cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .18s;white-space:nowrap}
+.btn:hover{background:var(--foco);border-color:var(--foco);color:var(--on-foco)}
 .btn:active{transform:translateY(1px)}
-.btn.sec2{background:transparent;color:var(--tinta)}
-.btn.sec2:hover{background:var(--tinta);color:var(--fundo);border-color:var(--tinta)}
+.btn.alt{background:transparent;color:var(--tinta)}
+.btn.alt:hover{background:var(--tinta);color:var(--fundo);border-color:var(--tinta)}
+.btn.azul{background:var(--foco);border-color:var(--foco);color:var(--on-foco)}
+.btn.azul:hover{background:var(--foco-hover);border-color:var(--foco-hover)}
 .btn svg{width:20px;height:20px;flex:none}
+.link-seta{font-weight:600;text-decoration:none;border-bottom:2px solid var(--foco);padding-bottom:2px}
+.link-seta:hover{color:var(--foco)}
 
 /* cabeçalho */
-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--fundo) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
-.topo{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
-.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:22px;letter-spacing:-.02em}
-.logo .marca{position:relative;padding:2px 8px}
-.logo .marca i{position:absolute;width:9px;height:9px;border:2px solid var(--foco)}
-.logo .marca i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
-.logo .marca i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
-.logo .marca i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
-.logo .marca i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
-.logo .studio{font-weight:400;color:var(--nevoa)}
-nav.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center}
-nav.menu a{text-decoration:none;font-weight:500}
+header.topo{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--fundo) 90%,transparent);backdrop-filter:saturate(1.2) blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:22px;letter-spacing:-.02em}
+.logo b{font-weight:700}
+.logo span.st{color:var(--nevoa);font-weight:400}
+nav.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:30px;align-items:center}
+nav.menu a{text-decoration:none;font-weight:500;font-size:16px}
 nav.menu a:hover{color:var(--foco)}
-.hamb{display:none;background:none;border:2px solid var(--tinta);border-radius:999px;width:48px;height:48px;align-items:center;justify-content:center;cursor:pointer;color:var(--tinta)}
+.topo .cta-topo{min-height:44px;padding:0 18px;font-size:15px}
+.hamb{display:none;width:48px;height:48px;border-radius:999px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer;align-items:center;justify-content:center}
 .hamb svg{width:22px;height:22px}
-@media (max-width:860px){
-  nav.menu{position:fixed;inset:72px 0 auto 0;background:var(--fundo);border-bottom:1px solid var(--linha);padding:20px var(--pad) 28px;display:none}
-  nav.menu.aberto{display:block}
-  nav.menu ul{flex-direction:column;align-items:flex-start;gap:18px;font-size:22px}
+@media (max-width:900px){
   .hamb{display:inline-flex}
-  .topo .btn.topo-cta{display:none}
+  .topo .cta-topo{display:none}
+  nav.menu{position:fixed;left:0;right:0;top:72px;background:var(--fundo);border-bottom:1px solid var(--linha);padding:12px var(--pad) 24px;display:none;max-height:calc(100dvh - 72px);overflow:auto}
+  nav.menu.aberto{display:block}
+  nav.menu ul{flex-direction:column;align-items:stretch;gap:0}
+  nav.menu li a{display:block;padding:16px 0;font-size:22px;border-bottom:1px solid var(--linha)}
+  nav.menu .btn{margin-top:18px;width:100%}
 }
+@media (min-width:901px){nav.menu li.so-mobile{display:none}}
 
-/* hero com foco */
-.hero{padding-top:clamp(56px,9vw,120px);padding-bottom:clamp(64px,10vw,140px)}
-.hero .titulo{position:relative;display:block;width:max-content;max-width:100%}
-.hero h1 .l{display:block}
-.hero h1 .l2{color:var(--nevoa-clara)}
-.foco-quadro{position:absolute;inset:-14px -18px;pointer-events:none}
-.foco-quadro i{position:absolute;width:22px;height:22px;border:3px solid var(--foco)}
-.foco-quadro i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
-.foco-quadro i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
-.foco-quadro i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
-.foco-quadro i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
-.hero .apoio{margin-top:clamp(28px,4vw,44px);display:grid;gap:28px;grid-template-columns:minmax(0,34em) 1fr;align-items:end}
-.hero .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-.hero .base{justify-self:end;text-align:right;color:var(--nevoa);font-size:15px;line-height:1.45;max-width:18em}
-@media (max-width:860px){.hero .apoio{grid-template-columns:1fr}.hero .base{justify-self:start;text-align:left}}
-@media (prefers-reduced-motion: no-preference){
-  .js .hero h1{filter:blur(14px);opacity:.55}
-  .js .hero.nitido h1{filter:blur(0);opacity:1;transition:filter 900ms var(--ease) 120ms,opacity 700ms var(--ease) 120ms}
-  .js .foco-quadro{opacity:0;transform:scale(1.18)}
-  .js .hero.nitido .foco-quadro{opacity:1;transform:scale(1);transition:opacity 500ms var(--ease) 700ms,transform 700ms var(--ease) 600ms}
-}
+/* ABERTURA */
+.abertura{padding-top:clamp(32px,5vw,72px);padding-bottom:clamp(56px,8vw,110px);overflow:hidden}
+.abertura .grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:clamp(32px,5vw,72px);align-items:center}
+@media (max-width:1000px){.abertura .grade{grid-template-columns:1fr}}
+.abertura h1{font-size:clamp(40px,4.5vw,64px);font-weight:700;letter-spacing:-.032em;margin:18px 0 22px;line-height:1}
+.abertura h1 .nitida{position:relative;display:inline-block;color:var(--foco)}
+.abertura .lede{font-size:clamp(18px,1.35vw,21px);color:var(--nevoa);max-width:33em;line-height:1.5}
+.abertura .lede strong{color:var(--tinta);font-weight:600}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.fatos{list-style:none;margin:36px 0 0;padding:20px 0 0;border-top:1px solid var(--linha);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fatos li{font-size:15px;line-height:1.35;color:var(--nevoa)}
+.fatos li b{display:block;color:var(--tinta);font-weight:600;font-size:16px;margin-bottom:2px}
+@media (max-width:560px){.fatos{grid-template-columns:1fr;gap:12px}}
 
-/* sintomas */
-.sintomas{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
-.sintomas li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:20px 48px;padding:28px 0;border-bottom:1px solid var(--linha)}
-.sintomas h3{font-weight:600}
-.sintomas p{color:var(--nevoa);max-width:36em}
-.sintomas .agora{color:var(--tinta)}
-@media (max-width:760px){.sintomas li{grid-template-columns:1fr;gap:10px}}
+/* efeito foco: desfocado -> nítido (só com JS e movimento permitido) */
+.js.anima .foco-in{filter:blur(12px);opacity:.35;transform:translateY(6px)}
+.js.anima .foco-in.ok{filter:blur(0);opacity:1;transform:none;transition:filter .75s var(--ease),opacity .6s var(--ease),transform .75s var(--ease)}
+
+/* visor de projetos */
+.visor{position:relative}
+.visor .moldura{position:relative;padding:14px}
+.visor .moldura>i{position:absolute;width:34px;height:34px;border:4px solid var(--foco);z-index:2;pointer-events:none;transition:inset .5s var(--ease)}
+.visor .moldura>i:nth-of-type(1){top:0;left:0;border-right:0;border-bottom:0}
+.visor .moldura>i:nth-of-type(2){top:0;right:0;border-left:0;border-bottom:0}
+.visor .moldura>i:nth-of-type(3){bottom:0;left:0;border-right:0;border-top:0}
+.visor .moldura>i:nth-of-type(4){bottom:0;right:0;border-left:0;border-top:0}
+.tela{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--linha);background:var(--superficie);aspect-ratio:16/10;box-shadow:0 40px 80px -40px rgba(10,10,30,.35)}
+.tela .barra{position:absolute;left:0;right:0;top:0;height:28px;background:#E7E9EE;display:flex;align-items:center;gap:6px;padding:0 12px;z-index:2}
+.tela .barra span{width:9px;height:9px;border-radius:50%;background:#C6CAD2}
+.tela .barra em{font:400 11px/1 var(--mono);font-style:normal;color:#5C6270;margin-left:10px;background:#F7F8FA;border-radius:5px;padding:4px 10px;max-width:60%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tela figure{margin:0;position:absolute;inset:28px 0 0;opacity:0;visibility:hidden}
+.tela figure.ativo{opacity:1;visibility:visible}
+.tela figure img{width:100%;height:100%;object-fit:cover;object-position:top}
+.js.movimento .tela figure{transition:opacity .45s var(--ease),filter .6s var(--ease),visibility 0s .45s}
+.js.movimento .tela figure.ativo{transition:opacity .45s var(--ease),filter .6s var(--ease),visibility 0s}
+.js.movimento .tela figure:not(.ativo){filter:blur(14px)}
+.tela .celular{position:absolute;right:14px;bottom:-1px;width:23%;aspect-ratio:390/844;border-radius:18px 18px 0 0;border:5px solid #0A0A0B;border-bottom:0;overflow:hidden;background:#000;z-index:3;box-shadow:0 20px 40px -10px rgba(0,0,0,.45)}
+.tela .celular img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0}
+.tela .celular img.ativo{opacity:1}
+.abas{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.abas [role="tab"]{flex:1 1 150px;text-align:left;border:1.5px solid var(--linha);background:transparent;color:var(--tinta);border-radius:12px;padding:12px 14px;cursor:pointer;font:500 15px/1.25 var(--display)}
+.abas [role="tab"] small{display:block;font:400 11px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--nevoa);margin-bottom:4px}
+.abas [role="tab"][aria-selected="true"]{border-color:var(--tinta);box-shadow:inset 0 -3px 0 var(--foco)}
+.abas [role="tab"]:hover{border-color:var(--tinta)}
+.visor .legenda{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:14px;color:var(--nevoa);flex-wrap:wrap}
+
+/* seções */
+.sec{padding-top:var(--sec);padding-bottom:var(--sec)}
+.cab{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+@media (max-width:900px){.cab{grid-template-columns:1fr}}
+.cab h2{font-size:clamp(36px,4.6vw,64px);margin-top:14px}
+.cab p{color:var(--nevoa);font-size:clamp(17px,1.3vw,20px);max-width:36em}
+
+/* projetos */
+#projetos{background:var(--superficie);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.projeto{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(28px,5vw,72px);align-items:center;padding:clamp(36px,5vw,64px) 0;border-top:1px solid var(--linha)}
+.projeto:first-of-type{border-top:0;padding-top:0}
+.projeto:nth-of-type(even) .midia{order:2}
+@media (max-width:960px){.projeto{grid-template-columns:1fr}.projeto:nth-of-type(even) .midia{order:0}}
+.midia{position:relative;padding-right:9%;padding-bottom:6%}
+.midia .desk{border-radius:10px;overflow:hidden;border:1px solid var(--linha);box-shadow:0 30px 60px -30px rgba(10,10,30,.3);background:var(--fundo)}
+.midia .mob{position:absolute;right:0;bottom:0;width:24%;border-radius:16px;overflow:hidden;border:4px solid #0A0A0B;box-shadow:0 20px 40px -12px rgba(0,0,0,.4);background:#000}
+.projeto .txt{display:grid;gap:16px;align-content:start}
+.projeto .conceito{display:inline-flex;align-self:start;justify-self:start;font:500 12px/1.3 var(--mono);letter-spacing:.03em;padding:6px 10px;border-radius:6px;background:var(--fundo);border:1px solid var(--linha);color:var(--nevoa)}
+.projeto h3{font-size:clamp(30px,3vw,42px)}
+.projeto .seg{font:500 13px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--foco)}
+.projeto dl{margin:0;display:grid;gap:12px}
+.projeto dt{font-weight:600;font-size:15px}
+.projeto dd{margin:2px 0 0;color:var(--nevoa)}
+.projeto ul.recursos{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px}
+.projeto ul.recursos li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.projeto ul.recursos li::before{content:"";width:10px;height:10px;margin-top:7px;border:2px solid var(--foco);border-right:0;border-bottom:0}
+.aviso-proj{margin-top:clamp(28px,4vw,48px);font-size:15px;color:var(--nevoa);max-width:52em;border-left:3px solid var(--foco);padding-left:14px}
 
 /* processo */
-.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.passo{border-top:3px solid var(--tinta);padding-top:20px;display:grid;gap:12px;align-content:start}
-.passo .n{font-size:15px;color:var(--nevoa);font-weight:500}
-.passo p{color:var(--nevoa)}
-.passo strong{color:var(--tinta);font-weight:500}
-@media (max-width:860px){.passos{grid-template-columns:1fr;gap:28px}}
+.etapas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--linha-forte)}
+.etapas li{padding:24px 24px 8px 0;border-right:1px solid var(--linha);display:grid;gap:10px;align-content:start}
+.etapas li+li{padding-left:24px}
+.etapas li:last-child{border-right:0}
+.etapas .n{font:500 13px/1 var(--mono);color:var(--foco)}
+.etapas h3{font-size:clamp(22px,2vw,28px)}
+.etapas p{color:var(--nevoa);font-size:16px}
+@media (max-width:900px){.etapas{grid-template-columns:1fr 1fr}.etapas li:nth-child(2){border-right:0}.etapas li:nth-child(3){padding-left:0;border-top:1px solid var(--linha)}.etapas li:nth-child(4){border-top:1px solid var(--linha)}}
+@media (max-width:560px){.etapas{grid-template-columns:1fr}.etapas li,.etapas li+li{padding:20px 0;border-right:0;border-top:1px solid var(--linha)}.etapas li:first-child{border-top:0}}
 
-/* trabalhos: estudos de caso com a peça-chave de cada site */
-.casos{display:grid;gap:clamp(56px,8vw,96px)}
-.estudo{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
-.estudo:nth-child(even) .mock{order:2}
-@media (max-width:900px){.estudo{grid-template-columns:1fr}.estudo:nth-child(even) .mock{order:0}}
-.estudo .txt{display:grid;gap:18px;align-content:start}
-.estudo .seg{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--foco)}
-.estudo h3{font-size:clamp(28px,3vw,40px);line-height:1.05}
-.estudo dl{margin:0;display:grid;gap:14px;border-top:1px solid var(--linha);padding-top:18px}
-.estudo dt{font-size:14px;font-weight:600;color:var(--tinta)}
-.estudo dd{margin:2px 0 0;color:var(--nevoa)}
-.estudo .pecas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.estudo .pecas li{font-size:14px;padding:6px 12px;border:1px solid var(--linha);border-radius:999px;color:var(--tinta)}
-.mock{border-radius:16px;overflow:hidden;border:1px solid var(--linha);box-shadow:0 30px 60px -30px rgba(0,0,0,.35);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-variation-settings:normal;line-height:1.35}
-.mock .cromo{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#E6E8EC;border-bottom:1px solid #D3D6DC}
-.mock .cromo i{width:10px;height:10px;border-radius:50%;background:#C4C8CF}
-.mock .cromo span{margin-left:10px;font-size:12px;color:#5F6571;background:#F6F7F9;border-radius:6px;padding:3px 10px;flex:1;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mock .corpo{padding:clamp(18px,3vw,28px);display:grid;gap:16px}
-.mock .nav{display:flex;justify-content:space-between;align-items:center;font-size:13px}
-.mock .nav b{font-size:15px}
-.mock .h{font-weight:800;letter-spacing:-.02em;line-height:1.02;font-size:clamp(24px,2.6vw,34px)}
-.mock .sub{font-size:14px;opacity:.8;max-width:30em}
-.mock .zap{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;background:#1FA855;color:#fff;white-space:nowrap}
-/* 1. Rota Peças */
-.m-rota{background:#18191B;color:#F4F1E8}
-.m-rota .nav b{color:#FFC21A}
-.m-rota .plantao{font-size:12px;font-weight:700;background:#FFC21A;color:#18191B;padding:4px 10px;border-radius:4px}
-.m-rota .busca{display:flex;gap:8px;background:#26282B;border:2px solid #FFC21A;border-radius:10px;padding:8px 8px 8px 14px;align-items:center;font-size:14px}
-.m-rota .busca span{flex:1;color:#F4F1E8}
-.m-rota .busca span em{font-style:normal;color:#8C8F94}
-.m-rota .busca b{background:#FFC21A;color:#18191B;padding:8px 12px;border-radius:6px;font-size:13px}
-.m-rota .res{display:grid;gap:8px}
-.m-rota .item{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;background:#222427;border-radius:10px;padding:12px 14px;font-size:13px}
-.m-rota .item strong{font-size:14px;color:#fff}
-.m-rota .item small{color:#9A9DA2;font-size:12px}
-.m-rota .ok{color:#5BD68A;font-weight:700}
-.m-rota .falta{color:#FFB35C;font-weight:700}
-@media (max-width:520px){.m-rota .item{grid-template-columns:1fr}.m-rota .zap{justify-self:start}}
-/* 2. Marco Zero */
-.m-geo{background:#F3EFE3;color:#1E3A2E}
-.m-geo .nav b{letter-spacing:.04em}
-.m-geo .grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
-@media (max-width:520px){.m-geo .grade{grid-template-columns:1fr}}
-.m-geo svg{width:100%;height:auto;background:#E8E2D0;border-radius:10px}
-.m-geo .quiz{background:#fff;border-radius:10px;padding:14px;display:grid;gap:10px;font-size:13px;border:1px solid #DCD5C1}
-.m-geo .quiz .p{font-size:11px;font-weight:700;color:#E0612B;letter-spacing:.06em;text-transform:uppercase}
-.m-geo .quiz strong{font-size:15px;line-height:1.2}
-.m-geo .op{border:1.5px solid #CFC7B0;border-radius:8px;padding:8px 10px}
-.m-geo .op.sel{border-color:#1E3A2E;background:#1E3A2E;color:#F3EFE3}
-.m-geo .indica{font-size:12px;color:#5A6B60}
-@media (max-width:520px){.m-geo svg,.m-vet svg{max-width:230px;justify-self:center}}
-/* 3. Vet Campo */
-.m-vet{background:#FBFAF7;color:#2B2118}
-.m-vet .nav b{color:#7A3E1D}
-.m-vet .urg{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#B3261E;color:#fff;border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700}
-.m-vet .urg span{font-weight:400;opacity:.9}
-.m-vet .cob{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px;align-items:center}
-@media (max-width:520px){.m-vet .cob{grid-template-columns:1fr}}
-.m-vet svg{width:100%;height:auto}
-.m-vet .campo{display:grid;gap:8px;font-size:13px}
-.m-vet .campo label{font-size:12px;color:#6D5F52}
-.m-vet .campo .inp{border:1.5px solid #2B2118;border-radius:8px;padding:9px 12px;font-size:14px;background:#fff}
-.m-vet .campo .resp{background:#EFE7DA;border-radius:8px;padding:10px 12px}
-.m-vet .campo .resp strong{display:block;color:#2E6B3F}
-
-.aviso{margin-top:clamp(40px,6vw,64px);color:var(--nevoa);font-size:15px;max-width:44em}
+/* sob medida vs modelo + base local */
+.duas{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:960px){.duas{grid-template-columns:1fr}}
+.contraste{margin:24px 0 0;padding:0;list-style:none;border-top:1px solid var(--linha)}
+.contraste li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--linha)}
+.contraste .de{color:var(--nevoa);font-size:16px}
+.contraste .de s{text-decoration-color:var(--nevoa)}
+.contraste .para{font-weight:500}
+.contraste .th{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--nevoa);padding:14px 0}
+@media (max-width:560px){.contraste li{grid-template-columns:1fr;gap:4px}.contraste li.cabec{display:none}.contraste .de::before{content:"Modelo genérico: ";font-weight:600}.contraste .para::before{content:"Sob medida: ";font-weight:600;color:var(--foco)}}
+.local{background:var(--tinta);color:var(--fundo);border-radius:20px;padding:clamp(28px,4vw,44px);position:relative;overflow:hidden}
+.local h2{font-size:clamp(30px,3.2vw,44px);color:var(--fundo)}
+.local p{color:color-mix(in srgb,var(--fundo) 72%,transparent);margin-top:14px}
+.local .coord{font:400 12px/1.4 var(--mono);color:color-mix(in srgb,var(--fundo) 68%,transparent);margin-top:24px;letter-spacing:.04em}
+.local svg{position:absolute;right:-40px;top:-40px;width:220px;height:220px;opacity:.18}
 
 /* pacotes */
-.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
-.plano{border:1px solid var(--linha);border-radius:16px;padding:28px 26px 26px;display:grid;gap:22px;background:var(--fundo)}
-.plano.rec{border:2px solid var(--tinta);position:relative}
-.plano .tag{position:absolute;top:-14px;left:24px;background:var(--foco);color:var(--foco-texto);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px}
-.plano h3{font-size:clamp(26px,2.4vw,32px)}
-.plano .para{color:var(--nevoa);min-height:3em}
-.plano .preco{font-size:15px;color:var(--nevoa);border-top:1px solid var(--linha);padding-top:16px}
-.plano .preco strong{display:block;color:var(--tinta);font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:2px}
-.linhas{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha)}
-.linhas li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;padding:11px 0;border-bottom:1px solid var(--linha);font-size:16px;line-height:1.35}
-.linhas li svg{width:20px;height:20px;margin-top:1px}
-.linhas li.sim svg{color:var(--foco)}
-.linhas li.nao{color:var(--nevoa-clara)}
-.linhas li.nao svg{color:var(--nevoa-clara)}
-.linhas li small{display:block;color:var(--nevoa);font-size:14px}
-.plano .btn{justify-content:center}
-@media (max-width:960px){.planos{grid-template-columns:1fr;max-width:560px}.plano.rec{order:-1}}
-.nota-preco{margin-top:22px;color:var(--nevoa);font-size:15px;max-width:44em}
+#pacotes{border-top:1px solid var(--linha)}
+.planos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+@media (max-width:1000px){.planos{grid-template-columns:1fr;max-width:600px}}
+.plano{border:1px solid var(--linha);border-radius:18px;padding:28px 26px;display:flex;flex-direction:column;gap:18px;background:var(--fundo)}
+.plano.destaque{border:2px solid var(--tinta)}
+.plano .selo{align-self:flex-start;font:500 12px/1.2 var(--mono);letter-spacing:.03em;background:var(--foco-suave);color:var(--foco);padding:6px 10px;border-radius:6px}
+.plano h3{font-size:30px}
+.plano .para{color:var(--nevoa);font-size:16px;margin-top:-6px}
+.preco{border-top:1px solid var(--linha);padding-top:16px;display:grid;gap:8px}
+.preco .linha{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.preco .linha span{font-size:14px;color:var(--nevoa)}
+.preco .valor{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.preco .valor small{font-size:14px;font-weight:500;color:var(--nevoa);letter-spacing:0}
+.preco .mensal{font-size:20px;font-weight:600}
+.plano ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:16px;line-height:1.4}
+.plano ul li{display:grid;grid-template-columns:20px 1fr;gap:10px}
+.plano ul svg{width:18px;height:18px;margin-top:2px;color:var(--foco)}
+.plano .obs{font-size:14px;color:var(--nevoa);border-top:1px dashed var(--linha);padding-top:12px;margin-top:auto}
+.plano .btn{width:100%;white-space:normal;text-align:center;line-height:1.2}
+.midia-nota{background:var(--superficie);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--nevoa)}
+.midia-nota strong{color:var(--tinta)}
 
-/* onde */
-.onde{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);padding:clamp(36px,5vw,56px) 0}
-.onde .lista{display:grid;gap:14px}
-.onde .lista div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
-.onde .lista svg{width:22px;height:22px;color:var(--foco);margin-top:3px}
-.onde .lista span{color:var(--nevoa)}
-@media (max-width:760px){.onde{grid-template-columns:1fr;gap:24px}}
+details.comparar{margin-top:28px;border:1px solid var(--linha);border-radius:18px;background:var(--fundo)}
+details.comparar>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;font-weight:600;font-size:18px}
+details.comparar>summary::-webkit-details-marker{display:none}
+details.comparar>summary svg{width:22px;height:22px;color:var(--foco);transition:transform .2s}
+details.comparar[open]>summary svg{transform:rotate(45deg)}
+.tabela-wrap{overflow-x:auto;padding:0 24px 24px;-webkit-overflow-scrolling:touch}
+table.comp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;line-height:1.4}
+table.comp caption{text-align:left;color:var(--nevoa);font-size:14px;padding-bottom:12px}
+table.comp th,table.comp td{text-align:left;vertical-align:top;padding:12px 14px;border-top:1px solid var(--linha)}
+table.comp thead th{border-top:0;font-size:18px;font-weight:600;position:sticky;top:0;background:var(--fundo)}
+table.comp tbody th{font-weight:600;width:19%;color:var(--tinta)}
+table.comp td{color:var(--nevoa)}
+table.comp td.nao{color:var(--nevoa)}
+.rolar-dica{display:none;font:400 12px/1 var(--mono);color:var(--nevoa);padding:0 24px 10px}
+@media (max-width:820px){.rolar-dica{display:block}}
+
+.sob-medida{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:center;padding:clamp(24px,3.5vw,36px);border-radius:18px;background:var(--foco);color:var(--on-foco)}
+.sob-medida h3{font-size:clamp(26px,2.6vw,36px);color:var(--on-foco)}
+.sob-medida p{margin-top:10px;max-width:46em;color:color-mix(in srgb,var(--on-foco) 85%,transparent)}
+.sob-medida .btn{background:var(--on-foco);color:var(--foco);border-color:var(--on-foco)}
+.sob-medida .btn:hover{background:transparent;color:var(--on-foco)}
+@media (max-width:760px){.sob-medida{grid-template-columns:1fr}.sob-medida .btn{width:100%}}
+
+.condicoes{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:24px 64px}
+@media (max-width:900px){.condicoes{grid-template-columns:1fr}}
+.condicoes h3{font-size:clamp(24px,2.4vw,32px)}
+.condicoes ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px;border-top:1px solid var(--linha)}
+@media (max-width:700px){.condicoes ul{grid-template-columns:1fr}}
+.condicoes li{padding:14px 0;border-bottom:1px solid var(--linha);font-size:16px;color:var(--nevoa)}
+.condicoes li strong{color:var(--tinta);font-weight:600;display:block}
 
 /* FAQ */
-.faq{border-top:1px solid var(--linha)}
+.faq{border-top:1px solid var(--linha-forte)}
 .faq details{border-bottom:1px solid var(--linha)}
-.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 28px;gap:16px;align-items:center;padding:22px 0;font-weight:600;font-size:clamp(18px,1.4vw,22px);line-height:1.25}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 28px;gap:16px;align-items:center;padding:22px 0;font-weight:600;font-size:clamp(18px,1.4vw,21px);line-height:1.3}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary svg{width:24px;height:24px;transition:transform 240ms var(--ease);color:var(--foco)}
+.faq summary svg{width:24px;height:24px;color:var(--foco);transition:transform .2s}
 .faq details[open] summary svg{transform:rotate(45deg)}
-.faq .resp{padding:0 0 24px;color:var(--nevoa);max-width:40em}
-.faq .resp p + p{margin-top:10px}
+.faq .resp{padding:0 0 24px;color:var(--nevoa);max-width:48em;display:grid;gap:10px}
 
-/* contato / fechamento */
-.fecho{background:var(--tinta);color:var(--fundo);border-radius:24px;padding:clamp(36px,6vw,72px)}
-.fecho h2{color:var(--fundo)}
-.fecho .grade{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end}
-.fecho .btn{background:var(--fundo);color:var(--tinta);border-color:var(--fundo)}
-.fecho .btn:hover{background:var(--foco);border-color:var(--foco);color:var(--foco-texto)}
-.fecho .canais{display:grid;gap:10px;font-size:16px;color:color-mix(in srgb,var(--fundo) 70%,transparent)}
-.fecho .canais strong{color:var(--fundo);font-weight:600}
-.fecho .pend{margin-top:18px;font-size:14px;padding:12px 14px;border:1px dashed color-mix(in srgb,var(--fundo) 45%,transparent);border-radius:10px;color:color-mix(in srgb,var(--fundo) 80%,transparent)}
-@media (max-width:860px){.fecho .grade{grid-template-columns:1fr;gap:28px}}
-footer{padding:36px 0 48px;color:var(--nevoa);font-size:15px}
-footer .cols{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px}
-footer a{text-decoration:none}
-footer a:hover{color:var(--foco)}
+/* contato */
+.contato{background:var(--tinta);color:var(--fundo);border-radius:28px;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:end}
+@media (max-width:900px){.contato{grid-template-columns:1fr}}
+.contato h2{font-size:clamp(36px,5vw,68px);color:var(--fundo)}
+.contato p{color:color-mix(in srgb,var(--fundo) 72%,transparent);margin-top:18px;max-width:34em}
+.contato .btn{background:var(--fundo);color:var(--tinta);border-color:var(--fundo)}
+.contato .btn:hover{background:var(--foco);border-color:var(--foco);color:var(--on-foco)}
+.contato dl{margin:0;display:grid;gap:14px;font-size:16px}
+.contato dt{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--fundo) 68%,transparent)}
+.contato dd{margin:4px 0 0}
+.contato dd a{text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--fundo) 40%,transparent)}
 
-/* utilidades */
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{transition-duration:1ms !important;animation-duration:1ms !important}
+footer{padding:40px 0 56px;color:var(--nevoa);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
+footer nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 24px}
+footer a{text-decoration:none}footer a:hover{color:var(--foco)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap topo">
-    <a class="logo" href="#inicio" aria-label="Nítido Studio — início">
-      <span class="marca"><i></i><i></i><i></i><i></i>Nítido</span><span class="studio">Studio</span>
-    </a>
-    <button class="hamb" id="hamb" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="menu" id="menu" aria-label="Seções do site">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="#conteudo" aria-label="Nítido Studio — início"><span class="cantos"><i></i><i></i><i></i><i></i><b>Nítido</b></span><span class="st">Studio</span></a>
+    <nav class="menu" id="menu" aria-label="Principal">
       <ul>
-        <li><a href="#como">Como funciona</a></li>
-        <li><a href="#trabalhos">Trabalhos</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#processo">Como trabalhamos</a></li>
         <li><a href="#pacotes">Pacotes</a></li>
         <li><a href="#perguntas">Perguntas</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li class="so-mobile"><a class="btn" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20conversar%20sobre%20um%20site.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">Conversar sobre meu site</a></li>
       </ul>
     </nav>
-    <a class="btn topo-cta" href="#pacotes">Ver os pacotes</a>
+    <a class="btn cta-topo" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20conversar%20sobre%20um%20site.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">Conversar sobre meu site</a>
+    <button class="hamb" id="hamb" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
 </header>
 
-<main id="inicio">
-  <section class="hero wrap" id="hero">
-    <div class="titulo">
-      <div class="foco-quadro" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <h1><span class="l">Seu negócio já é bom.</span><span class="l l2">Falta ficar nítido</span><span class="l">para quem procura.</span></h1>
-    </div>
-    <div class="apoio">
+<main id="conteudo">
+  <section class="abertura" aria-labelledby="tAbertura">
+    <div class="wrap grade">
       <div>
-        <p class="lede">Criamos o site, cuidamos dele todo mês e levamos as pessoas certas até ele. Você fica com um endereço na internet que representa o seu trabalho como ele é — e que não envelhece na primeira troca de preço.</p>
-        <div class="acoes">
-          <a class="btn" href="#pacotes">Ver os pacotes</a>
-          <a class="btn sec2" href="#contato">Falar no WhatsApp</a>
+        <p class="rotulo foco-in"><b>●</b> Estúdio de sites · Luís Eduardo Magalhães, BA</p>
+        <h1 id="tAbertura" class="foco-in">Sites sob medida para empresas que querem ser <span class="nitida">entendidas de primeira.</span></h1>
+        <p class="lede foco-in">Criamos, mantemos e anunciamos sites de <strong>pequenas e médias empresas</strong>. Estrutura, textos e visual partem do que o seu cliente precisa saber antes de chamar, e não de um modelo pronto.</p>
+        <div class="acoes foco-in">
+          <a class="btn azul" href="#projetos">Explorar projetos</a>
+          <a class="btn alt" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20conversar%20sobre%20um%20site.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Conversar sobre meu site
+          </a>
         </div>
+        <ul class="fatos foco-in">
+          <li><b>Três pacotes</b>com escopo e valores publicados</li>
+          <li><b>Manutenção mensal</b>com horas e limites definidos</li>
+          <li><b>Base no Oeste da Bahia</b>com atendimento remoto</li>
+        </ul>
       </div>
-      <p class="base">Base em Luís Eduardo Magalhães, Bahia. Atendimento remoto para todo o Brasil e a América Latina.</p>
-    </div>
-  </section>
 
-  <section class="sec" id="hoje">
-    <div class="wrap">
-      <div class="cabec">
-        <h2>Três formas de existir sem ser encontrado</h2>
-        <p class="lede muted">Empresas que trabalham bem e mesmo assim perdem clientes para quem simplesmente aparece melhor no Google e no celular.</p>
-      </div>
-      <ul class="sintomas">
-        <li>
-          <h3>Só tem Instagram</h3>
-          <p><span class="agora">Quem pesquisa no Google não acha.</span> E quem acha o perfil precisa rolar dez posts para descobrir o que você faz, onde fica e quanto custa.</p>
-        </li>
-        <li>
-          <h3>O site é de outra época</h3>
-          <p><span class="agora">Feito há anos, nunca mais atualizado.</span> Preço antigo, foto antiga, telefone que mudou. O cliente entende que a empresa parou — mesmo que ela esteja cheia.</p>
-        </li>
-        <li>
-          <h3>Anuncia e cai no vazio</h3>
-          <p><span class="agora">O anúncio leva para um lugar que não convence.</span> O dinheiro do tráfego vai embora porque a página de destino não explica, não prova e não tem um botão claro.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec" id="como">
-    <div class="wrap">
-      <div class="cabec">
-        <h2>Como funciona</h2>
-        <p class="lede muted">Três etapas. A terceira é a que quase ninguém oferece — e a que faz o site continuar valendo depois de publicado.</p>
-      </div>
-      <div class="passos">
-        <div class="passo">
-          <span class="n">Etapa 1</span>
-          <h3>Entender</h3>
-          <p>Estudamos o seu negócio antes de desenhar: o que você vende, para quem, onde, o que o cliente pergunta antes de fechar. <strong>Nada de texto genérico</strong> — cada frase do site nasce do que você faz de verdade.</p>
-        </div>
-        <div class="passo">
-          <span class="n">Etapa 2</span>
-          <h3>Desenhar</h3>
-          <p>Layout, cores, tipografia e imagens pensados para a sua marca, não adaptados de um modelo. <strong>Um site que só serve para você</strong> — se trocássemos a logo, ele não serviria para o vizinho.</p>
-        </div>
-        <div class="passo">
-          <span class="n">Etapa 3</span>
-          <h3>Manter</h3>
-          <p>Todo mês trocamos fotos, preços, horários e novidades. Você manda pelo WhatsApp, nós publicamos. <strong>O site fica sempre nítido</strong>, e nos pacotes com tráfego pago ainda cuidamos dos anúncios.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="trabalhos">
-    <div class="wrap">
-      <div class="cabec">
-        <h2>Trabalhos</h2>
-        <p class="lede muted">Um bom site não é bonito "em geral": ele resolve a pergunta que o cliente daquele negócio faz antes de comprar. Abaixo, três estudos para negócios típicos do Oeste da Bahia, cada um construído em volta de uma peça que só faz sentido para ele.</p>
-      </div>
-      <div class="casos">
-
-        <article class="estudo">
-          <div class="mock m-rota" aria-hidden="true">
-            <div class="cromo"><i></i><i></i><i></i><span>rotapecasagricolas.com.br</span></div>
-            <div class="corpo">
-              <div class="nav"><b>ROTA PEÇAS AGRÍCOLAS</b><span class="plantao">PLANTÃO DE SAFRA · SÁB E DOM</span></div>
-              <div class="h">Máquina parada?<br>Veja se a peça está aqui antes de ligar.</div>
-              <div class="busca"><span>AH218489 <em>· faca da plataforma</em></span><b>Buscar</b></div>
-              <div class="res">
-                <div class="item"><div><strong>Seção de faca · AH218489</strong><br><small>Plataforma de corte · 3 unidades · LEM</small></div><span class="ok">Retira hoje</span></div>
-                <div class="item"><div><strong>Rolamento do molinete · AH142187</strong><br><small>Chega em 2 dias úteis</small></div><span class="zap">Reservar no WhatsApp</span></div>
-              </div>
+      <div class="visor foco-in" aria-labelledby="tVisor">
+        <h2 id="tVisor" class="sr">Projetos conceituais em destaque</h2>
+        <div class="moldura">
+          <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+          <div class="tela">
+            <div class="barra" aria-hidden="true"><span></span><span></span><span></span><em id="visorUrl">demos/rota-pecas</em></div>
+            <figure class="ativo" id="painel-rota" role="tabpanel" aria-labelledby="aba-rota"><img src="assets/img/rota-pecas-desktop.webp" width="820" height="512" alt="Captura da demonstração Rota Peças Agrícolas: título ‘Máquina parada não espera’ e busca por código de peça" fetchpriority="high"></figure>
+            <figure id="painel-marco" role="tabpanel" aria-labelledby="aba-marco" hidden><img src="assets/img/marco-zero-desktop.webp" width="820" height="512" alt="Captura da demonstração Marco Zero Topografia: título editorial e prancha com curvas de nível" loading="lazy"></figure>
+            <figure id="painel-vet" role="tabpanel" aria-labelledby="aba-vet" hidden><img src="assets/img/vet-campo-desktop.webp" width="820" height="512" alt="Captura da demonstração Vet Campo Cerrado: faixa de urgência e título ‘Quem cuida do rebanho vai até ele’" loading="lazy"></figure>
+            <div class="celular" aria-hidden="true">
+              <img class="ativo" data-m="rota" src="assets/img/rota-pecas-mobile.webp" width="300" height="650" alt="">
+              <img data-m="marco" src="assets/img/marco-zero-mobile.webp" width="300" height="650" alt="" loading="lazy">
+              <img data-m="vet" src="assets/img/vet-campo-mobile.webp" width="300" height="650" alt="" loading="lazy">
             </div>
           </div>
-          <div class="txt">
-            <span class="seg">Revenda de peças agrícolas · conceito</span>
-            <h3>Rota Peças Agrícolas</h3>
-            <dl>
-              <div><dt>O problema</dt><dd>Na colheita, o produtor com a máquina parada liga para cinco lojas perguntando a mesma coisa: "tem essa peça?". Quem demora a responder perde a venda.</dd></div>
-              <div><dt>A peça central do site</dt><dd>Busca pelo código da peça ou pelo modelo da máquina, com estoque e prazo na tela. O botão de WhatsApp já envia o código, e o vendedor responde sem precisar perguntar nada.</dd></div>
-            </dl>
-            <ul class="pecas"><li>Busca por código</li><li>Plantão de safra em destaque</li><li>Reserva pelo WhatsApp</li></ul>
-          </div>
-        </article>
-
-        <article class="estudo">
-          <div class="mock m-geo" aria-hidden="true">
-            <div class="cromo"><i></i><i></i><i></i><span>marcozerogeo.com.br</span></div>
-            <div class="corpo">
-              <div class="nav"><b>MARCO ZERO · TOPOGRAFIA</b><span>Georreferenciamento · CAR · Desmembramento</span></div>
-              <div class="h">Descubra qual documento a sua área precisa em 3 perguntas.</div>
-              <div class="grade">
-                <svg viewBox="0 0 220 170" role="img" aria-label="Polígono de uma área rural com vértices marcados">
-                  <defs><pattern id="gz" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#D6CEB8" stroke-width="1"/></pattern></defs>
-                  <rect width="220" height="170" fill="url(#gz)"/>
-                  <path d="M30 40 L120 22 L190 60 L176 138 L70 150 L22 104 Z" fill="#1E3A2E" fill-opacity=".14" stroke="#1E3A2E" stroke-width="2"/>
-                  <g fill="#E0612B"><circle cx="30" cy="40" r="4"/><circle cx="120" cy="22" r="4"/><circle cx="190" cy="60" r="4"/><circle cx="176" cy="138" r="4"/><circle cx="70" cy="150" r="4"/><circle cx="22" cy="104" r="4"/></g>
-                  <text x="126" y="17" font-size="9" fill="#1E3A2E" font-family="ui-monospace,monospace">M-02</text>
-                  <text x="150" y="156" font-size="9" fill="#1E3A2E" font-family="ui-monospace,monospace">M-04</text>
-                  <text x="80" y="95" font-size="11" fill="#1E3A2E" font-weight="700" font-family="system-ui,sans-serif">412,6 ha</text>
-                </svg>
-                <div class="quiz">
-                  <span class="p">Pergunta 1 de 3</span>
-                  <strong>O que você vai fazer com a área?</strong>
-                  <div class="op">Vender ou comprar</div>
-                  <div class="op sel">Financiar no banco</div>
-                  <div class="op">Dividir entre herdeiros</div>
-                  <span class="indica">Próximo: tamanho da área e situação da matrícula</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="txt">
-            <span class="seg">Topografia e regularização rural · conceito</span>
-            <h3>Marco Zero Topografia</h3>
-            <dl>
-              <div><dt>O problema</dt><dd>O cliente liga pedindo "o preço do georreferenciamento" quando, na verdade, precisa de outro serviço. O escritório gasta a manhã explicando a diferença entre georreferenciamento, CAR e desmembramento.</dd></div>
-              <div><dt>A peça central do site</dt><dd>Um questionário de três perguntas indica o serviço certo e a lista de documentos. O contato já chega qualificado, com a finalidade, o tamanho da área e o município.</dd></div>
-            </dl>
-            <ul class="pecas"><li>Questionário que qualifica</li><li>Lista de documentos por serviço</li><li>Mapa de áreas atendidas</li></ul>
-          </div>
-        </article>
-
-        <article class="estudo">
-          <div class="mock m-vet" aria-hidden="true">
-            <div class="cromo"><i></i><i></i><i></i><span>vetcampocerrado.com.br</span></div>
-            <div class="corpo">
-              <div class="nav"><b>Vet Campo Cerrado</b><span>Bovinos · Equinos · Reprodução</span></div>
-              <div class="urg">Emergência a campo 24h <span>parto, cólica, acidente</span></div>
-              <div class="cob">
-                <svg viewBox="0 0 200 200" role="img" aria-label="Mapa de raio de atendimento a partir de Luís Eduardo Magalhães">
-                  <circle cx="100" cy="100" r="92" fill="#2E6B3F" fill-opacity=".07" stroke="#2E6B3F" stroke-dasharray="4 4"/>
-                  <circle cx="100" cy="100" r="60" fill="#2E6B3F" fill-opacity=".10" stroke="#2E6B3F" stroke-dasharray="4 4"/>
-                  <circle cx="100" cy="100" r="28" fill="#2E6B3F" fill-opacity=".16"/>
-                  <circle cx="100" cy="100" r="5" fill="#2B2118"/>
-                  <text x="108" y="104" font-size="10" font-weight="700" fill="#2B2118" font-family="system-ui,sans-serif">LEM</text>
-                  <circle cx="150" cy="58" r="4" fill="#7A3E1D"/><text x="120" y="50" font-size="9" fill="#2B2118" font-family="system-ui,sans-serif">Barreiras</text>
-                  <circle cx="44" cy="142" r="5" fill="#B3261E"/><text x="14" y="160" font-size="9" fill="#2B2118" font-family="system-ui,sans-serif">Roda Velha</text>
-                  <text x="150" y="178" font-size="8" fill="#6D5F52" font-family="system-ui,sans-serif">até 150 km</text>
-                </svg>
-                <div class="campo">
-                  <label>Atendemos a sua fazenda?</label>
-                  <div class="inp">Roda Velha, São Desidério</div>
-                  <div class="resp"><strong>Sim, está na área de atendimento.</strong>Chegada estimada em cerca de 1h30 · deslocamento calculado por km</div>
-                  <span class="zap">Chamar o veterinário</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="txt">
-            <span class="seg">Veterinária de grandes animais · conceito</span>
-            <h3>Vet Campo Cerrado</h3>
-            <dl>
-              <div><dt>O problema</dt><dd>Às 22h, com uma vaca em parto difícil, o produtor não quer ler uma página "Quem somos". Ele precisa saber em segundos se o veterinário chega até a fazenda e em quanto tempo.</dd></div>
-              <div><dt>A peça central do site</dt><dd>Emergência 24h fixa no topo e um verificador de área de atendimento pelo município, com tempo estimado de chegada. O resto do site (reprodução, manejo, consultoria) fica para quem não tem pressa.</dd></div>
-            </dl>
-            <ul class="pecas"><li>Emergência sempre visível</li><li>Verificador de área atendida</li><li>Serviços programados separados</li></ul>
-          </div>
-        </article>
-
+        </div>
+        <div class="abas" role="tablist" aria-label="Escolha um projeto conceitual">
+          <button role="tab" id="aba-rota" aria-controls="painel-rota" aria-selected="true" data-k="rota" data-url="demos/rota-pecas" data-href="demos/rota-pecas/index.html"><small>Catálogo</small>Rota Peças</button>
+          <button role="tab" id="aba-marco" aria-controls="painel-marco" aria-selected="false" tabindex="-1" data-k="marco" data-url="demos/marco-zero" data-href="demos/marco-zero/index.html"><small>Questionário</small>Marco Zero</button>
+          <button role="tab" id="aba-vet" aria-controls="painel-vet" aria-selected="false" tabindex="-1" data-k="vet" data-url="demos/vet-campo" data-href="demos/vet-campo/index.html"><small>Cobertura</small>Vet Campo</button>
+        </div>
+        <div class="legenda"><span>Projetos conceituais: empresas e dados ilustrativos.</span><a class="link-seta" id="visorLink" href="demos/rota-pecas/index.html">Abrir esta demonstração →</a></div>
       </div>
-      <p class="aviso">Estudos conceituais criados pelo Nítido Studio para mostrar o método: empresas, marcas e dados são ilustrativos, sem vínculo com negócios reais. Os primeiros projetos publicados para clientes entram aqui no lugar deles.</p>
     </div>
   </section>
 
-  <section class="sec" id="pacotes">
+  <section class="sec" id="projetos" aria-labelledby="tProjetos">
     <div class="wrap">
-      <div class="cabec">
-        <h2>Pacotes</h2>
-        <p class="lede muted">As mesmas linhas nos três planos, para você comparar sem adivinhar. Escolha pelo tamanho do seu negócio, não pelo preço.</p>
+      <div class="cab">
+        <div><p class="rotulo">01 · Projetos</p><h2 id="tProjetos">Três negócios, três sites que não se parecem.</h2></div>
+        <p>Estes são projetos conceituais navegáveis, feitos para mostrar o método: cada site nasce da pergunta que o cliente daquele negócio faz antes de comprar. Não são clientes atendidos. As capturas abaixo são das próprias demonstrações.</p>
       </div>
+
+      <article class="projeto" aria-labelledby="pRota">
+        <div class="midia">
+          <div class="desk"><img src="assets/img/rota-pecas-interacao.webp" width="820" height="512" loading="lazy" alt="Catálogo da Rota Peças filtrado por ‘rolamento’, com um item marcado como adicionado ao orçamento"></div>
+          <div class="mob"><img src="assets/img/rota-pecas-mobile.webp" width="300" height="650" loading="lazy" alt="Abertura da Rota Peças no celular"></div>
+        </div>
+        <div class="txt">
+          <span class="conceito">Projeto conceitual — empresa e dados ilustrativos</span>
+          <span class="seg">Revenda de peças agrícolas</span>
+          <h3 id="pRota">Rota Peças Agrícolas</h3>
+          <dl>
+            <div><dt>A pergunta do cliente</dt><dd>“Vocês têm essa peça?”, feita com a máquina parada e pressa para resolver.</dd></div>
+            <div><dt>O que a demonstração mostra</dt><dd>Direção industrial, catálogo com busca e filtros e a montagem de uma lista de orçamento pronta para o vendedor.</dd></div>
+          </dl>
+          <ul class="recursos"><li>Busca por nome ou código, com resultado vazio orientado</li><li>Detalhes da peça e seleção de quantidade</li><li>Orçamento demonstrativo, sem envio real</li></ul>
+          <p><a class="btn" href="demos/rota-pecas/index.html">Explorar demonstração</a></p>
+        </div>
+      </article>
+
+      <article class="projeto" aria-labelledby="pMarco">
+        <div class="midia">
+          <div class="desk"><img src="assets/img/marco-zero-interacao.webp" width="820" height="512" loading="lazy" alt="Questionário da Marco Zero na primeira etapa, com a opção ‘Pedir financiamento ou crédito’ selecionada"></div>
+          <div class="mob"><img src="assets/img/marco-zero-mobile.webp" width="300" height="650" loading="lazy" alt="Abertura da Marco Zero no celular"></div>
+        </div>
+        <div class="txt">
+          <span class="conceito">Projeto conceitual — empresa e dados ilustrativos</span>
+          <span class="seg">Topografia e regularização rural</span>
+          <h3 id="pMarco">Marco Zero Topografia</h3>
+          <dl>
+            <div><dt>A pergunta do cliente</dt><dd>“Eu preciso de georreferenciamento, CAR ou outra coisa?”</dd></div>
+            <div><dt>O que a demonstração mostra</dt><dd>Direção técnica e editorial, com curvas de nível, o desenho animado de uma parcela e serviços explicados sem jargão.</dd></div>
+          </dl>
+          <ul class="recursos"><li>Questionário em três etapas, com validação e edição</li><li>Resumo e orientação inicial, sem conclusões legais</li><li>Animação do terreno com alternativa estática</li></ul>
+          <p><a class="btn" href="demos/marco-zero/index.html">Explorar demonstração</a></p>
+        </div>
+      </article>
+
+      <article class="projeto" aria-labelledby="pVet">
+        <div class="midia">
+          <div class="desk"><img src="assets/img/vet-campo-interacao.webp" width="820" height="512" loading="lazy" alt="Consulta de cobertura da Vet Campo com resultado positivo para Barreiras e mapa esquemático"></div>
+          <div class="mob"><img src="assets/img/vet-campo-mobile.webp" width="300" height="650" loading="lazy" alt="Abertura da Vet Campo no celular, com faixa de urgência"></div>
+        </div>
+        <div class="txt">
+          <span class="conceito">Projeto conceitual — empresa e dados ilustrativos</span>
+          <span class="seg">Veterinária de grandes animais</span>
+          <h3 id="pVet">Vet Campo Cerrado</h3>
+          <dl>
+            <div><dt>A pergunta do cliente</dt><dd>“Vocês atendem a minha fazenda?”, às vezes numa urgência.</dd></div>
+            <div><dt>O que a demonstração mostra</dt><dd>Direção humana e documental, com separação clara entre urgência e serviços programados.</dd></div>
+          </dl>
+          <ul class="recursos"><li>Consulta por município com resultado positivo e negativo</li><li>Jornada de solicitação em quatro passos, simulada</li><li>Sem promessas de horário de chegada</li></ul>
+          <p><a class="btn" href="demos/vet-campo/index.html">Explorar demonstração</a></p>
+        </div>
+      </article>
+
+      <p class="aviso-proj">As três empresas, seus dados, estoques, prazos e coberturas são fictícios. Nenhuma demonstração coleta dados pessoais ou envia mensagens. Quando houver projetos publicados para clientes, eles serão identificados como tal.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="processo" aria-labelledby="tProcesso">
+    <div class="wrap">
+      <div class="cab">
+        <div><p class="rotulo">02 · Como trabalhamos</p><h2 id="tProcesso">Do briefing à manutenção, com etapas combinadas.</h2></div>
+        <p>O prazo de criação é definido na proposta, depois do briefing, porque depende do escopo e do material que você já tem.</p>
+      </div>
+      <ol class="etapas">
+        <li><span class="n">01</span><h3>Briefing</h3><p>Uma conversa sobre o que você vende, para quem, onde, e o que o cliente pergunta antes de fechar.</p></li>
+        <li><span class="n">02</span><h3>Direção e textos</h3><p>Estrutura das páginas, textos escritos a partir do briefing e a direção visual adaptada à sua marca.</p></li>
+        <li><span class="n">03</span><h3>Construção e revisão</h3><p>O site é montado e você revisa em duas rodadas consolidadas antes da publicação.</p></li>
+        <li><span class="n">04</span><h3>Publicação e cuidado</h3><p>Com o site no ar, a manutenção cobre ajustes dentro das horas do seu pacote.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="tMedida" style="padding-top:0">
+    <div class="wrap duas">
+      <div>
+        <p class="rotulo">03 · Por que sob medida</p>
+        <h2 id="tMedida" style="font-size:clamp(32px,3.8vw,52px);margin-top:14px">O que muda quando o site é pensado para o seu negócio.</h2>
+        <ul class="contraste">
+          <li class="cabec"><span class="th">Modelo genérico</span><span class="th">Sob medida</span></li>
+          <li><span class="de"><s>Seções padrão iguais às de qualquer empresa</s></span><span class="para">Seções escolhidas pelas dúvidas reais dos seus clientes</span></li>
+          <li><span class="de"><s>Textos de preenchimento</s></span><span class="para">Textos escritos a partir do briefing, revisados por você</span></li>
+          <li><span class="de"><s>Botão de contato perdido no rodapé</s></span><span class="para">Caminho de contato visível no celular e no computador</span></li>
+          <li><span class="de"><s>Visual trocado só na cor</s></span><span class="para">Tipografia, composição e imagens coerentes com a marca</span></li>
+        </ul>
+      </div>
+      <aside class="local" aria-labelledby="tLocal">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="1.2"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="18"/><path d="M50 0v100M0 50h100"/></g></svg>
+        <p class="rotulo" style="color:inherit;opacity:.6">Base</p>
+        <h2 id="tLocal" style="margin-top:10px">Feito em Luís Eduardo Magalhães.</h2>
+        <p>Estamos perto do comércio, dos serviços e do agro do Oeste da Bahia, e isso ajuda a entender o dia a dia de quem vende para produtores e empresas da região. O atendimento é remoto, por videochamada e WhatsApp.</p>
+        <p class="coord">LUÍS EDUARDO MAGALHÃES · BAHIA · BRASIL</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec" id="pacotes" aria-labelledby="tPacotes">
+    <div class="wrap">
+      <div class="cab">
+        <div><p class="rotulo">04 · Pacotes</p><h2 id="tPacotes">Preço, entrega e limites às claras.</h2></div>
+        <p>Escolha pelo momento do seu negócio. O essencial está nos cartões; o escopo completo, inclusive o que não está incluso, fica na comparação logo abaixo.</p>
+      </div>
+
       <div class="planos">
-        <article class="plano" aria-labelledby="p1">
-          <div>
-            <h3 id="p1">Essencial</h3>
-            <p class="para">Para o negócio local que hoje só tem Instagram e precisa existir no Google.</p>
+        <article class="plano" aria-labelledby="plEss">
+          <h3 id="plEss">Essencial</h3>
+          <p class="para">Para o negócio que precisa de uma página clara, com contato fácil.</p>
+          <div class="preco">
+            <div class="linha"><span>Criação</span><span class="valor">R$ 1.490</span></div>
+            <div class="linha"><span>Manutenção</span><span class="mensal">R$ 149<small style="font-size:14px;color:var(--nevoa);font-weight:500">/mês</small></span></div>
           </div>
-          <ul class="linhas">
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Site de uma página, com todas as seções essenciais</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp e mapa</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>1 rodada por mês: fotos, preços, horários</small></span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Páginas adicionais (serviços, blog, equipe)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Tráfego pago (Google e Meta)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Relatório mensal de resultados</span></li>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Uma página com até sete seções</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Textos a partir do briefing e visual adaptado à marca</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>WhatsApp e mapa, quando pertinentes</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Manutenção: 1 solicitação mensal, até 1 hora</span></li>
           </ul>
-          <p class="preco"><strong>R$ 1.490</strong>criação, ou 3x de R$ 497<br>+ R$ 149/mês de administração</p>
-          <a class="btn sec2" href="#contato" data-plano="Essencial">Quero o Essencial</a>
+          <p class="obs">Não inclui novas páginas, novas funcionalidades, anúncios ou produção contínua de conteúdo.</p>
+          <a class="btn alt" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Tenho%20interesse%20no%20pacote%20Essencial.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">Conversar sobre o Essencial</a>
         </article>
 
-        <article class="plano rec" aria-labelledby="p2">
-          <span class="tag">Recomendado para a maioria</span>
-          <div>
-            <h3 id="p2">Profissional</h3>
-            <p class="para">Para quem tem mais de um serviço para explicar e quer o site como principal canal de contato.</p>
+        <article class="plano destaque" aria-labelledby="plPro">
+          <span class="selo">Indicado para empresas com vários serviços</span>
+          <h3 id="plPro">Profissional</h3>
+          <p class="para">Para quem precisa explicar serviços diferentes em páginas próprias.</p>
+          <div class="preco">
+            <div class="linha"><span>Criação</span><span class="valor">R$ 2.990</span></div>
+            <div class="linha"><span>Manutenção</span><span class="mensal">R$ 249<small style="font-size:14px;color:var(--nevoa);font-weight:500">/mês</small></span></div>
           </div>
-          <ul class="linhas">
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Site com até 5 páginas</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>2 rodadas por mês, inclusive novas seções</small></span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Páginas adicionais (serviços, blog, equipe)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Tráfego pago (Google e Meta)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Relatório mensal de resultados</span></li>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Até cinco páginas</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Textos e direção visual personalizados</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Formulário, WhatsApp e mapa, quando pertinentes</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Manutenção: até 2 solicitações, somando até 2 horas</span></li>
           </ul>
-          <p class="preco"><strong>R$ 2.990</strong>criação, ou 3x de R$ 997<br>+ R$ 249/mês de administração</p>
-          <a class="btn" href="#contato" data-plano="Profissional">Quero o Profissional</a>
+          <p class="obs">Novas páginas, reformulações e integrações são orçadas separadamente.</p>
+          <a class="btn" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Tenho%20interesse%20no%20pacote%20Profissional.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">Conversar sobre o Profissional</a>
         </article>
 
-        <article class="plano" aria-labelledby="p3">
-          <div>
-            <h3 id="p3">Performance</h3>
-            <p class="para">Para a empresa de médio porte que quer o site trazendo clientes todo mês, com anúncios e acompanhamento.</p>
+        <article class="plano" aria-labelledby="plPerf">
+          <h3 id="plPerf">Performance</h3>
+          <p class="para">Para quem quer site, mensuração e anúncios acompanhados todo mês.</p>
+          <div class="preco">
+            <div class="linha"><span>Criação</span><span class="valor"><small>a partir de </small>R$ 4.990</span></div>
+            <div class="linha"><span>Manutenção e anúncios</span><span class="mensal"><small style="font-size:14px;color:var(--nevoa);font-weight:500">a partir de </small>R$ 1.290<small style="font-size:14px;color:var(--nevoa);font-weight:500">/mês</small></span></div>
           </div>
-          <ul class="linhas">
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Site com até 10 páginas e páginas de anúncio</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>Sem limite de rodadas</small></span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Páginas adicionais (serviços, blog, equipe)</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Tráfego pago (Google e Meta)<small>Gestão dos anúncios; a verba de mídia é sua</small></span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Relatório mensal de resultados</span></li>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Até dez páginas, incluindo até duas de campanha</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mensuração de contatos configurada</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gestão inicial de uma plataforma: Google Ads ou Meta Ads</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Até 4 horas mensais para alterações no site</span></li>
           </ul>
-          <p class="preco"><strong>R$ 4.990</strong>criação, ou 5x de R$ 998<br>+ R$ 1.290/mês de administração e gestão de anúncios</p>
-          <a class="btn sec2" href="#contato" data-plano="Performance">Quero o Performance</a>
+          <p class="midia-nota"><strong>Verba de mídia não inclusa:</strong> é paga por você direto à plataforma. Com R$ 1.000/mês de mídia, por exemplo, o investimento recorrente combinado fica a partir de R$ 2.290/mês, sujeito ao escopo.</p>
+          <p class="obs" style="margin-top:0">Não prometemos quantidade de contatos, vendas ou retorno financeiro.</p>
+          <a class="btn alt" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Tenho%20interesse%20no%20pacote%20Performance.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">Conversar sobre o Performance</a>
         </article>
       </div>
-      <p class="nota-preco">Valores de lançamento para empresas do Brasil. Projetos com muitas páginas, loja virtual ou sistemas sob medida recebem proposta própria. No Performance, a verba dos anúncios é paga direto ao Google e à Meta (recomendamos a partir de R$ 1.000/mês). Sem fidelidade: a mensalidade pode ser cancelada com 30 dias de aviso. Domínio e hospedagem ficam sempre no seu nome.</p>
-    </div>
-  </section>
 
-  <section class="sec" id="onde">
-    <div class="wrap">
-      <div class="onde">
-        <h2>Feito no Oeste da Bahia, para o Brasil e a América Latina</h2>
-        <div class="lista">
-          <div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <p><strong>Base em Luís Eduardo Magalhães, BA.</strong><br><span>Conhecemos de perto o comércio, o agro e os serviços da região — e o que o cliente daqui espera encontrar num site.</span></p>
-          </div>
-          <div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <p><strong>Atendimento remoto.</strong><br><span>Reuniões por vídeo e WhatsApp. Sites em português e espanhol para quem atende outros países.</span></p>
-          </div>
-          <div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/><path d="M12 6v6l4 2"/></svg>
-            <p><strong>Resposta em até um dia útil.</strong><br><span>Para propostas e para as atualizações mensais do seu site.</span></p>
-          </div>
+      <details class="comparar" id="comparar">
+        <summary>Comparar o escopo completo dos pacotes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p class="rolar-dica" aria-hidden="true">Deslize a tabela para o lado →</p>
+        <div class="tabela-wrap" tabindex="0" role="region" aria-label="Tabela de comparação dos pacotes">
+          <table class="comp">
+            <caption>Escopo de cada pacote. Valores em reais.</caption>
+            <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Essencial</th><th scope="col">Profissional</th><th scope="col">Performance</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Criação</th><td>R$ 1.490</td><td>R$ 2.990</td><td>A partir de R$ 4.990</td></tr>
+              <tr><th scope="row">Mensalidade</th><td>R$ 149/mês (manutenção)</td><td>R$ 249/mês (manutenção)</td><td>A partir de R$ 1.290/mês (manutenção e gestão de anúncios)</td></tr>
+              <tr><th scope="row">Páginas</th><td>Uma página com até sete seções</td><td>Até cinco páginas</td><td>Até dez páginas, incluindo até duas páginas de campanha</td></tr>
+              <tr><th scope="row">Textos e visual</th><td>Textos a partir do briefing; direção visual adaptada à marca</td><td>Textos e direção visual personalizados</td><td>Definidos na proposta, conforme o escopo</td></tr>
+              <tr><th scope="row">Contato</th><td>WhatsApp e mapa, quando pertinentes</td><td>Formulário, WhatsApp e mapa, quando pertinentes</td><td>Configuração de mensuração de contatos</td></tr>
+              <tr><th scope="row">Busca e mensuração</th><td>Configuração básica de títulos, descrições e indexação</td><td>Configuração básica de SEO e eventos de contato, com as ferramentas e os acessos disponíveis</td><td>Mensuração de contatos; acompanhamento e relatório mensal</td></tr>
+              <tr><th scope="row">Revisões na criação</th><td>Duas rodadas consolidadas</td><td>Duas rodadas consolidadas</td><td>Duas rodadas consolidadas</td></tr>
+              <tr><th scope="row">Manutenção mensal</th><td>Uma solicitação consolidada, até 1 hora, para alterar conteúdo existente</td><td>Até duas solicitações consolidadas, somando até 2 horas</td><td>Até 4 horas para alterações no site</td></tr>
+              <tr><th scope="row">Anúncios</th><td class="nao">Não incluso</td><td class="nao">Não incluso</td><td>Uma plataforma (Google Ads ou Meta Ads), até duas campanhas ativas e até quatro novas peças simples por mês, em texto ou imagem estática conforme a plataforma</td></tr>
+              <tr><th scope="row">Verba de mídia</th><td class="nao">—</td><td class="nao">—</td><td>Não inclusa; paga pelo cliente direto à plataforma</td></tr>
+              <tr><th scope="row">Orçado à parte</th><td>Novas páginas, novas funcionalidades, gestão de anúncios e produção contínua de conteúdo</td><td>Novas páginas, reformulações e integrações</td><td>Vídeos, fotografia, segunda plataforma e expansão de campanhas</td></tr>
+            </tbody>
+          </table>
         </div>
+      </details>
+
+      <div class="sob-medida">
+        <div>
+          <h3>Projetos sob medida — sob orçamento</h3>
+          <p>Para direção de arte mais elaborada, vídeo, animações exclusivas, catálogos, integrações e funcionalidades especiais. Esses recursos não fazem parte automaticamente dos pacotes acima: são avaliados e orçados a partir do que o projeto precisa.</p>
+        </div>
+        <a class="btn" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20um%20or%C3%A7amento%20de%20projeto%20sob%20medida.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20%0AO%20que%20eu%20preciso%3A%20" target="_blank" rel="noopener">Descrever meu projeto</a>
+      </div>
+
+      <div class="condicoes">
+        <div><p class="rotulo">Condições comuns</p><h3 style="margin-top:12px">O combinado vale para todos os pacotes.</h3><p style="color:var(--nevoa);margin-top:12px">Consulte condições de parcelamento pelo WhatsApp.</p></div>
+        <ul>
+          <li><strong>Quando a manutenção começa</strong>A cobrança mensal começa a partir da publicação do site.</li>
+          <li><strong>Horas não acumulam</strong>O que não for usado no mês não passa para o seguinte. Excedentes só com orçamento aceito.</li>
+          <li><strong>Revisão não é mudança de escopo</strong>Ajustar o que foi combinado é revisão. Nova página, funcionalidade ou reformulação é orçada à parte.</li>
+          <li><strong>Tudo no seu nome</strong>Domínio, hospedagem e ferramentas externas ficam no nome do cliente e são pagos separadamente.</li>
+          <li><strong>Sem fidelidade</strong>Cancelamento com aviso de 30 dias. Você mantém o site e os acessos; a publicação continua enquanto hospedagem e serviços externos estiverem ativos.</li>
+          <li><strong>Resposta em até um dia útil</strong>É o prazo do primeiro retorno, não da conclusão de qualquer alteração.</li>
+          <li><strong>Prazo de criação</strong>Definido na proposta, depois do briefing.</li>
+          <li><strong>Sem garantias de resultado</strong>Trabalhamos para o site ser claro e bem configurado, mas não garantimos posição no Google, contatos ou vendas.</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="perguntas">
+  <section class="sec" id="perguntas" aria-labelledby="tFaq" style="padding-top:0">
     <div class="wrap">
-      <div class="cabec">
-        <h2>Perguntas frequentes</h2>
+      <div class="cab">
+        <div><p class="rotulo">05 · Perguntas</p><h2 id="tFaq">Antes de conversar.</h2></div>
+        <p>Se a sua dúvida não estiver aqui, pergunte pelo WhatsApp.</p>
       </div>
       <div class="faq">
-        <details name="faq">
-          <summary>Quanto tempo leva para o site ficar pronto?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="resp"><p>Depende do pacote e de quanto material você já tem (fotos, textos, logo). Na proposta enviamos um prazo fechado para o seu caso, e ele começa a contar quando o material chega.</p></div>
-        </details>
-        <details name="faq">
-          <summary>Eu preciso escrever os textos?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="resp"><p>Não. Fazemos uma conversa com você sobre o negócio e escrevemos tudo a partir dela. Você revisa e aprova antes de publicar.</p></div>
-        </details>
-        <details name="faq">
-          <summary>Não tenho fotos boas. E agora?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="resp"><p>Orientamos o que fotografar com o celular e tratamos as imagens. Para cenas de ambientação usamos imagens produzidas para o projeto, sempre identificadas — nunca apresentamos imagem genérica como se fosse a sua equipe ou o seu espaço.</p></div>
-        </details>
-        <details name="faq">
-          <summary>O domínio e o site ficam no meu nome?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="resp"><p>Sim. Domínio e hospedagem são registrados no seu nome. Se um dia quiser encerrar a mensalidade, o site continua seu.</p></div>
-        </details>
-        <details name="faq">
-          <summary>O que acontece se eu cancelar a mensalidade?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="resp"><p>O site permanece publicado como está. Deixamos de fazer as atualizações mensais e, no pacote Performance, de gerir os anúncios. Você pode voltar quando quiser.</p></div>
-        </details>
-        <details name="faq">
-          <summary>A verba dos anúncios está incluída no Performance?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="resp"><p>Não. A mensalidade cobre a gestão dos anúncios (criação, ajustes e relatório). A verba paga ao Google e à Meta é definida com você e sai direto da sua conta, com total transparência.</p></div>
-        </details>
+        <details><summary>Quanto tempo leva para o site ficar pronto?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>O prazo é definido na proposta, depois do briefing. Ele depende do pacote, do número de páginas e de quando o material (logo, fotos, informações) fica disponível.</p></div></details>
+        <details><summary>Eu preciso escrever os textos?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Não. Os textos são escritos a partir do briefing e você revisa antes da publicação, dentro das duas rodadas consolidadas de revisão.</p></div></details>
+        <details><summary>O que é uma “rodada consolidada” de revisão?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>É uma lista única com todos os ajustes que você quer naquela etapa, enviada de uma vez. Ajustar o que foi combinado é revisão; pedir uma nova página, uma funcionalidade ou mudar a proposta é mudança de escopo e recebe orçamento separado.</p></div></details>
+        <details><summary>O que a manutenção mensal cobre?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Alterações no site dentro das horas do pacote: 1 solicitação de até 1 hora no Essencial, até 2 solicitações somando 2 horas no Profissional e até 4 horas no Performance. As horas não acumulam de um mês para o outro, e a cobrança começa a partir da publicação do site.</p></div></details>
+        <details><summary>O site vai aparecer no Google?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Todos os pacotes incluem a configuração básica para que o site possa ser encontrado e indexado. Posição nas buscas depende de muitos fatores externos, então não prometemos colocação.</p></div></details>
+        <details><summary>A verba dos anúncios está incluída no Performance?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Não. A mensalidade cobre a manutenção e a gestão dos anúncios. A verba de mídia é paga por você diretamente ao Google ou à Meta. Com R$ 1.000/mês de mídia, o investimento recorrente combinado fica a partir de R$ 2.290/mês, sujeito ao escopo. Não prometemos quantidade de contatos, vendas ou retorno financeiro.</p></div></details>
+        <details><summary>Domínio e hospedagem ficam no meu nome?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Sim. Domínio, hospedagem e ferramentas externas ficam no seu nome e são pagos separadamente, direto aos fornecedores.</p></div></details>
+        <details><summary>E se eu cancelar?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Não há fidelidade: basta avisar com 30 dias. Você mantém o site e os acessos. A publicação continua enquanto a hospedagem e os serviços externos estiverem ativos.</p></div></details>
+        <details><summary>Os projetos da seção de trabalhos são clientes?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="resp"><p>Não. Rota Peças, Marco Zero e Vet Campo são projetos conceituais, com empresas e dados ilustrativos, criados para mostrar como trabalhamos.</p></div></details>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="contato">
+  <section id="contato" aria-labelledby="tContato" style="padding-bottom:clamp(40px,6vw,72px)">
     <div class="wrap">
-      <div class="fecho">
-        <div class="grade">
-          <div>
-            <h2>Vamos deixar o seu negócio nítido.</h2>
-            <p style="margin-top:18px;max-width:34em;opacity:.8">Conte em duas frases o que você faz e onde fica. Respondemos com perguntas certas e uma proposta fechada em até um dia útil.</p>
-            <div class="acoes" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px">
-              <a class="btn" id="cta-wa" href="https://wa.me/5577998786875" target="_blank" rel="noopener">Falar no WhatsApp</a>
-            </div>
-          </div>
-          <div>
-            <div class="canais">
-              <div><strong>WhatsApp</strong><br><span id="wa-texto">+55 77 99878-6875</span></div>
-              <div><strong>Onde</strong><br>Luís Eduardo Magalhães, Bahia — atendimento remoto</div>
-              <div><strong>Horário</strong><br>Segunda a sexta, horário comercial</div>
-            </div>
-            <p class="pend" id="pend">Botão de WhatsApp será ativado com o número oficial do Nítido Studio antes da publicação.</p>
-          </div>
+      <div class="contato">
+        <div>
+          <h2 id="tContato">Vamos deixar o seu negócio nítido.</h2>
+          <p>Conte o que você faz e em qual cidade atende. O primeiro retorno chega em até um dia útil.</p>
+          <p style="margin-top:28px"><a class="btn" href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20conversar%20sobre%20um%20site.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">Conversar sobre meu site</a></p>
         </div>
+        <dl>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20conversar%20sobre%20um%20site.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">+55 77 99878-6875</a></dd></div>
+          <div><dt>Base</dt><dd>Luís Eduardo Magalhães, Bahia · atendimento remoto</dd></div>
+          <div><dt>Horário</dt><dd>Segunda a sexta, horário comercial</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap cols">
-    <div>Nítido Studio — criação, administração e tráfego para sites de empresas.</div>
-    <div><a href="#como">Como funciona</a> &nbsp;&nbsp; <a href="#trabalhos">Trabalhos</a> &nbsp;&nbsp; <a href="#pacotes">Pacotes</a> &nbsp;&nbsp; <a href="#perguntas">Perguntas</a></div>
+  <div class="wrap">
+    <span>© <span id="ano">2026</span> Nítido Studio · criação, manutenção e anúncios para sites de empresas.</span>
+    <nav aria-label="Rodapé"><ul><li><a href="#projetos">Projetos</a></li><li><a href="#pacotes">Pacotes</a></li><li><a href="#perguntas">Perguntas</a></li><li><a href="https://wa.me/5577998786875?text=Ol%C3%A1%2C%20N%C3%ADtido%20Studio%21%20Quero%20conversar%20sobre%20um%20site.%0AMeu%20neg%C3%B3cio%3A%20%0ACidade%3A%20" target="_blank" rel="noopener">WhatsApp</a></li></ul></nav>
   </div>
 </footer>
 
 <script>
 (function(){
-  var d=document; d.documentElement.classList.add('js');
-  /* CONFIGURAÇÃO: quando tiver o número, preencha abaixo no formato 55 + DDD + número, só dígitos. */
-  var WHATSAPP='5577998786875';
-  var hero=d.getElementById('hero');
-  requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('nitido');});});
+  "use strict";
+  var d=document, root=d.documentElement;
+  root.classList.add("js");
+  var reduz = matchMedia("(prefers-reduced-motion: reduce)");
+  if(!reduz.matches){ root.classList.add("movimento"); }
 
-  var hamb=d.getElementById('hamb'),menu=d.getElementById('menu');
-  hamb.addEventListener('click',function(){var ab=menu.classList.toggle('aberto');hamb.setAttribute('aria-expanded',ab?'true':'false');hamb.setAttribute('aria-label',ab?'Fechar menu':'Abrir menu');});
-  menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('aberto');hamb.setAttribute('aria-expanded','false');}});
-  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('aberto')){menu.classList.remove('aberto');hamb.setAttribute('aria-expanded','false');hamb.focus();}});
-
-  /* WhatsApp: com número configurado, os botões abrem a conversa com a mensagem certa */
-  var plano='';
-  d.querySelectorAll('[data-plano]').forEach(function(b){b.addEventListener('click',function(){plano=b.getAttribute('data-plano');});});
-  var cta=d.getElementById('cta-wa'),txt=d.getElementById('wa-texto'),pend=d.getElementById('pend');
-  if(WHATSAPP){
-    txt.textContent='+'+WHATSAPP.replace(/^(\d{2})(\d{2})(\d{4,5})(\d{4})$/,'$1 $2 $3-$4');
-    pend.style.display='none';
-    cta.addEventListener('click',function(e){
-      e.preventDefault();
-      var msg='Olá, Nítido Studio! Quero uma proposta'+(plano?' do pacote '+plano:'')+'. Meu negócio: ';
-      window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg),'_blank','noopener');
-    });
-    d.querySelectorAll('a.btn.sec2[href="#contato"]:not([data-plano])').forEach(function(a){a.href='https://wa.me/'+WHATSAPP;a.target='_blank';a.rel='noopener';});
+  // desfocado -> nítido: só na abertura, uma vez, curto
+  if(!reduz.matches){
+    root.classList.add("anima");
+    var itens = d.querySelectorAll(".foco-in");
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      itens.forEach(function(el,i){ setTimeout(function(){ el.classList.add("ok"); }, 60 + i*90); });
+    });});
+    // garantia: nada fica desfocado se algo falhar
+    setTimeout(function(){ root.classList.remove("anima"); }, 2200);
   }
+
+  // menu mobile
+  var hamb=d.getElementById("hamb"), menu=d.getElementById("menu");
+  function fechaMenu(foco){ menu.classList.remove("aberto"); hamb.setAttribute("aria-expanded","false"); hamb.setAttribute("aria-label","Abrir menu"); if(foco) hamb.focus(); }
+  hamb.addEventListener("click",function(){ var ab=menu.classList.toggle("aberto"); hamb.setAttribute("aria-expanded",ab?"true":"false"); hamb.setAttribute("aria-label",ab?"Fechar menu":"Abrir menu"); if(ab){ var l=menu.querySelector("a"); if(l) l.focus(); } });
+  menu.addEventListener("click",function(e){ if(e.target.closest("a")) fechaMenu(false); });
+  d.addEventListener("keydown",function(e){ if(e.key==="Escape" && menu.classList.contains("aberto")) fechaMenu(true); });
+
+  // visor de projetos (tabs WAI-ARIA com setas)
+  var abas=[].slice.call(d.querySelectorAll('.abas [role="tab"]'));
+  function ativa(aba,foco){
+    abas.forEach(function(a){
+      var sel=a===aba, painel=d.getElementById(a.getAttribute("aria-controls"));
+      a.setAttribute("aria-selected",sel?"true":"false"); a.tabIndex=sel?0:-1;
+      painel.hidden=!sel; painel.classList.toggle("ativo",sel);
+    });
+    d.querySelectorAll(".celular img").forEach(function(im){ im.classList.toggle("ativo", im.dataset.m===aba.dataset.k); });
+    d.getElementById("visorUrl").textContent=aba.dataset.url;
+    d.getElementById("visorLink").href=aba.dataset.href;
+    if(foco) aba.focus();
+  }
+  // mantém painéis no DOM para a transição de foco
+  if(root.classList.contains("movimento")){
+    d.querySelectorAll('.tela [role="tabpanel"]').forEach(function(p){ p.hidden=false; });
+    var ativaBase=ativa;
+    ativa=function(aba,foco){ ativaBase(aba,foco); d.querySelectorAll('.tela [role="tabpanel"]').forEach(function(p){ p.hidden=false; p.setAttribute("aria-hidden", p.classList.contains("ativo")?"false":"true"); }); };
+  }
+  abas.forEach(function(a,i){
+    a.addEventListener("click",function(){ ativa(a,false); });
+    a.addEventListener("keydown",function(e){
+      var n=null;
+      if(e.key==="ArrowRight") n=abas[(i+1)%abas.length];
+      if(e.key==="ArrowLeft") n=abas[(i-1+abas.length)%abas.length];
+      if(e.key==="Home") n=abas[0];
+      if(e.key==="End") n=abas[abas.length-1];
+      if(n){ e.preventDefault(); ativa(n,true); }
+    });
+  });
+  ativa(abas[0],false);
+
+  var ano=d.getElementById("ano"); if(ano) ano.textContent=new Date().getFullYear();
 })();
 </script>
 </body>
