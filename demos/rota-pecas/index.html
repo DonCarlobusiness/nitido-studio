@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rota Peças Agrícolas — demonstração conceitual · Nítido Studio</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Projeto conceitual do Nítido Studio: catálogo de peças agrícolas com busca, filtros e montagem de orçamento demonstrativa. Empresa e dados ilustrativos.">
+<meta name="theme-color" content="#16171A">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;800&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asfalto:#16171A;--aco:#22252A;--aco2:#2D3137;--linha:#3A3F47;--texto:#F2EFE6;--apagado:#A7ABB2;
+  --amarelo:#FFC21A;--amarelo-escuro:#C99300;--verde:#58D68D;--laranja:#FF9F43;--vermelho:#FF6B5B;
+  --papel:#F2EFE6;--tinta:#16171A;
+  --cond:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(16px,4vw,48px);--max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--asfalto);color:var(--texto);font-family:var(--sans);font-size:16px;line-height:1.5}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amarelo);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:8px;top:-60px;background:var(--amarelo);color:var(--tinta);padding:10px 14px;font-weight:600;z-index:100}
+.skip:focus{top:8px}
+
+/* faixa conceitual (padrão Nítido nas demos) */
+.conceito{background:#FFFFFF;color:#000;font:500 14px/1.3 var(--sans);position:relative;z-index:30}
+.conceito .wrap{display:flex;gap:12px 20px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}
+.conceito strong{font-weight:600}
+.conceito a{font-weight:600;text-decoration:none;border-bottom:2px solid #1B33F0;white-space:nowrap}
+
+header.topo{position:sticky;top:0;z-index:20;background:rgba(22,23,26,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 24px/1 var(--cond);letter-spacing:.02em;text-transform:uppercase}
+.marca svg{width:34px;height:34px;flex:none}
+.marca small{display:block;font:500 12px/1 var(--mono);letter-spacing:.08em;color:var(--apagado);text-transform:uppercase;margin-top:3px}
+.topo nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;font:600 17px/1 var(--cond);text-transform:uppercase;letter-spacing:.04em}
+.topo nav a{text-decoration:none}.topo nav a:hover{color:var(--amarelo)}
+.btn-orc{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;background:var(--amarelo);color:var(--tinta);border:0;border-radius:4px;font:800 17px/1 var(--cond);text-transform:uppercase;letter-spacing:.04em;cursor:pointer}
+.btn-orc .qt{background:var(--tinta);color:var(--amarelo);min-width:26px;height:26px;border-radius:3px;display:inline-grid;place-items:center;font:500 14px/1 var(--mono)}
+@media (max-width:820px){.topo nav{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--linha)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--linha) 1px,transparent 1px),linear-gradient(90deg,var(--linha) 1px,transparent 1px);background-size:48px 48px;opacity:.35;mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,72px);padding-top:clamp(40px,7vw,96px);padding-bottom:clamp(40px,7vw,88px);align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.tag{display:inline-flex;align-items:center;gap:10px;font:500 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amarelo)}
+.tag::before{content:"";width:22px;height:10px;background:repeating-linear-gradient(-45deg,var(--amarelo) 0 4px,transparent 4px 8px)}
+h1{font:800 clamp(52px,9vw,124px)/.86 var(--cond);text-transform:uppercase;letter-spacing:-.005em;margin:18px 0 22px}
+h1 em{font-style:normal;color:var(--amarelo)}
+.hero p.lead{font-size:clamp(17px,1.4vw,20px);color:var(--apagado);max-width:36em;margin:0 0 28px}
+.busca-hero{display:flex;gap:0;max-width:620px;border:2px solid var(--amarelo);border-radius:6px;overflow:hidden;background:var(--aco)}
+.busca-hero input{flex:1;min-width:0;background:transparent;border:0;padding:16px 18px;font-size:17px}
+.busca-hero input::placeholder{color:#8A8F97}
+.busca-hero input:focus{outline:none}
+.busca-hero:focus-within{box-shadow:0 0 0 4px rgba(255,194,26,.25)}
+.busca-hero button{border:0;background:var(--amarelo);color:var(--tinta);font:800 18px/1 var(--cond);text-transform:uppercase;letter-spacing:.04em;padding:0 22px;cursor:pointer}
+.dica{font:400 13px/1.4 var(--mono);color:var(--apagado);margin-top:10px}
+.dica button{background:none;border:0;color:var(--texto);text-decoration:underline;cursor:pointer;padding:0;font:inherit}
+
+.plantao{border:1px solid var(--linha);background:var(--aco);border-radius:8px;overflow:hidden}
+.plantao .desenho{background:var(--papel);color:var(--tinta);padding:18px;position:relative}
+.plantao .desenho svg{width:100%;height:auto;display:block}
+.plantao .desenho .ref{position:absolute;right:14px;bottom:10px;font:500 11px/1 var(--mono);letter-spacing:.06em}
+.plantao .info{padding:18px 20px;display:grid;gap:12px}
+.plantao h2{font:800 28px/1 var(--cond);text-transform:uppercase;margin:0;letter-spacing:.01em}
+.plantao dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font:400 14px/1.4 var(--mono)}
+.plantao dt{color:var(--apagado)}
+.plantao .aviso{font-size:12px;color:var(--apagado)}
+.demo-draw .risco{stroke-dasharray:600;stroke-dashoffset:600;animation:risca 1.6s .2s ease-out forwards}
+@keyframes risca{to{stroke-dashoffset:0}}
+
+/* faixa de zebrado */
+.zebra{height:12px;background:repeating-linear-gradient(-45deg,var(--amarelo) 0 14px,var(--asfalto) 14px 28px)}
+
+/* catálogo */
+.sec{padding:clamp(48px,7vw,88px) 0}
+.sec h2.t{font:800 clamp(38px,5vw,64px)/.92 var(--cond);text-transform:uppercase;margin:0 0 10px}
+.sec .sub{color:var(--apagado);max-width:44em;margin:0 0 28px}
+.painel{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.painel{grid-template-columns:1fr}}
+.filtros{position:sticky;top:88px;display:grid;gap:18px}
+@media (max-width:900px){.filtros{position:static}}
+.campo label{display:block;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);margin-bottom:8px}
+.campo input,.campo select{width:100%;background:var(--aco);border:1px solid var(--linha);border-radius:4px;padding:12px 14px;min-height:46px}
+.campo input:focus,.campo select:focus{border-color:var(--amarelo);outline:none;box-shadow:0 0 0 3px rgba(255,194,26,.25)}
+fieldset{border:0;margin:0;padding:0}
+legend{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);margin-bottom:10px;padding:0}
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+@media (min-width:901px){.cats{flex-direction:column}}
+.cats label{display:flex;align-items:center;gap:10px;cursor:pointer;border:1px solid var(--linha);border-radius:4px;padding:9px 12px;font:600 16px/1.1 var(--cond);text-transform:uppercase;letter-spacing:.03em;background:var(--aco)}
+.cats input{accent-color:var(--amarelo);width:16px;height:16px;margin:0}
+.cats label:has(input:checked){border-color:var(--amarelo);color:var(--amarelo)}
+.cats label:has(input:focus-visible){outline:3px solid var(--amarelo);outline-offset:2px}
+.cats .n{margin-left:auto;font:400 12px/1 var(--mono);color:var(--apagado)}
+.limpar{background:none;border:1px dashed var(--linha);color:var(--apagado);border-radius:4px;padding:10px;cursor:pointer}
+.limpar:hover{color:var(--texto);border-color:var(--texto)}
+
+.res-topo{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--texto);padding-bottom:10px;margin-bottom:0}
+.res-topo p{margin:0;font:500 14px/1.3 var(--mono)}
+.lista{list-style:none;margin:0;padding:0}
+.item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:6px 18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--linha)}
+.item .mini{width:96px;height:72px;background:var(--papel);border-radius:3px;display:grid;place-items:center;color:var(--tinta)}
+.item .mini svg{width:70px;height:52px}
+.item .cod{font:500 13px/1 var(--mono);color:var(--amarelo);letter-spacing:.04em}
+.item h3{font:600 24px/1.05 var(--cond);text-transform:uppercase;margin:4px 0 6px;letter-spacing:.01em}
+.item .meta{font-size:14px;color:var(--apagado)}
+.st{display:inline-flex;align-items:center;gap:8px;font:500 13px/1.2 var(--mono)}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.st.ok{color:var(--verde)}.st.enc{color:var(--laranja)}.st.cons{color:var(--apagado)}
+.st em{font-style:normal;opacity:.75}
+.acoes{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.b2{min-height:44px;padding:0 14px;border-radius:4px;border:1px solid var(--linha);background:transparent;cursor:pointer;font:600 16px/1 var(--cond);text-transform:uppercase;letter-spacing:.04em}
+.b2:hover{border-color:var(--texto)}
+.b2.add{background:var(--texto);color:var(--tinta);border-color:var(--texto)}
+.b2.add[aria-pressed="true"]{background:var(--amarelo);border-color:var(--amarelo)}
+@media (max-width:640px){
+  .item{grid-template-columns:72px minmax(0,1fr)}
+  .item .mini{width:72px;height:60px}.item .mini svg{width:56px;height:42px}
+  .item .acoes{grid-column:1/-1;justify-content:stretch}.item .acoes .b2{flex:1}
+}
+.vazio{padding:48px 0;border-bottom:1px solid var(--linha)}
+.vazio h3{font:800 34px/1 var(--cond);text-transform:uppercase;margin:0 0 10px}
+.vazio p{color:var(--apagado);margin:0 0 18px;max-width:40em}
+
+/* como pedir */
+.passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--texto)}
+.passos li{list-style:none;padding:22px 22px 26px 0;border-right:1px solid var(--linha)}
+.passos li+li{padding-left:22px}.passos li:last-child{border-right:0}
+.passos b{display:block;font:500 13px/1 var(--mono);color:var(--amarelo);margin-bottom:12px}
+.passos h3{font:800 28px/1 var(--cond);text-transform:uppercase;margin:0 0 8px}
+.passos p{margin:0;color:var(--apagado)}
+@media (max-width:760px){.passos{grid-template-columns:1fr}.passos li,.passos li+li{padding:20px 0;border-right:0;border-bottom:1px solid var(--linha)}}
+
+/* diálogo e gaveta */
+dialog{border:0;padding:0;background:var(--asfalto);color:var(--texto);max-width:min(760px,calc(100vw - 24px));width:100%;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+.dlg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:680px){.dlg{grid-template-columns:1fr}}
+.dlg .fig{background:var(--papel);color:var(--tinta);padding:24px;display:grid;place-items:center;min-height:240px;position:relative}
+.dlg .fig svg{width:100%;max-width:280px;height:auto}
+.dlg .fig span{position:absolute;left:14px;bottom:12px;font:500 11px/1 var(--mono);letter-spacing:.06em}
+.dlg .corpo{padding:24px;display:grid;gap:14px;align-content:start}
+.dlg h2{font:800 34px/1 var(--cond);text-transform:uppercase;margin:0}
+.dlg table{width:100%;border-collapse:collapse;font:400 14px/1.4 var(--mono)}
+.dlg th,.dlg td{text-align:left;padding:7px 0;border-bottom:1px solid var(--linha);vertical-align:top}
+.dlg th{color:var(--apagado);font-weight:400;width:42%}
+.qtd{display:flex;align-items:center;gap:0;border:1px solid var(--linha);border-radius:4px;width:max-content}
+.qtd button{width:44px;height:44px;background:transparent;border:0;cursor:pointer;font-size:20px}
+.qtd output{min-width:40px;text-align:center;font:500 16px/1 var(--mono)}
+.fechar{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:4px;border:0;background:var(--tinta);color:var(--papel);cursor:pointer;font-size:22px;z-index:2}
+
+.gaveta{position:fixed;inset:0 0 0 auto;width:min(440px,100vw);background:var(--aco);border-left:1px solid var(--linha);z-index:50;transform:translateX(100%);transition:transform .28s ease;display:flex;flex-direction:column;visibility:hidden}
+.gaveta.aberta{transform:none;visibility:visible}
+.veu{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:49;opacity:0;pointer-events:none;transition:opacity .2s}
+.veu.on{opacity:1;pointer-events:auto}
+.gaveta .cab{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--linha)}
+.gaveta .cab h2{font:800 28px/1 var(--cond);text-transform:uppercase;margin:0}
+.gaveta .cab button{width:44px;height:44px;border:1px solid var(--linha);background:transparent;border-radius:4px;cursor:pointer;font-size:20px}
+.gaveta .conteudo{padding:16px 20px;overflow:auto;flex:1;display:grid;gap:14px;align-content:start}
+.gaveta .linha{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;border-bottom:1px solid var(--linha);padding-bottom:12px}
+.gaveta .linha .cod{font:500 12px/1 var(--mono);color:var(--amarelo)}
+.gaveta .linha strong{font:600 19px/1.1 var(--cond);text-transform:uppercase}
+.gaveta .linha .rm{background:none;border:0;color:var(--apagado);text-decoration:underline;cursor:pointer;padding:0;justify-self:start;min-height:32px}
+.gaveta .rodape{padding:16px 20px;border-top:1px solid var(--linha);display:grid;gap:10px}
+.gaveta pre{white-space:pre-wrap;background:var(--asfalto);border:1px solid var(--linha);border-radius:4px;padding:12px;font:400 13px/1.45 var(--mono);margin:0}
+.aviso-sim{font-size:13px;color:var(--apagado);border-left:3px solid var(--amarelo);padding-left:10px}
+.ok-sim{background:var(--papel);color:var(--tinta);border-radius:4px;padding:12px 14px;font-size:14px}
+
+footer{border-top:1px solid var(--linha);padding:36px 0 48px;color:var(--apagado);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between}
+footer a{color:var(--texto)}
+
+@media (prefers-reduced-motion:reduce){
+  .demo-draw .risco{animation:none;stroke-dashoffset:0}
+  .gaveta,.veu{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#catalogo">Pular para o catálogo</a>
+<div class="conceito" role="note"><div class="wrap"><span><strong>Projeto conceitual — empresa e dados ilustrativos.</strong> Estoque, prazos e códigos são fictícios; nenhuma ação envia pedidos.</span><a href="../../index.html#projetos">← Voltar ao Nítido Studio</a></div></div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Rota Peças Agrícolas — início">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="3" fill="#FFC21A"/><path d="M7 25 L17 8 L27 25 Z" fill="none" stroke="#16171A" stroke-width="3.2" stroke-linejoin="round"/><circle cx="17" cy="20" r="3" fill="#16171A"/></svg>
+      <span>Rota Peças<small>Agrícolas · conceito</small></span>
+    </a>
+    <nav aria-label="Seções"><ul><li><a href="#catalogo">Catálogo</a></li><li><a href="#como">Como pedir</a></li><li><a href="#plantao">Plantão</a></li></ul></nav>
+    <button class="btn-orc" id="abrirOrc" aria-controls="gaveta" aria-expanded="false">Orçamento <span class="qt" id="qtTopo" aria-label="itens">0</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tag">Plantão de safra · demonstração</span>
+        <h1>Máquina parada<br><em>não espera.</em></h1>
+        <p class="lead">Encontre a peça pelo código ou pelo nome, veja a situação de estoque e monte o pedido de orçamento antes de ligar. Menos ligações repetidas, mais tempo para resolver.</p>
+        <form class="busca-hero" id="formHero" role="search" aria-label="Buscar peça">
+          <label class="sr" for="qHero">Código ou nome da peça</label>
+          <input id="qHero" name="q" type="search" placeholder="Ex.: RP-PC-1042 ou faca" autocomplete="off">
+          <button type="submit">Buscar</button>
+        </form>
+        <p class="dica">Tente: <button type="button" data-exemplo="RP-TR-2210">RP-TR-2210</button> · <button type="button" data-exemplo="rolamento">rolamento</button> · <button type="button" data-exemplo="xyz">xyz (sem resultado)</button></p>
+      </div>
+      <aside class="plantao" id="plantao" aria-labelledby="tPlantao">
+        <div class="desenho">
+          <svg class="demo-draw" viewBox="0 0 320 200" role="img" aria-label="Desenho técnico de uma engrenagem com rolamento">
+            <g fill="none" stroke="#16171A" stroke-width="2">
+              <circle class="risco" cx="110" cy="100" r="70"/>
+              <circle class="risco" cx="110" cy="100" r="46"/>
+              <circle cx="110" cy="100" r="18"/>
+              <g class="risco" stroke-width="2.5">
+                <path d="M110 22v14M110 164v14M32 100h14M174 100h14M55 45l10 10M155 145l10 10M55 155l10-10M155 55l10-10"/>
+              </g>
+              <circle class="risco" cx="248" cy="100" r="40"/>
+              <circle cx="248" cy="100" r="26"/>
+              <circle cx="248" cy="100" r="10"/>
+            </g>
+            <g stroke="#16171A" stroke-width="1" stroke-dasharray="4 3"><path d="M20 100h280M110 10v180M248 40v120"/></g>
+            <g font-family="Plex Mono,monospace" font-size="10" fill="#16171A"><text x="182" y="30">Ø 140</text><text x="222" y="172">Ø 80</text></g>
+          </svg>
+          <span class="ref">DET. A · ESC. 1:2</span>
+        </div>
+        <div class="info">
+          <h2 id="tPlantao">Plantão de safra</h2>
+          <dl><dt>Seg–sex</dt><dd>07h–19h</dd><dt>Sábado</dt><dd>07h–17h</dd><dt>Domingo</dt><dd>08h–12h</dd></dl>
+          <p class="aviso">Horários fictícios, apenas para demonstrar como a informação apareceria no site.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="zebra" aria-hidden="true"></div>
+
+  <section class="sec" id="catalogo" aria-labelledby="tCat">
+    <div class="wrap">
+      <h2 class="t" id="tCat">Catálogo</h2>
+      <p class="sub">Busque por nome ou código e filtre por categoria. Os itens e códigos são criados para esta demonstração e não correspondem a peças de fabricantes.</p>
+      <div class="painel">
+        <div class="filtros">
+          <div class="campo">
+            <label for="q">Buscar por nome ou código</label>
+            <input id="q" type="search" placeholder="Digite para filtrar" autocomplete="off">
+          </div>
+          <fieldset>
+            <legend>Categoria</legend>
+            <div class="cats" id="cats"></div>
+          </fieldset>
+          <div class="campo">
+            <label for="ordem">Ordenar</label>
+            <select id="ordem"><option value="rel">Mais relevantes</option><option value="cod">Código</option><option value="estoque">Disponível primeiro</option></select>
+          </div>
+          <button class="limpar" type="button" id="limpar">Limpar busca e filtros</button>
+        </div>
+        <div>
+          <div class="res-topo"><p id="contagem" aria-live="polite">—</p><p style="color:var(--apagado)">Situação de estoque fictícia</p></div>
+          <ul class="lista" id="lista"></ul>
+          <div class="vazio" id="vazio" hidden>
+            <h3>Nenhuma peça encontrada</h3>
+            <p id="vazioTxt">Confira o código ou tente uma palavra mais curta. Numa loja real, este seria o ponto para pedir ajuda a um vendedor com o código em mãos.</p>
+            <button class="b2 add" type="button" id="vazioLimpar">Limpar busca e filtros</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="como" aria-labelledby="tComo" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="t" id="tComo">Como pedir</h2>
+      <p class="sub">A jornada que este conceito propõe para uma revenda de peças.</p>
+      <ol class="passos" style="padding:0;margin:0">
+        <li><b>01</b><h3>Encontre</h3><p>Pelo código gravado na peça, pelo nome ou pela categoria.</p></li>
+        <li><b>02</b><h3>Separe</h3><p>Adicione os itens e as quantidades ao orçamento.</p></li>
+        <li><b>03</b><h3>Envie</h3><p>A loja recebe a lista pronta. Nesta demonstração, o envio é apenas simulado.</p></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="veu" id="veu"></div>
+<aside class="gaveta" id="gaveta" aria-labelledby="tOrc" role="dialog" aria-modal="true">
+  <div class="cab"><h2 id="tOrc">Orçamento</h2><button type="button" id="fecharOrc" aria-label="Fechar orçamento">✕</button></div>
+  <div class="conteudo" id="orcConteudo"></div>
+  <div class="rodape" id="orcRodape"></div>
+</aside>
+
+<dialog id="dlg" aria-labelledby="dTitulo">
+  <button class="fechar" type="button" id="dFechar" aria-label="Fechar detalhes">✕</button>
+  <div class="dlg">
+    <div class="fig" id="dFig"></div>
+    <div class="corpo">
+      <span class="cod" id="dCod" style="font:500 13px/1 var(--mono);color:var(--amarelo)"></span>
+      <h2 id="dTitulo"></h2>
+      <p id="dDesc" style="margin:0;color:var(--apagado)"></p>
+      <table><tbody id="dTab"></tbody></table>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <div class="qtd" role="group" aria-label="Quantidade"><button type="button" id="dMenos" aria-label="Diminuir quantidade">−</button><output id="dQtd" aria-live="polite">1</output><button type="button" id="dMais" aria-label="Aumentar quantidade">+</button></div>
+        <button class="b2 add" type="button" id="dAdd">Adicionar ao orçamento</button>
+      </div>
+      <p id="dMsg" role="status" style="margin:0;font:500 13px/1.3 var(--mono);color:var(--verde)"></p>
+    </div>
+  </div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span>Rota Peças Agrícolas é uma empresa fictícia criada pelo <a href="../../index.html">Nítido Studio</a> para demonstração.</span>
+    <a href="../../index.html#pacotes">Ver pacotes do Nítido Studio →</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var ICON = {
+    faca:'<svg viewBox="0 0 80 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 44 L40 10 L74 44 Z"/><path d="M22 44v8M58 44v8M14 52h52"/><circle cx="40" cy="34" r="4"/></g></svg>',
+    eng:'<svg viewBox="0 0 80 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="40" cy="30" r="20"/><circle cx="40" cy="30" r="7"/><path d="M40 4v6M40 50v6M14 30h6M60 30h6M22 12l4 4M54 44l4 4M22 48l4-4M54 16l4-4"/></g></svg>',
+    rol:'<svg viewBox="0 0 80 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="40" cy="30" r="22"/><circle cx="40" cy="30" r="12"/><g stroke-width="2"><circle cx="40" cy="13" r="3"/><circle cx="57" cy="30" r="3"/><circle cx="40" cy="47" r="3"/><circle cx="23" cy="30" r="3"/></g></g></svg>',
+    fil:'<svg viewBox="0 0 80 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5"><rect x="26" y="8" width="28" height="44" rx="4"/><path d="M26 18h28M26 42h28M32 18v24M40 18v24M48 18v24"/></g></svg>',
+    hid:'<svg viewBox="0 0 80 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5"><rect x="8" y="22" width="44" height="16" rx="2"/><path d="M52 30h20M14 22v-8h12v8M72 24v12"/></g></svg>',
+    cor:'<svg viewBox="0 0 80 60" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="20" cy="30" r="12"/><circle cx="62" cy="30" r="8"/><path d="M20 18 L62 22 M20 42 L62 38"/></g></svg>'
+  };
+  var CATS = [
+    {id:"plataforma",nome:"Plataforma de corte",icon:"faca"},
+    {id:"transmissao",nome:"Transmissão",icon:"eng"},
+    {id:"rolamentos",nome:"Rolamentos",icon:"rol"},
+    {id:"filtros",nome:"Filtros",icon:"fil"},
+    {id:"hidraulica",nome:"Hidráulica",icon:"hid"},
+    {id:"correias",nome:"Correias e polias",icon:"cor"}
+  ];
+  // Dados 100% fictícios
+  var PECAS = [
+    {cod:"RP-PC-1042",nome:"Seção de faca serrilhada",cat:"plataforma",st:"ok",qt:38,desc:"Seção de lâmina para barra de corte. Vendida por unidade.",spec:[["Material","Aço temperado"],["Fixação","2 rebites"],["Aplicação","Barras de corte de plataformas de grãos (verificar medida)"]]},
+    {cod:"RP-PC-1057",nome:"Dedo duplo da barra de corte",cat:"plataforma",st:"ok",qt:64,desc:"Dedo guia em ferro fundido nodular.",spec:[["Material","Ferro nodular"],["Passo","76,2 mm"],["Aplicação","Barras de corte com passo de 3 polegadas"]]},
+    {cod:"RP-PC-1103",nome:"Pino do molinete",cat:"plataforma",st:"enc",prazo:"2 dias úteis",desc:"Pino de dente para molinete, em nylon reforçado.",spec:[["Material","Nylon com fibra"],["Comprimento","230 mm"],["Embalagem","Caixa com 10"]]},
+    {cod:"RP-TR-2210",nome:"Corrente de rolos ASA 60",cat:"transmissao",st:"ok",qt:12,desc:"Corrente simples, vendida por caixa de 3 metros.",spec:[["Passo","19,05 mm"],["Tipo","Simples"],["Comprimento","3 m"]]},
+    {cod:"RP-TR-2236",nome:"Engrenagem do variador",cat:"transmissao",st:"enc",prazo:"5 dias úteis",desc:"Engrenagem de dentes retos para caixa de variação.",spec:[["Dentes","32"],["Furo","35 mm com chaveta"],["Material","Aço cementado"]]},
+    {cod:"RP-TR-2251",nome:"Junta homocinética do eixo",cat:"transmissao",st:"cons",desc:"Item sob consulta: disponibilidade confirmada pelo vendedor.",spec:[["Estrias","21"],["Proteção","Coifa em borracha"],["Aplicação","Eixos cardan agrícolas (verificar modelo)"]]},
+    {cod:"RP-RL-3308",nome:"Rolamento de esferas 6208-2RS",cat:"rolamentos",st:"ok",qt:41,desc:"Rolamento blindado com vedação dupla de borracha.",spec:[["Diâmetro interno","40 mm"],["Diâmetro externo","80 mm"],["Largura","18 mm"]]},
+    {cod:"RP-RL-3312",nome:"Mancal com rolamento UCF 207",cat:"rolamentos",st:"ok",qt:9,desc:"Mancal quadrado de flange com rolamento autocompensador.",spec:[["Eixo","35 mm"],["Furação","4 furos"],["Lubrificação","Graxeira"]]},
+    {cod:"RP-RL-3340",nome:"Rolamento de rolos cônicos 32210",cat:"rolamentos",st:"enc",prazo:"3 dias úteis",desc:"Conjunto cone e capa para cargas combinadas.",spec:[["Diâmetro interno","50 mm"],["Diâmetro externo","90 mm"],["Largura","24,75 mm"]]},
+    {cod:"RP-FL-4410",nome:"Filtro de óleo do motor",cat:"filtros",st:"ok",qt:26,desc:"Elemento rosqueável para motores diesel.",spec:[["Rosca","1\"-16 UN"],["Altura","172 mm"],["Tipo","Blindado"]]},
+    {cod:"RP-FL-4425",nome:"Filtro de ar primário",cat:"filtros",st:"ok",qt:7,desc:"Elemento principal com tela de proteção.",spec:[["Altura","400 mm"],["Diâmetro externo","280 mm"],["Vedação","Radial"]]},
+    {cod:"RP-FL-4431",nome:"Filtro separador de água do diesel",cat:"filtros",st:"enc",prazo:"2 dias úteis",desc:"Separa água e impurezas antes da bomba injetora.",spec:[["Eficiência","Conforme fabricante do elemento"],["Rosca","M16x1,5"],["Dreno","Sim"]]},
+    {cod:"RP-HD-5502",nome:"Kit de vedação do cilindro",cat:"hidraulica",st:"ok",qt:15,desc:"Retentores e anéis para reparo de cilindro hidráulico.",spec:[["Haste","40 mm"],["Camisa","70 mm"],["Itens","7 peças"]]},
+    {cod:"RP-HD-5518",nome:"Mangueira hidráulica 2 tramas",cat:"hidraulica",st:"cons",desc:"Montada sob medida com terminais prensados.",spec:[["Bitola","1/2\""],["Pressão","Conforme norma da mangueira"],["Montagem","Sob medida"]]},
+    {cod:"RP-HD-5530",nome:"Engate rápido macho",cat:"hidraulica",st:"ok",qt:22,desc:"Engate tipo ISO A para tomadas hidráulicas.",spec:[["Rosca","1/2\" BSP"],["Padrão","ISO 7241-A"],["Vedação","Esfera"]]},
+    {cod:"RP-CR-6601",nome:"Correia em V perfil B",cat:"correias",st:"ok",qt:18,desc:"Correia clássica para acionamentos auxiliares.",spec:[["Perfil","B (17 mm)"],["Comprimento","B-68"],["Construção","Envelopada"]]},
+    {cod:"RP-CR-6624",nome:"Polia tensora com rolamento",cat:"correias",st:"enc",prazo:"4 dias úteis",desc:"Polia lisa para tensionamento de correia.",spec:[["Diâmetro","120 mm"],["Furo","17 mm"],["Rolamento","Incluso"]]},
+    {cod:"RP-CR-6650",nome:"Correia variadora larga",cat:"correias",st:"cons",desc:"Correia de variador; confirme a medida antes do pedido.",spec:[["Largura","Sob consulta"],["Aplicação","Variadores de rotação"],["Observação","Verificar medida gravada"]]}
+  ];
+  var catById = {}; CATS.forEach(function(c){catById[c.id]=c;});
+  var norm = function(s){return (s||"").toString().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g," ").trim();};
+  var $ = function(id){return document.getElementById(id);};
+  var estado = {q:"",cats:new Set(),ordem:"rel"};
+  var orc = new Map(); // cod -> qtd
+
+  function stHTML(p){
+    if(p.st==="ok") return '<span class="st ok">Em estoque <em>· fictício</em></span>';
+    if(p.st==="enc") return '<span class="st enc">Encomenda: '+p.prazo+' <em>· fictício</em></span>';
+    return '<span class="st cons">Sob consulta <em>· fictício</em></span>';
+  }
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  // categorias
+  var catsEl = $("cats");
+  catsEl.innerHTML = CATS.map(function(c){
+    var n = PECAS.filter(function(p){return p.cat===c.id;}).length;
+    return '<label><input type="checkbox" value="'+c.id+'"> '+c.nome+'<span class="n">'+n+'</span></label>';
+  }).join("");
+  catsEl.addEventListener("change",function(e){
+    if(e.target.checked) estado.cats.add(e.target.value); else estado.cats.delete(e.target.value);
+    render();
+  });
+
+  function filtrar(){
+    var q = norm(estado.q), termos = q ? q.split(" ") : [];
+    var r = PECAS.filter(function(p){
+      if(estado.cats.size && !estado.cats.has(p.cat)) return false;
+      if(!termos.length) return true;
+      var alvo = norm(p.cod+" "+p.cod.replace(/-/g,"")+" "+p.nome+" "+catById[p.cat].nome);
+      return termos.every(function(t){return alvo.indexOf(t)>-1;});
+    });
+    if(estado.ordem==="cod") r.sort(function(a,b){return a.cod.localeCompare(b.cod);});
+    if(estado.ordem==="estoque"){var o={ok:0,enc:1,cons:2};r.sort(function(a,b){return o[a.st]-o[b.st];});}
+    return r;
+  }
+
+  function render(){
+    var r = filtrar(), lista = $("lista");
+    $("contagem").textContent = r.length ? (r.length+(r.length===1?" peça encontrada":" peças encontradas")) : "0 peças encontradas";
+    $("vazio").hidden = r.length>0;
+    if(!r.length){
+      var partes=[]; if(estado.q) partes.push('"'+estado.q+'"'); if(estado.cats.size) partes.push("nas categorias selecionadas");
+      $("vazioTxt").textContent = "Não há resultado para "+(partes.join(" ")||"esta combinação")+". Confira o código gravado na peça ou tente uma palavra mais curta, como “filtro” ou “correia”.";
+    }
+    lista.innerHTML = r.map(function(p){
+      var sel = orc.has(p.cod);
+      return '<li class="item">'+
+        '<div class="mini">'+ICON[catById[p.cat].icon]+'</div>'+
+        '<div><span class="cod">'+p.cod+'</span><h3>'+esc(p.nome)+'</h3><div class="meta">'+catById[p.cat].nome+' · '+stHTML(p)+'</div></div>'+
+        '<div class="acoes"><button type="button" class="b2" data-ver="'+p.cod+'">Detalhes</button>'+
+        '<button type="button" class="b2 add" data-add="'+p.cod+'" aria-pressed="'+sel+'">'+(sel?"No orçamento ✓":"Adicionar")+'</button></div>'+
+      '</li>';
+    }).join("");
+  }
+
+  var qInput = $("q");
+  qInput.addEventListener("input",function(){estado.q=qInput.value;render();});
+  $("ordem").addEventListener("change",function(e){estado.ordem=e.target.value;render();});
+  function limpar(){estado.q="";estado.cats.clear();qInput.value="";catsEl.querySelectorAll("input").forEach(function(i){i.checked=false;});render();qInput.focus();}
+  $("limpar").addEventListener("click",limpar);
+  $("vazioLimpar").addEventListener("click",limpar);
+
+  function buscarHero(v){
+    estado.q=v;qInput.value=v;render();
+    document.getElementById("catalogo").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+    qInput.focus({preventScroll:true});
+  }
+  $("formHero").addEventListener("submit",function(e){e.preventDefault();buscarHero($("qHero").value);});
+  document.querySelectorAll("[data-exemplo]").forEach(function(b){b.addEventListener("click",function(){$("qHero").value=b.dataset.exemplo;buscarHero(b.dataset.exemplo);});});
+
+  // detalhes
+  var dlg=$("dlg"), atual=null, qtd=1, gatilho=null;
+  function abrirDetalhe(cod,origem){
+    var p = PECAS.find(function(x){return x.cod===cod;}); if(!p) return;
+    atual=p; qtd=orc.get(cod)||1; gatilho=origem;
+    $("dFig").innerHTML = ICON[catById[p.cat].icon].replace('viewBox="0 0 80 60"','viewBox="0 0 80 60" style="color:#16171A"')+'<span>'+p.cod+' · DESENHO ILUSTRATIVO</span>';
+    $("dCod").textContent=p.cod; $("dTitulo").textContent=p.nome; $("dDesc").textContent=p.desc;
+    $("dTab").innerHTML = [["Categoria",catById[p.cat].nome]].concat(p.spec).concat([["Situação",p.st==="ok"?"Em estoque (fictício)":p.st==="enc"?"Encomenda: "+p.prazo+" (fictício)":"Sob consulta (fictício)"]]).map(function(l){return "<tr><th scope=\"row\">"+esc(l[0])+"</th><td>"+esc(l[1])+"</td></tr>";}).join("");
+    $("dQtd").textContent=qtd; $("dMsg").textContent="";
+    $("dAdd").textContent = orc.has(cod) ? "Atualizar quantidade" : "Adicionar ao orçamento";
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute("open","");
+  }
+  function fecharDetalhe(){ if(dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+  dlg.addEventListener("close",function(){ if(gatilho) gatilho.focus(); });
+  dlg.addEventListener("click",function(e){ if(e.target===dlg) fecharDetalhe(); });
+  $("dFechar").addEventListener("click",fecharDetalhe);
+  $("dMenos").addEventListener("click",function(){qtd=Math.max(1,qtd-1);$("dQtd").textContent=qtd;});
+  $("dMais").addEventListener("click",function(){qtd=Math.min(99,qtd+1);$("dQtd").textContent=qtd;});
+  $("dAdd").addEventListener("click",function(){orc.set(atual.cod,qtd);atualizarOrc();render();$("dMsg").textContent="Adicionado: "+qtd+" × "+atual.nome;$("dAdd").textContent="Atualizar quantidade";});
+
+  $("lista").addEventListener("click",function(e){
+    var v=e.target.closest("[data-ver]"), a=e.target.closest("[data-add]");
+    if(v) abrirDetalhe(v.dataset.ver,v);
+    if(a){
+      var c=a.dataset.add;
+      if(orc.has(c)) orc.delete(c); else orc.set(c,1);
+      atualizarOrc(); render();
+      var novo=document.querySelector('[data-add="'+c+'"]'); if(novo) novo.focus();
+    }
+  });
+
+  // orçamento
+  var gaveta=$("gaveta"), veu=$("veu"), abrir=$("abrirOrc"), simulado=false;
+  function totalItens(){var t=0;orc.forEach(function(q){t+=q;});return t;}
+  function atualizarOrc(){
+    simulado=false;
+    $("qtTopo").textContent = orc.size;
+    var cont=$("orcConteudo"), rod=$("orcRodape");
+    if(!orc.size){
+      cont.innerHTML='<p style="margin:0;color:var(--apagado)">Nenhum item ainda. Use “Adicionar” no catálogo para montar a lista.</p>';
+      rod.innerHTML='<a class="b2" href="#catalogo" id="irCat" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none">Ir ao catálogo</a>';
+      var ir=$("irCat"); if(ir) ir.addEventListener("click",fecharOrc);
+      return;
+    }
+    var linhas=[];
+    orc.forEach(function(q,c){
+      var p=PECAS.find(function(x){return x.cod===c;});
+      linhas.push('<div class="linha"><div><span class="cod">'+p.cod+'</span><br><strong>'+esc(p.nome)+'</strong></div>'+
+        '<div class="qtd" role="group" aria-label="Quantidade de '+esc(p.nome)+'"><button type="button" data-m="'+c+'" aria-label="Diminuir">−</button><output>'+q+'</output><button type="button" data-p="'+c+'" aria-label="Aumentar">+</button></div>'+
+        '<button type="button" class="rm" data-rm="'+c+'">Remover</button></div>');
+    });
+    cont.innerHTML = linhas.join("") +
+      '<div class="campo"><label for="modelo">Modelo da máquina (opcional)</label><input id="modelo" type="text" maxlength="60" placeholder="Ex.: plataforma de 30 pés"></div>';
+    rod.innerHTML = '<p class="aviso-sim">Envio simulado: nenhum dado é coletado e nada é enviado a empresa alguma.</p>'+
+      '<button class="btn-orc" type="button" id="simular" style="justify-content:center">Simular envio do orçamento</button><div id="resSim" role="status"></div>';
+    $("simular").addEventListener("click",simularEnvio);
+  }
+  function resumo(){
+    var l=["Solicitação de orçamento (demonstração)"];
+    orc.forEach(function(q,c){var p=PECAS.find(function(x){return x.cod===c;});l.push("• "+q+" × "+p.cod+" — "+p.nome);});
+    var m=$("modelo"); if(m && m.value.trim()) l.push("Máquina: "+m.value.trim());
+    l.push("Total: "+totalItens()+" unidade(s)");
+    return l.join("\n");
+  }
+  function simularEnvio(){
+    var r=$("resSim");
+    r.innerHTML='<div class="ok-sim"><strong>Simulação concluída.</strong> Numa loja real, a lista abaixo chegaria pronta ao vendedor. Aqui, nada foi enviado.</div><pre>'+esc(resumo())+'</pre>';
+  }
+  gaveta.addEventListener("click",function(e){
+    var m=e.target.closest("[data-m]"),p=e.target.closest("[data-p]"),rm=e.target.closest("[data-rm]");
+    if(m){var c=m.dataset.m;orc.set(c,Math.max(1,orc.get(c)-1));atualizarOrc();focar('[data-m="'+c+'"]');}
+    if(p){var c2=p.dataset.p;orc.set(c2,Math.min(99,orc.get(c2)+1));atualizarOrc();focar('[data-p="'+c2+'"]');}
+    if(rm){orc.delete(rm.dataset.rm);atualizarOrc();render();$("fecharOrc").focus();}
+  });
+  function focar(sel){var el=gaveta.querySelector(sel);if(el)el.focus();}
+  function abrirOrc(){gaveta.classList.add("aberta");veu.classList.add("on");abrir.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";setTimeout(function(){$("fecharOrc").focus();},30);}
+  function fecharOrc(){gaveta.classList.remove("aberta");veu.classList.remove("on");abrir.setAttribute("aria-expanded","false");document.body.style.overflow="";abrir.focus();}
+  abrir.addEventListener("click",abrirOrc);
+  $("fecharOrc").addEventListener("click",fecharOrc);
+  veu.addEventListener("click",fecharOrc);
+  document.addEventListener("keydown",function(e){
+    if(!gaveta.classList.contains("aberta")) return;
+    if(e.key==="Escape"){fecharOrc();return;}
+    if(e.key==="Tab"){
+      var f=gaveta.querySelectorAll('button,input,a[href],select');if(!f.length)return;
+      var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+
+  render(); atualizarOrc();
+})();
+</script>
+</body>
+</html>
