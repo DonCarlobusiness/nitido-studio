@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Rota Peças Agrícolas — demonstração conceitual Nítido Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#111316;--panel:#1b1e22;--panel2:#23272c;--ink:#f7f4ec;--muted:#a8adb5;--line:#353a42;--yel:#ffc422;--ok:#74d79b;--warn:#ffb365;--r:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}a{color:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+.topnote{background:var(--yel);color:#111;padding:9px 16px;text-align:center;font:600 12px DM Mono,monospace;letter-spacing:.04em}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(17,19,22,.94);backdrop-filter:blur(12px);z-index:20}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:800 26px Barlow Condensed,sans-serif;letter-spacing:.03em}.brand span{color:var(--yel)}.nav small{color:var(--muted)}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--ink);border-radius:12px;min-height:44px;padding:0 16px;font-weight:700;cursor:pointer}.btn:hover{border-color:var(--yel)}.btn.y{background:var(--yel);color:#111;border-color:var(--yel)}
+.hero{padding:54px 0 30px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}.ey{font:500 12px DM Mono,monospace;color:var(--yel);text-transform:uppercase;letter-spacing:.1em}.hero h1{font:800 clamp(46px,7vw,88px)/.9 Barlow Condensed,sans-serif;text-transform:uppercase;margin:14px 0 20px;max-width:8ch}.hero p{color:var(--muted);font-size:18px;max-width:38em}.hero-photo{min-height:390px;border-radius:24px;overflow:hidden;position:relative;background:#222}.hero-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:saturate(.75) contrast(1.08)}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(17,19,22,.85))}.hero-photo .badge{position:absolute;z-index:2;left:20px;bottom:20px;background:rgba(17,19,22,.9);border:1px solid #4b5058;border-radius:12px;padding:12px 14px;font:500 12px DM Mono,monospace}
+.catalog{padding:34px 0 80px}.toolbar{display:grid;grid-template-columns:1fr 220px;gap:12px}.search,select{height:52px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:0 15px}.search:focus,select:focus{outline:2px solid var(--yel);outline-offset:2px}.stats{display:flex;justify-content:space-between;gap:20px;align-items:center;margin:18px 0;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:18px;display:grid;gap:16px}.code{font:500 11px DM Mono,monospace;color:var(--yel)}.card h3{margin:0;font:700 27px/1 Barlow Condensed,sans-serif;text-transform:uppercase}.card p{margin:0;color:var(--muted);font-size:14px}.stock{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:12px;font-size:13px}.stock .ok{color:var(--ok)}.stock .warn{color:var(--warn)}
+.card-actions{display:flex;gap:8px}.card-actions button{flex:1}.empty{display:none;padding:48px;border:1px dashed var(--line);border-radius:18px;text-align:center;color:var(--muted)}
+.quote{position:fixed;right:18px;bottom:18px;z-index:30;width:min(390px,calc(100% - 36px));background:#f5f2e9;color:#111;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.45);overflow:hidden;transform:translateY(calc(100% + 40px));transition:.35s transform}.quote.open{transform:translateY(0)}.quote-head{padding:18px;border-bottom:1px solid #d8d1c1;display:flex;justify-content:space-between;gap:15px;align-items:center}.quote-head h2{margin:0;font:800 26px Barlow Condensed,sans-serif;text-transform:uppercase}.quote-body{padding:18px;max-height:54vh;overflow:auto}.qitem{display:grid;grid-template-columns:1fr auto;gap:8px;padding:11px 0;border-bottom:1px solid #ddd6c8;font-size:14px}.qitem button{border:0;background:none;text-decoration:underline;cursor:pointer}.quote-foot{padding:18px;display:grid;gap:10px}.quote-foot button{height:46px;border-radius:10px;border:0;background:#111;color:white;font-weight:700;cursor:pointer}.quote-foot small{color:#6e685d}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);opacity:0;background:var(--yel);color:#111;padding:11px 14px;border-radius:999px;font-weight:700;font-size:13px;transition:.25s;z-index:50}.toast.show{opacity:1;transform:translate(-50%,0)}
+.footer{padding:34px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}.back{color:var(--yel);text-decoration:none}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-photo{min-height:300px}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.toolbar,.grid{grid-template-columns:1fr}.nav small{display:none}.hero{padding-top:38px}.hero h1{font-size:56px}.hero-photo{min-height:250px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.quote,.toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="topnote">Projeto conceitual — empresa, estoque, prazos e dados ilustrativos. Nenhuma solicitação é enviada.</div>
+<header><div class="wrap nav"><div class="brand">ROTA <span>PEÇAS</span> AGRÍCOLAS</div><small>Operação de safra · demonstração</small><button class="btn" id="quoteToggle">Orçamento <span id="count">0</span></button></div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+ <div><span class="ey">Peça certa, contexto certo</span><h1>Máquina parada não espera.</h1><p>Encontre uma peça demonstrativa por nome ou código, filtre por categoria e monte uma solicitação simulada. Estoque e prazos abaixo são fictícios e servem apenas para demonstrar a experiência.</p></div>
+ <figure class="hero-photo"><img alt="Máquinas agrícolas trabalhando no campo" src="https://unsplash.com/photos/SEjh2evK3F0/download?force=true&w=1400"><figcaption class="badge">Imagem de referência licenciada via Unsplash · operação agrícola</figcaption></figure>
+</div></section>
+<section class="catalog"><div class="wrap">
+ <div class="toolbar"><input class="search" id="search" type="search" placeholder="Buscar por nome ou código — ex.: AH218489"><select id="category" aria-label="Filtrar por categoria"><option value="">Todas as categorias</option><option>Plataforma</option><option>Transmissão</option><option>Rolamentos</option><option>Filtros</option></select></div>
+ <div class="stats"><span id="resultText">6 itens demonstrativos</span><span>Dados fictícios · sem integração comercial</span></div>
+ <div class="grid" id="grid"></div><div class="empty" id="empty"><strong>Nenhum item encontrado.</strong><br>Tente outro código, nome ou categoria.</div>
+</div></section>
+</main>
+<div class="quote" id="quote" aria-live="polite"><div class="quote-head"><h2>Solicitação simulada</h2><button class="btn" id="closeQuote">Fechar</button></div><div class="quote-body" id="quoteItems"></div><div class="quote-foot"><button id="simulate">Gerar resumo demonstrativo</button><small>Esta ação não coleta dados, não envia mensagem e não cria pedido real.</small></div></div>
+<div class="toast" id="toast"></div>
+<footer class="footer"><div class="wrap">Demonstração criada pelo Nítido Studio · <a class="back" href="/">Voltar ao Nítido Studio</a></div></footer>
+<script>
+const items=[
+ {code:'AH218489',name:'Seção de faca',cat:'Plataforma',desc:'Componente demonstrativo para plataforma de corte.',stock:'3 unidades fictícias',when:'Retirada ilustrativa: hoje'},
+ {code:'AH142187',name:'Rolamento do molinete',cat:'Rolamentos',desc:'Rolamento demonstrativo para conjunto do molinete.',stock:'Sem estoque local fictício',when:'Prazo ilustrativo: 2 dias'},
+ {code:'RE504836',name:'Filtro de óleo',cat:'Filtros',desc:'Filtro demonstrativo para manutenção preventiva.',stock:'8 unidades fictícias',when:'Retirada ilustrativa: hoje'},
+ {code:'AXE20453',name:'Correia variadora',cat:'Transmissão',desc:'Correia demonstrativa para sistema de transmissão.',stock:'2 unidades fictícias',when:'Prazo ilustrativo: 1 dia'},
+ {code:'HXE110648',name:'Dedo retrátil',cat:'Plataforma',desc:'Item demonstrativo para alimentação da plataforma.',stock:'12 unidades fictícias',when:'Retirada ilustrativa: hoje'},
+ {code:'AL156625',name:'Rolamento axial',cat:'Rolamentos',desc:'Peça demonstrativa de conjunto axial.',stock:'Consulta fictícia',when:'Prazo ilustrativo: sob consulta'}
+];
+let selected=[];
+const grid=document.getElementById('grid'),search=document.getElementById('search'),category=document.getElementById('category'),empty=document.getElementById('empty'),resultText=document.getElementById('resultText');
+function render(){
+ const q=search.value.trim().toLowerCase(),cat=category.value;
+ const list=items.filter(i=>(!q||i.name.toLowerCase().includes(q)||i.code.toLowerCase().includes(q))&&(!cat||i.cat===cat));
+ grid.innerHTML=list.map(i=>`<article class="card"><span class="code">${i.code} · ${i.cat}</span><div><h3>${i.name}</h3><p>${i.desc}</p></div><div class="stock"><span class="${i.stock.includes('Sem')||i.stock.includes('Consulta')?'warn':'ok'}">${i.stock}</span><span>${i.when}</span></div><div class="card-actions"><button class="btn" onclick="details('${i.code}')">Detalhes</button><button class="btn y" onclick="add('${i.code}')">Selecionar</button></div></article>`).join('');
+ empty.style.display=list.length?'none':'block';resultText.textContent=`${list.length} ${list.length===1?'item':'itens'} demonstrativos`;
+}
+function details(code){const i=items.find(x=>x.code===code);toast(`${i.code}: ${i.desc} ${i.stock}.`)}
+function add(code){if(!selected.includes(code))selected.push(code);updateQuote();toast('Item adicionado à solicitação simulada.')}
+function removeItem(code){selected=selected.filter(x=>x!==code);updateQuote()}
+function updateQuote(){document.getElementById('count').textContent=selected.length;const box=document.getElementById('quoteItems');if(!selected.length){box.innerHTML='<p style="color:#6e685d">Nenhum item selecionado ainda.</p>';return}box.innerHTML=selected.map(c=>{const i=items.find(x=>x.code===c);return `<div class="qitem"><span><strong>${i.name}</strong><br><small>${i.code}</small></span><button onclick="removeItem('${c}')">remover</button></div>`}).join('')}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
+search.addEventListener('input',render);category.addEventListener('change',render);
+document.getElementById('quoteToggle').onclick=()=>document.getElementById('quote').classList.add('open');
+document.getElementById('closeQuote').onclick=()=>document.getElementById('quote').classList.remove('open');
+document.getElementById('simulate').onclick=()=>toast(selected.length?`Resumo criado com ${selected.length} item(ns). Demonstração concluída.`:'Selecione pelo menos um item para simular.');
+render();updateQuote();
+</script>
+</body></html>
