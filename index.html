@@ -10,307 +10,53 @@
 <meta property="og:description" content="Sites personalizados, construídos a partir do negócio — não de um template.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
- --bg:#f7f8fa;--paper:#fff;--ink:#090b10;--muted:#626977;--line:#dfe3ea;
- --blue:#2447ff;--blue2:#112dc9;--soft:#eef1ff;--dark:#0a0d13;
- --max:1180px;--pad:clamp(20px,5vw,64px);--r:22px;
- --sans:"Bricolage Grotesque",system-ui,sans-serif;--mono:"DM Mono",ui-monospace,monospace;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;font-size:17px}
-a{color:inherit}
-button,input,select{font:inherit}
-img,iframe,svg{display:block;max-width:100%}
-:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
-.wrap{width:min(var(--max),calc(100% - 2*var(--pad)));margin-inline:auto}
-.eyebrow{font:500 12px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--blue)}
-h1,h2,h3{margin:0;line-height:1.02;letter-spacing:-.035em}
-h1{font-size:clamp(46px,7.5vw,104px);font-weight:750;max-width:10.7ch}
-h2{font-size:clamp(36px,5.2vw,68px);font-weight:700;max-width:12ch}
-h3{font-size:clamp(24px,2.5vw,34px);font-weight:680}
-p{margin:0}.muted{color:var(--muted)}
-.lede{font-size:clamp(19px,1.65vw,25px);line-height:1.38;max-width:37em}
-.btn{display:inline-flex;min-height:52px;align-items:center;justify-content:center;gap:10px;padding:0 21px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:white;text-decoration:none;font-weight:650;cursor:pointer;transition:.2s transform,.2s background,.2s border-color}
-.btn:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-1px)}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--soft);border-color:var(--blue);color:var(--blue)}
-.btn.blue{background:var(--blue);border-color:var(--blue)}
-.btn.blue:hover{background:var(--blue2);border-color:var(--blue2)}
-header{position:sticky;top:0;z-index:50;border-bottom:1px solid color-mix(in srgb,var(--line) 85%,transparent);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px)}
-.navbar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{text-decoration:none;font-weight:750;font-size:22px;display:flex;align-items:center;gap:8px}
-.focus-mark{position:relative;padding:3px 8px}
-.focus-mark i{position:absolute;width:8px;height:8px;border:2px solid var(--blue)}
-.focus-mark i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}
-.focus-mark i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
-.focus-mark i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}
-.focus-mark i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
-.brand em{font-style:normal;color:var(--muted);font-weight:450}
-nav ul{display:flex;align-items:center;gap:25px;padding:0;margin:0;list-style:none}
-nav a{text-decoration:none;font-size:15px;font-weight:570}
-nav a:hover{color:var(--blue)}
-.menu-btn{display:none;width:46px;height:46px;border:1.5px solid var(--line);border-radius:50%;background:var(--paper);align-items:center;justify-content:center}
-.hero{padding:clamp(70px,11vw,150px) 0 84px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:clamp(40px,7vw,100px);align-items:end}
-.hero h1 .blur-word{display:inline-block;color:#a5aab5;filter:blur(5px);transition:filter 1s cubic-bezier(.2,.8,.2,1),color 1s}
-.js.ready .hero h1 .blur-word{filter:blur(0);color:var(--blue)}
-.hero-copy{display:grid;gap:28px;margin-top:34px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero-side{display:grid;gap:16px}
-.signal{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;position:relative;overflow:hidden}
-.signal:before{content:"";position:absolute;width:140px;height:140px;border:1px solid #cbd3ff;border-radius:50%;right:-68px;top:-70px;box-shadow:0 0 0 28px #f2f4ff,0 0 0 29px #dbe0ff}
-.signal strong{display:block;font-size:22px;max-width:10em;line-height:1.1}
-.signal p{margin-top:32px;font-size:14px;color:var(--muted)}
-.local{border-left:3px solid var(--blue);padding:4px 0 4px 16px;color:var(--muted);font-size:15px}
-.portfolio{padding:50px 0 120px}
-.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:45px}
-.section-head .text{display:grid;gap:15px}
-.section-head p{max-width:38em}
-.project-list{display:grid;gap:30px}
-.project{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:14px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:14px;min-height:520px;box-shadow:0 22px 60px rgba(8,14,36,.06)}
-.project:nth-child(even){grid-template-columns:minmax(300px,.65fr) minmax(0,1.35fr)}
-.project:nth-child(even) .project-frame{order:2}
-.project-frame{border-radius:18px;overflow:hidden;background:#111;position:relative;min-height:490px;border:1px solid #ced3dc}
-.project-frame iframe{width:150%;height:150%;border:0;transform:scale(.666666);transform-origin:0 0;pointer-events:none;background:white}
-.project-info{padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:30px}
-.project-info .top{display:grid;gap:16px}
-.project-info .meta{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.project-info p{color:var(--muted)}
-.project-tags{display:flex;gap:7px;flex-wrap:wrap}
-.tag{font:500 11px/1.2 var(--mono);border:1px solid var(--line);border-radius:999px;padding:7px 10px}
-.demo-note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
-.method{padding:120px 0;background:var(--dark);color:white}
-.method .eyebrow{color:#91a1ff}.method h2{max-width:14ch}
-.method-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;margin-top:58px}
-.steps{display:grid}
-.step{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:27px 0;border-top:1px solid #2a2f39}
-.step:last-child{border-bottom:1px solid #2a2f39}
-.step .n{font:500 12px var(--mono);color:#7f8cff}
-.step p{color:#aeb5c2;margin-top:9px;max-width:43em}
-.pricing{padding:120px 0}
-.pricing .section-head{align-items:start}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:27px;display:flex;flex-direction:column;gap:23px}
-.plan.featured{border:2px solid var(--blue);box-shadow:0 20px 50px rgba(36,71,255,.09)}
-.plan .label{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--blue)}
-.plan .for{color:var(--muted);min-height:4.5em}
-.price{padding-top:18px;border-top:1px solid var(--line);display:grid;gap:3px}
-.price strong{font-size:31px;line-height:1}.price span{font-size:14px;color:var(--muted)}
-.plan ul{padding:0;margin:0;list-style:none;display:grid;gap:11px;font-size:15px}
-.plan li{position:relative;padding-left:23px}
-.plan li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800}
-.plan .btn{margin-top:auto}
-.custom{margin-top:18px;border:1px dashed #aeb7d3;background:linear-gradient(135deg,#f7f8ff,#fff);border-radius:24px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:26px}
-.custom h3{font-size:28px}.custom p{color:var(--muted);max-width:47em;margin-top:6px}
-.scope{padding:0 0 120px}
-.scope-box{background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden}
-.scope-title{padding:29px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center}
-.scope-title p{color:var(--muted);max-width:42em}
-.scope-grid{display:grid;grid-template-columns:repeat(2,1fr)}
-.scope-item{padding:25px 29px;border-bottom:1px solid var(--line)}
-.scope-item:nth-child(odd){border-right:1px solid var(--line)}
-.scope-item strong{display:block;margin-bottom:6px}
-.scope-item p{color:var(--muted);font-size:15px}
-.faq{padding:0 0 120px}
-.faq-list{border-top:1px solid var(--line);margin-top:42px}
-details{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;font-weight:650;font-size:20px}
-summary::-webkit-details-marker{display:none}
-summary:after{content:"+";font-size:25px;color:var(--blue)}
-details[open] summary:after{content:"−"}
-details .answer{padding:0 0 23px;color:var(--muted);max-width:52em}
-.cta{padding:0 0 80px}
-.cta-box{background:var(--blue);color:white;border-radius:30px;padding:clamp(36px,6vw,76px);display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
-.cta-box h2{max-width:12ch}
-.cta-box p{color:#dce2ff;margin-top:20px;max-width:36em}
-.cta-box .btn{background:white;border-color:white;color:var(--blue)}
-.cta-box .btn:hover{background:var(--dark);border-color:var(--dark);color:white}
-.cta-data{font-size:14px;color:#dce2ff;display:grid;gap:10px}
-footer{padding:28px 0 42px;color:var(--muted);font-size:14px}
-footer .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:980px){
- nav{position:fixed;inset:74px 0 auto;background:var(--paper);border-bottom:1px solid var(--line);padding:24px var(--pad);display:none}
- nav.open{display:block}nav ul{align-items:flex-start;flex-direction:column}.menu-btn{display:flex}.navbar>.btn{display:none}
- .hero-grid,.method-grid,.cta-box{grid-template-columns:1fr}.hero-side{max-width:560px}
- .project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .project-frame{order:0}
- .price-grid{grid-template-columns:1fr;max-width:650px}.plan .for{min-height:0}
-}
-@media(max-width:700px){
- .section-head{display:grid}.project{padding:8px;border-radius:20px}.project-frame{min-height:380px}
- .project-info{padding:24px}.scope-grid{grid-template-columns:1fr}.scope-item:nth-child(odd){border-right:0}
- .custom{align-items:flex-start;flex-direction:column}.hero{padding-top:60px}
-}
+:root{--bg:#f7f8fa;--paper:#fff;--ink:#090b10;--muted:#626977;--line:#dfe3ea;--blue:#2447ff;--blue2:#112dc9;--soft:#eef1ff;--dark:#0a0d13;--max:1180px;--pad:clamp(20px,5vw,64px);--r:22px;--sans:"Bricolage Grotesque",system-ui,sans-serif;--mono:"DM Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;font-size:17px}a{color:inherit}button,input,select{font:inherit}img,iframe,svg{display:block;max-width:100%}:focus-visible{outline:3px solid var(--blue);outline-offset:4px}.wrap{width:min(var(--max),calc(100% - 2*var(--pad)));margin-inline:auto}.eyebrow{font:500 12px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--blue)}h1,h2,h3{margin:0;line-height:1.02;letter-spacing:-.035em}h1{font-size:clamp(46px,7.5vw,104px);font-weight:750;max-width:10.7ch}h2{font-size:clamp(36px,5.2vw,68px);font-weight:700;max-width:12ch}h3{font-size:clamp(24px,2.5vw,34px);font-weight:680}p{margin:0}.muted{color:var(--muted)}.lede{font-size:clamp(19px,1.65vw,25px);line-height:1.38;max-width:37em}
+.btn{display:inline-flex;min-height:52px;align-items:center;justify-content:center;gap:10px;padding:0 21px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:white;text-decoration:none;font-weight:650;cursor:pointer;transition:.2s transform,.2s background,.2s border-color}.btn:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-1px)}.btn.ghost{background:transparent;color:var(--ink)}.btn.ghost:hover{background:var(--soft);border-color:var(--blue);color:var(--blue)}.btn.blue{background:var(--blue);border-color:var(--blue)}.btn.blue:hover{background:var(--blue2);border-color:var(--blue2)}
+header{position:sticky;top:0;z-index:50;border-bottom:1px solid color-mix(in srgb,var(--line) 85%,transparent);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px)}.navbar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{text-decoration:none;display:flex;align-items:center;flex:0 0 auto}.brand img{height:39px;width:auto;object-fit:contain}nav ul{display:flex;align-items:center;gap:25px;padding:0;margin:0;list-style:none}nav a{text-decoration:none;font-size:15px;font-weight:570}nav a:hover{color:var(--blue)}.menu-btn{display:none;width:46px;height:46px;border:1.5px solid var(--line);border-radius:50%;background:var(--paper);align-items:center;justify-content:center}
+.hero{padding:clamp(70px,11vw,150px) 0 84px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:clamp(40px,7vw,100px);align-items:end}.hero h1 .blur-word{display:inline-block;color:#a5aab5;filter:blur(5px);transition:filter 1s cubic-bezier(.2,.8,.2,1),color 1s}.js.ready .hero h1 .blur-word{filter:blur(0);color:var(--blue)}.hero-copy{display:grid;gap:28px;margin-top:34px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero-side{display:grid;gap:16px}.signal{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;position:relative;overflow:hidden}.signal:before{content:"";position:absolute;width:140px;height:140px;border:1px solid #cbd3ff;border-radius:50%;right:-68px;top:-70px;box-shadow:0 0 0 28px #f2f4ff,0 0 0 29px #dbe0ff}.signal strong{display:block;font-size:22px;max-width:10em;line-height:1.1}.signal p{margin-top:32px;font-size:14px;color:var(--muted)}.local{border-left:3px solid var(--blue);padding:4px 0 4px 16px;color:var(--muted);font-size:15px}
+.portfolio{padding:50px 0 120px}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:45px}.section-head .text{display:grid;gap:15px}.section-head p{max-width:38em}.project-list{display:grid;gap:30px}.project{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:14px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:14px;min-height:520px;box-shadow:0 22px 60px rgba(8,14,36,.06)}.project:nth-child(even){grid-template-columns:minmax(300px,.65fr) minmax(0,1.35fr)}.project:nth-child(even) .project-frame{order:2}.project-frame{border-radius:18px;overflow:hidden;background:#111;position:relative;min-height:490px;border:1px solid #ced3dc}.project-frame iframe{width:150%;height:150%;border:0;transform:scale(.666666);transform-origin:0 0;pointer-events:none;background:white}.project-info{padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:30px}.project-info .top{display:grid;gap:16px}.project-info .meta{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.project-info p{color:var(--muted)}.project-tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font:500 11px/1.2 var(--mono);border:1px solid var(--line);border-radius:999px;padding:7px 10px}.demo-note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.method{padding:120px 0;background:var(--dark);color:white}.method .eyebrow{color:#91a1ff}.method h2{max-width:14ch}.method-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;margin-top:58px}.steps{display:grid}.step{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:27px 0;border-top:1px solid #2a2f39}.step:last-child{border-bottom:1px solid #2a2f39}.step .n{font:500 12px var(--mono);color:#7f8cff}.step p{color:#aeb5c2;margin-top:9px;max-width:43em}
+.pricing{padding:120px 0}.pricing .section-head{align-items:start}.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.plan{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:27px;display:flex;flex-direction:column;gap:23px}.plan.featured{border:2px solid var(--blue);box-shadow:0 20px 50px rgba(36,71,255,.09)}.plan .label{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--blue)}.plan .for{color:var(--muted);min-height:4.5em}.price{padding-top:18px;border-top:1px solid var(--line);display:grid;gap:3px}.price strong{font-size:31px;line-height:1}.price span{font-size:14px;color:var(--muted)}.plan ul{padding:0;margin:0;list-style:none;display:grid;gap:11px;font-size:15px}.plan li{position:relative;padding-left:23px}.plan li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800}.plan .btn{margin-top:auto}.custom{margin-top:18px;border:1px dashed #aeb7d3;background:linear-gradient(135deg,#f7f8ff,#fff);border-radius:24px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:26px}.custom h3{font-size:28px}.custom p{color:var(--muted);max-width:47em;margin-top:6px}
+.scope{padding:0 0 120px}.scope-box{background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden}.scope-title{padding:29px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center}.scope-title p{color:var(--muted);max-width:42em}.scope-grid{display:grid;grid-template-columns:repeat(2,1fr)}.scope-item{padding:25px 29px;border-bottom:1px solid var(--line)}.scope-item:nth-child(odd){border-right:1px solid var(--line)}.scope-item strong{display:block;margin-bottom:7px}.scope-item p{color:var(--muted);font-size:15px}
+.faq{padding:0 0 120px}.faq-list{margin-top:40px;border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line)}summary{cursor:pointer;list-style:none;padding:24px 0;font-size:20px;font-weight:650;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary:after{content:"+";font:400 25px var(--mono);color:var(--blue)}details[open] summary:after{content:"−"}.answer{color:var(--muted);padding:0 0 25px;max-width:54em}
+.cta{padding:0 0 70px}.cta-box{background:var(--blue);color:white;border-radius:30px;padding:clamp(30px,5vw,65px);display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}.cta-box h2{max-width:12ch}.cta-box p{margin-top:20px;color:#dce2ff;max-width:40em}.cta-box .btn{background:white;color:var(--blue);border-color:white}.cta-data{display:grid;gap:6px;color:#dce2ff;font-size:14px}
+footer{padding:30px 0 45px;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}.foot-brand{display:flex;align-items:center;gap:14px}.foot-brand img{height:30px;width:auto}.foot-brand small{font-size:13px}
+@media(max-width:920px){.navbar>.btn{display:none}.menu-btn{display:flex;order:3}nav{display:none;position:absolute;left:var(--pad);right:var(--pad);top:67px;background:white;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 20px 50px rgba(0,0,0,.12)}nav.open{display:block}nav ul{display:grid;gap:0}nav a{display:block;padding:13px}.hero-grid,.method-grid,.cta-box{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr 1fr}.project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .project-frame{order:0}.price-grid{grid-template-columns:1fr;max-width:650px}.plan .for{min-height:0}}
+@media(max-width:700px){.section-head{display:grid}.project{padding:8px;border-radius:20px}.project-frame{min-height:380px}.project-info{padding:24px}.scope-grid{grid-template-columns:1fr}.scope-item:nth-child(odd){border-right:0}.custom{align-items:flex-start;flex-direction:column}.hero{padding-top:60px}.brand img{height:33px}.hero-side{grid-template-columns:1fr}.foot-brand img{height:27px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blur-word{filter:none!important;transition:none!important}.btn{transition:none}}
 </style>
 </head>
 <body>
-<header>
- <div class="wrap navbar">
-  <a class="brand" href="#inicio"><span class="focus-mark"><i></i><i></i><i></i><i></i>Nítido</span><em>Studio</em></a>
-  <button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu">
-   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-  </button>
-  <nav id="mainNav" aria-label="Navegação principal"><ul>
-   <li><a href="#projetos">Projetos</a></li><li><a href="#metodo">Método</a></li><li><a href="#pacotes">Pacotes</a></li><li><a href="#faq">Dúvidas</a></li>
-  </ul></nav>
-  <a class="btn blue" href="#contato">Conversar sobre meu site</a>
- </div>
-</header>
-
+<header><div class="wrap navbar">
+<a class="brand" href="#inicio" aria-label="Nítido Studio — ir para o início"><img src="/nitido-logo.png" alt="Nítido Studio"></a>
+<button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<nav id="mainNav" aria-label="Navegação principal"><ul><li><a href="#projetos">Projetos</a></li><li><a href="#metodo">Método</a></li><li><a href="#pacotes">Pacotes</a></li><li><a href="#faq">Dúvidas</a></li></ul></nav>
+<a class="btn blue" href="#contato">Conversar sobre meu site</a>
+</div></header>
 <main id="inicio">
-<section class="hero">
- <div class="wrap hero-grid">
-  <div>
-   <span class="eyebrow">Sites personalizados · LEM, Bahia</span>
-   <h1 style="margin-top:18px">Seu negócio merece um site <span class="blur-word">nítido.</span></h1>
-   <div class="hero-copy">
-    <p class="lede">Criamos sites para empresas, serviços e negócios do agro que precisam explicar melhor o que fazem, apresentar confiança no celular e transformar interesse em conversa. Cada projeto nasce do negócio — não de um template trocando logo e cor.</p>
-    <div class="hero-actions"><a class="btn blue" href="#projetos">Explorar projetos</a><a class="btn ghost" href="#contato">Conversar sobre meu site</a></div>
-   </div>
-  </div>
-  <div class="hero-side">
-   <div class="signal"><span class="eyebrow">Direção do estúdio</span><strong style="margin-top:14px">Pesquisa → identidade → experiência → publicação.</strong><p>O visual só entra depois de entendermos o negócio, o público e a ação que a página precisa facilitar.</p></div>
-   <p class="local"><strong>Base em Luís Eduardo Magalhães.</strong><br>Conhecimento de comércio local, serviços e agro do Oeste da Bahia, com atendimento remoto quando fizer sentido.</p>
-  </div>
- </div>
-</section>
-
-<section class="portfolio" id="projetos">
- <div class="wrap">
-  <div class="section-head">
-   <div class="text"><span class="eyebrow">Projetos navegáveis</span><h2>Não conte. Mostre.</h2></div>
-   <p class="lede muted">Os três projetos abaixo são demonstrações conceituais construídas para mostrar decisões de produto, conteúdo e interface. Você pode abrir cada uma e testar as interações.</p>
-  </div>
-  <div class="project-list">
-   <article class="project">
-    <div class="project-frame" aria-label="Prévia navegável da demonstração Rota Peças Agrícolas"><iframe loading="lazy" title="Prévia Rota Peças Agrícolas" src="/demos/rota-pecas/" tabindex="-1"></iframe></div>
-    <div class="project-info">
-     <div class="top"><span class="meta">01 · Operação de safra</span><h3>Rota Peças Agrícolas</h3><p>Uma experiência industrial para quem precisa localizar uma peça por nome ou código, filtrar o catálogo e montar uma solicitação de orçamento demonstrativa.</p><div class="project-tags"><span class="tag">Busca</span><span class="tag">Filtro</span><span class="tag">Seleção</span></div></div>
-     <div><a class="btn ghost" href="/demos/rota-pecas/">Explorar demonstração ↗</a><p class="demo-note">Projeto conceitual — empresa, estoque, prazos e dados ilustrativos.</p></div>
-    </div>
-   </article>
-   <article class="project">
-    <div class="project-frame" aria-label="Prévia navegável da demonstração Marco Zero Topografia"><iframe loading="lazy" title="Prévia Marco Zero Topografia" src="/demos/marco-zero/" tabindex="-1"></iframe></div>
-    <div class="project-info">
-     <div class="top"><span class="meta">02 · Serviço técnico</span><h3>Marco Zero Topografia</h3><p>Direção editorial com linguagem cartográfica e um questionário de três etapas que organiza a conversa inicial sem substituir análise técnica ou jurídica.</p><div class="project-tags"><span class="tag">Stepper</span><span class="tag">Validação</span><span class="tag">Mapa vetorial</span></div></div>
-     <div><a class="btn ghost" href="/demos/marco-zero/">Explorar demonstração ↗</a><p class="demo-note">Projeto conceitual — empresa, orientações e dados ilustrativos.</p></div>
-    </div>
-   </article>
-   <article class="project">
-    <div class="project-frame" aria-label="Prévia navegável da demonstração Vet Campo Cerrado"><iframe loading="lazy" title="Prévia Vet Campo Cerrado" src="/demos/vet-campo/" tabindex="-1"></iframe></div>
-    <div class="project-info">
-     <div class="top"><span class="meta">03 · Atendimento a campo</span><h3>Vet Campo Cerrado</h3><p>Uma interface humana e documental que separa urgência de serviços programados, consulta cobertura demonstrativa por município e simula a jornada de solicitação.</p><div class="project-tags"><span class="tag">Cobertura</span><span class="tag">Estados de resposta</span><span class="tag">Jornada</span></div></div>
-     <div><a class="btn ghost" href="/demos/vet-campo/">Explorar demonstração ↗</a><p class="demo-note">Projeto conceitual — empresa, cobertura e dados ilustrativos.</p></div>
-    </div>
-   </article>
-  </div>
- </div>
-</section>
-
-<section class="method" id="metodo">
- <div class="wrap">
-  <span class="eyebrow">Método Nítido</span><h2 style="margin-top:16px">Personalização que dá para explicar.</h2>
-  <div class="method-grid">
-   <p class="lede" style="color:#cbd1dd">Um site personalizado não é adicionar efeitos. É fazer arquitetura, conteúdo, direção visual e interações responderem ao contexto do negócio.</p>
-   <div class="steps">
-    <div class="step"><span class="n">01</span><div><h3>Pesquisar</h3><p>Entendemos serviços, público, objeções, região, referências e presença digital disponível antes de definir a interface.</p></div></div>
-    <div class="step"><span class="n">02</span><div><h3>Organizar</h3><p>Definimos a jornada: o que aparece primeiro, o que sustenta confiança e qual ação deve ficar fácil em cada tela.</p></div></div>
-    <div class="step"><span class="n">03</span><div><h3>Desenhar e construir</h3><p>Tipografia, composição, imagens e componentes seguem a identidade encontrada. Movimento só entra quando ajuda a demonstrar algo ou orientar atenção.</p></div></div>
-    <div class="step"><span class="n">04</span><div><h3>Revisar e publicar</h3><p>Testamos celular e desktop, links, legibilidade, estados de interface e acessibilidade antes da entrega.</p></div></div>
-   </div>
-  </div>
- </div>
-</section>
-
-<section class="pricing" id="pacotes">
- <div class="wrap">
-  <div class="section-head"><div class="text"><span class="eyebrow">Investimento</span><h2>Escopo claro antes de começar.</h2></div><p class="lede muted">A criação é um projeto. A manutenção começa após a publicação, se contratada. Prazos são definidos na proposta depois do briefing.</p></div>
-  <div class="price-grid">
-   <article class="plan">
-    <span class="label">Essencial</span><h3>R$ 1.490</h3><p class="for">Para uma presença direta, bem apresentada e fácil de manter.</p>
-    <div class="price"><strong>R$ 149/mês</strong><span>manutenção opcional após a publicação</span></div>
-    <ul><li>1 página com até 7 seções</li><li>Textos a partir do briefing</li><li>Direção visual adaptada à marca</li><li>WhatsApp e mapa, quando pertinentes</li><li>Títulos, descrições e indexação básica</li><li>2 rodadas consolidadas de revisão</li><li>1 solicitação mensal, até 1h de execução</li></ul>
-    <a class="btn ghost package-wa" data-package="Essencial" href="#">Conversar sobre o Essencial</a>
-   </article>
-   <article class="plan featured">
-    <span class="label">Profissional</span><h3>R$ 2.990</h3><p class="for">Para empresas com vários serviços que precisam de mais espaço para explicar e converter.</p>
-    <div class="price"><strong>R$ 249/mês</strong><span>manutenção opcional após a publicação</span></div>
-    <ul><li>Até 5 páginas</li><li>Textos e direção visual personalizados</li><li>Formulário, WhatsApp e mapa, quando pertinentes</li><li>SEO básico e eventos de contato, com acessos disponíveis</li><li>2 rodadas consolidadas de revisão</li><li>Até 2 solicitações/mês, somando 2h</li><li>Novas páginas e integrações sob orçamento</li></ul>
-    <a class="btn blue package-wa" data-package="Profissional" href="#">Conversar sobre o Profissional</a>
-   </article>
-   <article class="plan">
-    <span class="label">Performance</span><h3>a partir de R$ 4.990</h3><p class="for">Para projetos com mais páginas, mensuração e uma operação inicial de mídia paga.</p>
-    <div class="price"><strong>a partir de R$ 1.290/mês</strong><span>manutenção + gestão inicial de anúncios</span></div>
-    <ul><li>Até 10 páginas, incluindo até 2 páginas de campanha</li><li>Mensuração de contatos</li><li>2 rodadas consolidadas de revisão</li><li>Até 4h mensais de alterações no site</li><li>Google Ads OU Meta Ads</li><li>Até 2 campanhas ativas</li><li>Até 4 peças simples/mês + relatório</li></ul>
-    <a class="btn ghost package-wa" data-package="Performance" href="#">Conversar sobre o Performance</a>
-   </article>
-  </div>
-  <div class="custom">
-   <div><h3>Projetos sob medida — sob orçamento</h3><p>Para direção de arte mais elaborada, vídeo, animações exclusivas, catálogos, integrações e funcionalidades especiais. Esses recursos não entram automaticamente nos pacotes básicos.</p></div>
-   <a class="btn ghost package-wa" data-package="Sob medida" href="#">Pedir proposta</a>
-  </div>
- </div>
-</section>
-
-<section class="scope">
- <div class="wrap scope-box">
-  <div class="scope-title"><div><span class="eyebrow">Condições comuns</span><h3 style="margin-top:8px">Sem letra miúda.</h3></div><p>Consulte condições de parcelamento. Não há cobrança ou checkout neste site.</p></div>
-  <div class="scope-grid">
-   <div class="scope-item"><strong>Manutenção e horas</strong><p>A cobrança mensal começa após a publicação, conforme a proposta. Horas não acumulam; excedentes dependem de orçamento aceito.</p></div>
-   <div class="scope-item"><strong>Revisão ≠ mudança de escopo</strong><p>Revisões ajustam o conteúdo e o layout contratados. Novas páginas, funcionalidades, integrações ou reformulações são novos escopos.</p></div>
-   <div class="scope-item"><strong>Domínio e ferramentas</strong><p>Domínio, hospedagem e ferramentas externas ficam no nome do cliente e são pagos separadamente.</p></div>
-   <div class="scope-item"><strong>Cancelamento</strong><p>Sem fidelidade, com aviso de 30 dias. O cliente mantém o site e os acessos; a publicação depende dos serviços externos permanecerem ativos.</p></div>
-   <div class="scope-item"><strong>Resposta</strong><p>Retorno inicial em até um dia útil não significa conclusão de qualquer alteração no mesmo prazo.</p></div>
-   <div class="scope-item"><strong>Mídia paga</strong><p>No Performance, a verba é paga diretamente pelo cliente à plataforma. Com referência de R$ 1.000/mês em mídia, o recorrente combinado parte de R$ 2.290/mês, sujeito ao escopo.</p></div>
-  </div>
- </div>
-</section>
-
-<section class="faq" id="faq">
- <div class="wrap">
-  <span class="eyebrow">Perguntas frequentes</span><h2 style="margin-top:15px">O que costuma precisar de clareza.</h2>
-  <div class="faq-list">
-   <details><summary>Quanto tempo leva para criar o site?</summary><div class="answer">O prazo é definido na proposta após o briefing, considerando número de páginas, materiais disponíveis, integrações e complexidade visual.</div></details>
-   <details><summary>Quando a manutenção começa a ser cobrada?</summary><div class="answer">Após a publicação, na data definida na proposta. A criação e a manutenção são escopos separados.</div></details>
-   <details><summary>O que entra na manutenção?</summary><div class="answer">Alterações no conteúdo existente dentro do limite mensal do pacote. Novas páginas, novas funcionalidades, integrações, reformulações e produção contínua de conteúdo são orçadas separadamente.</div></details>
-   <details><summary>Se eu cancelar, perco o site?</summary><div class="answer">Não. O cliente mantém os arquivos e acessos. A continuidade do site publicado depende de domínio, hospedagem e ferramentas externas permanecerem ativos.</div></details>
-   <details><summary>Vocês garantem vendas ou posição no Google?</summary><div class="answer">Não. O trabalho melhora apresentação, estrutura, experiência e mensuração dentro do escopo contratado, mas resultado comercial e posicionamento dependem de diversos fatores externos.</div></details>
-   <details><summary>O Performance inclui a verba dos anúncios?</summary><div class="answer">Não. A gestão é um serviço do Nítido; a verba de mídia é paga pelo cliente diretamente ao Google ou à Meta.</div></details>
-  </div>
- </div>
-</section>
-
-<section class="cta" id="contato">
- <div class="wrap cta-box">
-  <div><span class="eyebrow" style="color:#dce2ff">Próximo passo</span><h2 style="margin-top:14px">Vamos entender o seu negócio antes de desenhar.</h2><p>Abra o WhatsApp e conte em poucas linhas o que sua empresa faz e em qual cidade está. A conversa começa pelo contexto, não pelo pacote.</p></div>
-  <div><a class="btn" id="mainWa" href="https://wa.me/5577998786875" target="_blank" rel="noopener">Conversar sobre meu site ↗</a><div class="cta-data" style="margin-top:20px"><span>WhatsApp: +55 77 99878-6875</span><span>Luís Eduardo Magalhães · Bahia</span><span>Retorno inicial em até 1 dia útil</span></div></div>
- </div>
-</section>
+<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">Sites personalizados · LEM, Bahia</span><h1 style="margin-top:18px">Seu negócio merece um site <span class="blur-word">nítido.</span></h1><div class="hero-copy"><p class="lede">Criamos sites para empresas, serviços e negócios do agro que precisam explicar melhor o que fazem, apresentar confiança no celular e transformar interesse em conversa. Cada projeto nasce do negócio — não de um template trocando logo e cor.</p><div class="hero-actions"><a class="btn blue" href="#projetos">Explorar projetos</a><a class="btn ghost" href="#contato">Conversar sobre meu site</a></div></div></div><div class="hero-side"><div class="signal"><span class="eyebrow">Direção do estúdio</span><strong style="margin-top:14px">Pesquisa → identidade → experiência → publicação.</strong><p>O visual só entra depois de entendermos o negócio, o público e a ação que a página precisa facilitar.</p></div><p class="local"><strong>Base em Luís Eduardo Magalhães.</strong><br>Conhecimento de comércio local, serviços e agro do Oeste da Bahia, com atendimento remoto quando fizer sentido.</p></div></div></section>
+<section class="portfolio" id="projetos"><div class="wrap"><div class="section-head"><div class="text"><span class="eyebrow">Projetos navegáveis</span><h2>Não conte. Mostre.</h2></div><p class="lede muted">Os três projetos abaixo são demonstrações conceituais construídas para mostrar decisões de produto, conteúdo e interface. Você pode abrir cada uma e testar as interações.</p></div><div class="project-list">
+<article class="project"><div class="project-frame"><iframe loading="lazy" title="Prévia Rota Peças Agrícolas" src="/demos/rota-pecas/" tabindex="-1"></iframe></div><div class="project-info"><div class="top"><span class="meta">01 · Operação de safra</span><h3>Rota Peças Agrícolas</h3><p>Uma experiência industrial para quem precisa localizar uma peça por nome ou código, filtrar o catálogo e montar uma solicitação de orçamento demonstrativa.</p><div class="project-tags"><span class="tag">Busca</span><span class="tag">Filtro</span><span class="tag">Seleção</span></div></div><div><a class="btn ghost" href="/demos/rota-pecas/">Explorar demonstração ↗</a><p class="demo-note">Projeto conceitual — empresa, estoque, prazos e dados ilustrativos.</p></div></div></article>
+<article class="project"><div class="project-frame"><iframe loading="lazy" title="Prévia Marco Zero Topografia" src="/demos/marco-zero/" tabindex="-1"></iframe></div><div class="project-info"><div class="top"><span class="meta">02 · Serviço técnico</span><h3>Marco Zero Topografia</h3><p>Direção editorial com linguagem cartográfica e um questionário de três etapas que organiza a conversa inicial sem substituir análise técnica ou jurídica.</p><div class="project-tags"><span class="tag">Stepper</span><span class="tag">Validação</span><span class="tag">Mapa vetorial</span></div></div><div><a class="btn ghost" href="/demos/marco-zero/">Explorar demonstração ↗</a><p class="demo-note">Projeto conceitual — empresa, orientações e dados ilustrativos.</p></div></div></article>
+<article class="project"><div class="project-frame"><iframe loading="lazy" title="Prévia Vet Campo Cerrado" src="/demos/vet-campo/" tabindex="-1"></iframe></div><div class="project-info"><div class="top"><span class="meta">03 · Atendimento a campo</span><h3>Vet Campo Cerrado</h3><p>Uma interface humana e documental que separa urgência de serviços programados, consulta cobertura demonstrativa por município e simula a jornada de solicitação.</p><div class="project-tags"><span class="tag">Cobertura</span><span class="tag">Estados de resposta</span><span class="tag">Jornada</span></div></div><div><a class="btn ghost" href="/demos/vet-campo/">Explorar demonstração ↗</a><p class="demo-note">Projeto conceitual — empresa, cobertura e dados ilustrativos.</p></div></div></article>
+</div></div></section>
+<section class="method" id="metodo"><div class="wrap"><span class="eyebrow">Método Nítido</span><h2 style="margin-top:16px">Personalização que dá para explicar.</h2><div class="method-grid"><p class="lede" style="color:#cbd1dd">Um site personalizado não é adicionar efeitos. É fazer arquitetura, conteúdo, direção visual e interações responderem ao contexto do negócio.</p><div class="steps"><div class="step"><span class="n">01</span><div><h3>Pesquisar</h3><p>Entendemos serviços, público, objeções, região, referências e presença digital disponível antes de definir a interface.</p></div></div><div class="step"><span class="n">02</span><div><h3>Organizar</h3><p>Definimos a jornada: o que aparece primeiro, o que sustenta confiança e qual ação deve ficar fácil em cada tela.</p></div></div><div class="step"><span class="n">03</span><div><h3>Desenhar e construir</h3><p>Tipografia, composição, imagens e componentes seguem a identidade encontrada. Movimento só entra quando ajuda a demonstrar algo ou orientar atenção.</p></div></div><div class="step"><span class="n">04</span><div><h3>Revisar e publicar</h3><p>Testamos celular e desktop, links, legibilidade, estados de interface e acessibilidade antes da entrega.</p></div></div></div></div></div></section>
+<section class="pricing" id="pacotes"><div class="wrap"><div class="section-head"><div class="text"><span class="eyebrow">Investimento</span><h2>Escopo claro antes de começar.</h2></div><p class="lede muted">A criação é um projeto. A manutenção começa após a publicação, se contratada. Prazos são definidos na proposta depois do briefing.</p></div><div class="price-grid">
+<article class="plan"><span class="label">Essencial</span><h3>R$ 1.490</h3><p class="for">Para uma presença direta, bem apresentada e fácil de manter.</p><div class="price"><strong>R$ 149/mês</strong><span>manutenção opcional após a publicação</span></div><ul><li>1 página com até 7 seções</li><li>Textos a partir do briefing</li><li>Direção visual adaptada à marca</li><li>WhatsApp e mapa, quando pertinentes</li><li>Títulos, descrições e indexação básica</li><li>2 rodadas consolidadas de revisão</li><li>1 solicitação mensal, até 1h de execução</li></ul><a class="btn ghost package-wa" data-package="Essencial" href="#">Conversar sobre o Essencial</a></article>
+<article class="plan featured"><span class="label">Profissional</span><h3>R$ 2.990</h3><p class="for">Para empresas com vários serviços que precisam de mais espaço para explicar e converter.</p><div class="price"><strong>R$ 249/mês</strong><span>manutenção opcional após a publicação</span></div><ul><li>Até 5 páginas</li><li>Textos e direção visual personalizados</li><li>Formulário, WhatsApp e mapa, quando pertinentes</li><li>SEO básico e eventos de contato, com acessos disponíveis</li><li>2 rodadas consolidadas de revisão</li><li>Até 2 solicitações/mês, somando 2h</li><li>Novas páginas e integrações sob orçamento</li></ul><a class="btn blue package-wa" data-package="Profissional" href="#">Conversar sobre o Profissional</a></article>
+<article class="plan"><span class="label">Performance</span><h3>a partir de R$ 4.990</h3><p class="for">Para projetos com mais páginas, mensuração e uma operação inicial de mídia paga.</p><div class="price"><strong>a partir de R$ 1.290/mês</strong><span>manutenção + gestão inicial de anúncios</span></div><ul><li>Até 10 páginas, incluindo até 2 páginas de campanha</li><li>Mensuração de contatos</li><li>2 rodadas consolidadas de revisão</li><li>Até 4h mensais de alterações no site</li><li>Google Ads OU Meta Ads</li><li>Até 2 campanhas ativas</li><li>Até 4 peças simples/mês + relatório</li></ul><a class="btn ghost package-wa" data-package="Performance" href="#">Conversar sobre o Performance</a></article>
+</div><div class="custom"><div><h3>Projetos sob medida — sob orçamento</h3><p>Para direção de arte mais elaborada, vídeo, animações exclusivas, catálogos, integrações e funcionalidades especiais. Esses recursos não entram automaticamente nos pacotes básicos.</p></div><a class="btn ghost package-wa" data-package="Sob medida" href="#">Pedir proposta</a></div></div></section>
+<section class="scope"><div class="wrap scope-box"><div class="scope-title"><div><span class="eyebrow">Condições comuns</span><h3 style="margin-top:8px">Sem letra miúda.</h3></div><p>Consulte condições de parcelamento. Não há cobrança ou checkout neste site.</p></div><div class="scope-grid"><div class="scope-item"><strong>Manutenção e horas</strong><p>A cobrança mensal começa após a publicação, conforme a proposta. Horas não acumulam; excedentes dependem de orçamento aceito.</p></div><div class="scope-item"><strong>Revisão ≠ mudança de escopo</strong><p>Revisões ajustam o conteúdo e o layout contratados. Novas páginas, funcionalidades, integrações ou reformulações são novos escopos.</p></div><div class="scope-item"><strong>Domínio e ferramentas</strong><p>Domínio, hospedagem e ferramentas externas ficam no nome do cliente e são pagos separadamente.</p></div><div class="scope-item"><strong>Cancelamento</strong><p>Sem fidelidade, com aviso de 30 dias. O cliente mantém o site e os acessos; a publicação depende dos serviços externos permanecerem ativos.</p></div><div class="scope-item"><strong>Resposta</strong><p>Retorno inicial em até um dia útil não significa conclusão de qualquer alteração no mesmo prazo.</p></div><div class="scope-item"><strong>Mídia paga</strong><p>No Performance, a verba é paga diretamente pelo cliente à plataforma. Com referência de R$ 1.000/mês em mídia, o recorrente combinado parte de R$ 2.290/mês, sujeito ao escopo.</p></div></div></div></section>
+<section class="faq" id="faq"><div class="wrap"><span class="eyebrow">Perguntas frequentes</span><h2 style="margin-top:15px">O que costuma precisar de clareza.</h2><div class="faq-list"><details><summary>Quanto tempo leva para criar o site?</summary><div class="answer">O prazo é definido na proposta após o briefing, considerando número de páginas, materiais disponíveis, integrações e complexidade visual.</div></details><details><summary>Quando a manutenção começa a ser cobrada?</summary><div class="answer">Após a publicação, na data definida na proposta. A criação e a manutenção são escopos separados.</div></details><details><summary>O que entra na manutenção?</summary><div class="answer">Alterações no conteúdo existente dentro do limite mensal do pacote. Novas páginas, novas funcionalidades, integrações, reformulações e produção contínua de conteúdo são orçadas separadamente.</div></details><details><summary>Se eu cancelar, perco o site?</summary><div class="answer">Não. O cliente mantém os arquivos e acessos. A continuidade do site publicado depende de domínio, hospedagem e ferramentas externas permanecerem ativos.</div></details><details><summary>Vocês garantem vendas ou posição no Google?</summary><div class="answer">Não. O trabalho melhora apresentação, estrutura, experiência e mensuração dentro do escopo contratado, mas resultado comercial e posicionamento dependem de diversos fatores externos.</div></details><details><summary>O Performance inclui a verba dos anúncios?</summary><div class="answer">Não. A gestão é um serviço do Nítido; a verba de mídia é paga pelo cliente diretamente ao Google ou à Meta.</div></details></div></div></section>
+<section class="cta" id="contato"><div class="wrap cta-box"><div><span class="eyebrow" style="color:#dce2ff">Próximo passo</span><h2 style="margin-top:14px">Vamos entender o seu negócio antes de desenhar.</h2><p>Abra o WhatsApp e conte em poucas linhas o que sua empresa faz e em qual cidade está. A conversa começa pelo contexto, não pelo pacote.</p></div><div><a class="btn" id="mainWa" href="https://wa.me/5577998786875" target="_blank" rel="noopener">Conversar sobre meu site ↗</a><div class="cta-data" style="margin-top:20px"><span>WhatsApp: +55 77 99878-6875</span><span>Luís Eduardo Magalhães · Bahia</span><span>Retorno inicial em até 1 dia útil</span></div></div></div></section>
 </main>
-
-<footer><div class="wrap foot"><span>© Nítido Studio · Sites personalizados para empresas.</span><span>Projetos conceituais identificados como ilustrativos.</span></div></footer>
-
-<script>
-(function(){
- document.documentElement.classList.add('js');
- requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.add('ready')));
- const btn=document.getElementById('menuBtn'), nav=document.getElementById('mainNav');
- btn.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')});
- nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
- const phone='5577998786875';
- function wa(packageName){
-  const extra=packageName?` Tenho interesse no pacote ${packageName}.`:'';
-  return 'https://wa.me/'+phone+'?text='+encodeURIComponent(`Olá, Nítido Studio! Quero conversar sobre um site para o meu negócio.${extra} Meu negócio é: [conte em uma frase]. Cidade: [informe sua cidade].`);
- }
- document.getElementById('mainWa').href=wa('');
- document.querySelectorAll('.package-wa').forEach(a=>a.href=wa(a.dataset.package||''));
-})();
-</script>
-</body>
-</html>
+<footer><div class="wrap foot"><span class="foot-brand"><img src="/nitido-logo.png" alt="Nítido Studio"><small>Sites personalizados para empresas.</small></span><span>Projetos conceituais identificados como ilustrativos.</span></div></footer>
+<script>(function(){document.documentElement.classList.add('js');requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.add('ready')));const btn=document.getElementById('menuBtn'),nav=document.getElementById('mainNav');btn.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}});const phone='5577998786875';function wa(packageName){const extra=packageName?` Tenho interesse no pacote ${packageName}.`:'';return 'https://wa.me/'+phone+'?text='+encodeURIComponent(`Olá, Nítido Studio! Quero conversar sobre um site para o meu negócio.${extra} Meu negócio é: [conte em uma frase]. Cidade: [informe sua cidade].`)}document.getElementById('mainWa').href=wa('');document.querySelectorAll('.package-wa').forEach(a=>a.href=wa(a.dataset.package||''));})();</script>
+</body></html>
