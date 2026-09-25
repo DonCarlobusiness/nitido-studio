@@ -98,6 +98,9 @@ nav.menu a:hover{color:var(--foco)}
 
 /* hero com foco */
 .hero{padding-top:clamp(56px,9vw,120px);padding-bottom:clamp(64px,10vw,140px)}
+/* os cantos azuis começam ampliados (scale 1.18) na animação de entrada; o recorte fica só no Hero, sem afetar o eixo vertical */
+.hero{overflow-x:clip}
+@supports not (overflow:clip){.hero{overflow-x:hidden}}
 .hero .titulo{position:relative;display:block;width:max-content;max-width:100%}
 .hero h1 .l{display:block}
 .hero h1 .l2{color:var(--nevoa-clara)}
