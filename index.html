@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Nítido Studio — sites que deixam seu negócio nítido para quem procura</title>
-<meta name="description" content="Criamos, administramos e anunciamos o site do seu negócio. Três pacotes para empresas locais e de médio porte no Brasil e na América Latina. Base em Luís Eduardo Magalhães, Bahia.">
+<meta name="description" content="Criamos, administramos e anunciamos o site do seu negócio. Projetos a partir de R$ 497, da landing page de entrada rápida ao site completo com gestão de anúncios. Base em Luís Eduardo Magalhães, Bahia.">
 <meta property="og:title" content="Nítido Studio">
 <meta property="og:description" content="Sites que deixam seu negócio nítido para quem procura — criação, administração mensal e tráfego pago.">
 <meta property="og:type" content="website">
@@ -12,11 +12,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
 <style>
+/* Fonte de reserva com medidas ajustadas à Bricolage: evita que o texto "pule" quando a fonte da marca termina de carregar */
+@font-face{font-family:"Bricolage Fallback";font-weight:100 500;src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Roboto"),local("Helvetica Neue"),local("Helvetica");size-adjust:104%;ascent-override:89%;descent-override:26%;line-gap-override:0%}
+@font-face{font-family:"Bricolage Fallback";font-weight:600 900;src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("Roboto Bold"),local("Helvetica Neue Bold"),local("Helvetica Bold");size-adjust:101%;ascent-override:92%;descent-override:27%;line-gap-override:0%}
 :root{
   --fundo:#FFFFFF; --tinta:#000000; --foco:#1B33F0; --nevoa:#6F7583; --nevoa-clara:#9AA0AE;
   --superficie:#EEF0F4; --linha:#D9DCE3; --foco-suave:#E4E8FF; --foco-texto:#FFFFFF;
   --erro:#B3261E;
-  --fam:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --fam:"Bricolage Grotesque","Bricolage Fallback",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --larg:1160px; --pad:clamp(20px,5vw,64px); --sec:clamp(72px,12vw,140px);
   --ease:cubic-bezier(.2,.7,.2,1); --dur:520ms;
 }
@@ -93,6 +96,9 @@ nav.menu a:hover{color:var(--foco)}
 .foco-quadro i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
 .hero .apoio{margin-top:clamp(28px,4vw,44px);display:grid;gap:28px;grid-template-columns:minmax(0,34em) 1fr;align-items:end}
 .hero .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.hero .apartir{margin-top:16px;font-size:15px;color:var(--nevoa)}
+.hero .apartir a{text-decoration:underline;text-decoration-color:var(--linha);text-decoration-thickness:1px;text-underline-offset:4px;transition:color 160ms,text-decoration-color 160ms}
+.hero .apartir a:hover{color:var(--foco);text-decoration-color:currentColor}
 .hero .base{justify-self:end;text-align:right;color:var(--nevoa);font-size:15px;line-height:1.45;max-width:18em}
 @media (max-width:860px){.hero .apoio{grid-template-columns:1fr}.hero .base{justify-self:start;text-align:left}}
 @media (prefers-reduced-motion: no-preference){
@@ -186,24 +192,55 @@ nav.menu a:hover{color:var(--foco)}
 .aviso{margin-top:clamp(40px,6vw,64px);color:var(--nevoa);font-size:15px;max-width:44em}
 
 /* pacotes */
-.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
-.plano{border:1px solid var(--linha);border-radius:16px;padding:28px 26px 26px;display:grid;gap:22px;background:var(--fundo)}
-.plano.rec{border:2px solid var(--tinta);position:relative}
-.plano .tag{position:absolute;top:-14px;left:24px;background:var(--foco);color:var(--foco-texto);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px}
-.plano h3{font-size:clamp(26px,2.4vw,32px)}
-.plano .para{color:var(--nevoa);min-height:3em}
-.plano .preco{font-size:15px;color:var(--nevoa);border-top:1px solid var(--linha);padding-top:16px}
-.plano .preco strong{display:block;color:var(--tinta);font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:2px}
+.pac-intro .lede{max-width:30em}
+.sobre{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--foco)}
+.nivel{scroll-margin-top:96px}
+.nivel + .nivel{margin-top:clamp(72px,10vw,120px);padding-top:clamp(48px,6vw,72px);border-top:1px solid var(--linha)}
+.nivel-cab{display:grid;gap:14px;max-width:40em;margin-bottom:clamp(40px,5vw,56px)}
+.nivel-cab h3{font-size:clamp(28px,3.4vw,44px);line-height:1.04;font-variation-settings:"opsz" 96}
+.nivel-cab p.muted{max-width:36em}
+.planos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.planos.entrada{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.plano{position:relative;border:1px solid var(--linha);border-radius:16px;padding:30px 26px 26px;display:grid;gap:22px;align-content:start;background:var(--fundo);scroll-margin-top:110px}
+.plano.rec{border:2px solid var(--tinta)}
+.plano .tag{position:absolute;top:-14px;left:24px;background:var(--foco);color:var(--foco-texto);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;line-height:1.4}
+.plano .tag.leve{background:var(--fundo);color:var(--tinta);border:1px solid var(--linha)}
+.plano h4{margin:0;font-size:clamp(26px,2.4vw,32px);font-weight:600;letter-spacing:-.02em;line-height:1.05;font-variation-settings:"opsz" 40}
+.plano .para{color:var(--nevoa);margin-top:10px;min-height:3em}
+.valor{display:grid;gap:8px;border-top:1px solid var(--linha);padding-top:18px}
+.valor .num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px}
+.valor .num strong{font-size:clamp(38px,3.4vw,50px);font-weight:700;letter-spacing:-.035em;line-height:1;font-variation-settings:"opsz" 96;white-space:nowrap}
+.valor .num span{font-size:15px;color:var(--nevoa)}
+.valor .cond{font-size:15px;line-height:1.45;color:var(--nevoa)}
+.valor .cond b{font-weight:600;color:var(--tinta)}
 .linhas{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha)}
 .linhas li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;padding:11px 0;border-bottom:1px solid var(--linha);font-size:16px;line-height:1.35}
 .linhas li svg{width:20px;height:20px;margin-top:1px}
 .linhas li.sim svg{color:var(--foco)}
-.linhas li.nao{color:var(--nevoa-clara)}
+.linhas li.nao{color:var(--nevoa)}
 .linhas li.nao svg{color:var(--nevoa-clara)}
 .linhas li small{display:block;color:var(--nevoa);font-size:14px}
-.plano .btn{justify-content:center}
-@media (max-width:960px){.planos{grid-template-columns:1fr;max-width:560px}.plano.rec{order:-1}}
-.nota-preco{margin-top:22px;color:var(--nevoa);font-size:15px;max-width:44em}
+.plano .btn{justify-content:center;width:100%;padding-inline:14px;text-align:center}
+.plano .ideal{font-size:15px;line-height:1.45;color:var(--nevoa)}
+.plano .ideal strong{color:var(--tinta);font-weight:600}
+@media (min-width:1100px){.linhas.duas{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}}
+@media (max-width:960px){
+  .planos,.planos.entrada{grid-template-columns:1fr;max-width:560px;gap:32px}
+  .plano .para{min-height:0}
+}
+@media (max-width:480px){.plano{padding:28px 20px 22px}.plano .tag{left:18px}}
+/* guia de escolha */
+.guia{margin-top:clamp(48px,6vw,72px)}
+.guia h4{margin:0 0 20px;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--nevoa)}
+.guia ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.guia li{border-top:3px solid var(--tinta);padding-top:18px;display:grid;gap:16px;align-content:space-between}
+.guia .fala{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.2;letter-spacing:-.01em;font-variation-settings:"opsz" 40}
+.guia a{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:600;text-decoration:none;color:var(--foco);min-height:44px}
+.guia a svg{width:18px;height:18px;flex:none}
+.guia a span{color:var(--nevoa);font-weight:400}
+.guia a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:760px){.guia ol{grid-template-columns:1fr;gap:26px}}
+.nota-preco{margin-top:clamp(36px,5vw,48px);color:var(--nevoa);font-size:15px;max-width:44em}
 
 /* onde */
 .onde{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);padding:clamp(36px,5vw,56px) 0}
@@ -281,6 +318,7 @@ footer a:hover{color:var(--foco)}
           <a class="btn" href="#pacotes">Ver os pacotes</a>
           <a class="btn sec2" href="#contato">Falar no WhatsApp</a>
         </div>
+        <p class="apartir"><a href="#comecar">Projetos a partir de R$ 497.</a></p>
       </div>
       <p class="base">Base em Luís Eduardo Magalhães, Bahia. Atendimento remoto para todo o Brasil e a América Latina.</p>
     </div>
@@ -449,70 +487,172 @@ footer a:hover{color:var(--foco)}
 
   <section class="sec" id="pacotes">
     <div class="wrap">
-      <div class="cabec">
+      <div class="cabec pac-intro">
         <h2>Pacotes</h2>
-        <p class="lede muted">As mesmas linhas nos três planos, para você comparar sem adivinhar. Escolha pelo tamanho do seu negócio, não pelo preço.</p>
+        <p class="lede">Comece no tamanho certo para o seu negócio. E evolua quando precisar.</p>
+        <p class="muted">De uma página enxuta para começar até uma estrutura completa de aquisição de clientes.</p>
       </div>
-      <div class="planos">
-        <article class="plano" aria-labelledby="p1">
-          <div>
-            <h3 id="p1">Essencial</h3>
-            <p class="para">Para o negócio local que hoje só tem Instagram e precisa existir no Google.</p>
-          </div>
-          <ul class="linhas">
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Site de uma página, com todas as seções essenciais</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp e mapa</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>1 rodada por mês: fotos, preços, horários</small></span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Páginas adicionais (serviços, blog, equipe)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Tráfego pago (Google e Meta)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Relatório mensal de resultados</span></li>
-          </ul>
-          <p class="preco"><strong>R$ 1.490</strong>criação, ou 3x de R$ 497<br>+ R$ 149/mês de administração</p>
-          <a class="btn sec2" href="#contato" data-plano="Essencial">Quero o Essencial</a>
-        </article>
 
-        <article class="plano rec" aria-labelledby="p2">
-          <span class="tag">Recomendado para a maioria</span>
-          <div>
-            <h3 id="p2">Profissional</h3>
-            <p class="para">Para quem tem mais de um serviço para explicar e quer o site como principal canal de contato.</p>
-          </div>
-          <ul class="linhas">
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Site com até 5 páginas</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>2 rodadas por mês, inclusive novas seções</small></span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Páginas adicionais (serviços, blog, equipe)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Tráfego pago (Google e Meta)</span></li>
-            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Relatório mensal de resultados</span></li>
-          </ul>
-          <p class="preco"><strong>R$ 2.990</strong>criação, ou 3x de R$ 997<br>+ R$ 249/mês de administração</p>
-          <a class="btn" href="#contato" data-plano="Profissional">Quero o Profissional</a>
-        </article>
+      <section class="nivel" id="comecar" aria-labelledby="t-comecar">
+        <div class="nivel-cab">
+          <p class="sobre">Para começar</p>
+          <h3 id="t-comecar">Comece menor. Cresça quando fizer sentido.</h3>
+          <p class="muted">Você não precisa começar com um projeto grande. Criamos opções enxutas para colocar seu negócio no ar com qualidade, rapidez e um investimento mais acessível.</p>
+        </div>
 
-        <article class="plano" aria-labelledby="p3">
-          <div>
-            <h3 id="p3">Performance</h3>
-            <p class="para">Para a empresa de médio porte que quer o site trazendo clientes todo mês, com anúncios e acompanhamento.</p>
-          </div>
+        <div class="planos entrada">
+          <article class="plano" id="landing-express" aria-labelledby="p-le">
+            <span class="tag leve">Entrada rápida</span>
+            <div>
+              <h4 id="p-le">Landing Express</h4>
+              <p class="para">Uma página. Uma oferta. Um objetivo: transformar visitas em conversas.</p>
+            </div>
+            <div class="valor">
+              <p class="num"><strong>R$ 497</strong><span>pagamento único</span></p>
+              <p class="cond">Parcelamento disponível no cartão.<br>Não inclui manutenção mensal obrigatória.</p>
+            </div>
+            <a class="btn sec2" href="#contato" data-wa="Olá! Vi o plano Landing Express de R$ 497 no site da Nítido Studio e gostaria de saber como funciona.">Quero minha landing</a>
           <ul class="linhas">
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Site com até 10 páginas e páginas de anúncio</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>Sem limite de rodadas</small></span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Páginas adicionais (serviços, blog, equipe)</span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Tráfego pago (Google e Meta)<small>Gestão dos anúncios; a verba de mídia é sua</small></span></li>
-            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Relatório mensal de resultados</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Landing page profissional</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Até 6 seções</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Layout personalizado à identidade do negócio</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Versão totalmente responsiva para celular</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Formulário ou chamada para ação</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Adaptação dos textos fornecidos pelo cliente</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SEO básico</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Publicação do projeto</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>1 rodada de alterações</span></li>
           </ul>
-          <p class="preco"><strong>R$ 4.990</strong>criação, ou 5x de R$ 998<br>+ R$ 1.290/mês de administração e gestão de anúncios</p>
-          <a class="btn sec2" href="#contato" data-plano="Performance">Quero o Performance</a>
-        </article>
-      </div>
-      <p class="nota-preco">Valores de lançamento para empresas do Brasil. Projetos com muitas páginas, loja virtual ou sistemas sob medida recebem proposta própria. No Performance, a verba dos anúncios é paga direto ao Google e à Meta (recomendamos a partir de R$ 1.000/mês). Sem fidelidade: a mensalidade pode ser cancelada com 30 dias de aviso. Domínio e hospedagem ficam sempre no seu nome.</p>
+            <p class="ideal"><strong>Ideal para</strong> campanhas, promoções, profissionais autônomos e negócios que precisam começar rápido.</p>
+          </article>
+
+          <article class="plano rec" id="site-start" aria-labelledby="p-ss">
+            <span class="tag">Mais escolhido para começar</span>
+            <div>
+              <h4 id="p-ss">Site Start</h4>
+              <p class="para">A presença profissional que um pequeno negócio precisa para ser encontrado e transmitir confiança.</p>
+            </div>
+            <div class="valor">
+              <p class="num"><strong>R$ 897</strong><span>pagamento único</span></p>
+              <p class="cond">Parcelamento disponível no cartão.<br>Sem mensalidade obrigatória. <b>Manutenção opcional a partir de R$ 99/mês.</b></p>
+            </div>
+            <a class="btn" href="#contato" data-wa="Olá! Vi o Site Start de R$ 897 no site da Nítido Studio e gostaria de saber como funciona.">Quero meu site</a>
+          <ul class="linhas duas">
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Site institucional One Page</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Estrutura completa da empresa</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Apresentação do negócio</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Serviços</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Diferenciais</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Galeria ou imagens</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Avaliações/depoimentos, quando disponíveis</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Localização e mapa</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Redes sociais</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SEO básico</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Responsivo para celular</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Adaptação dos textos</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Publicação</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>1 rodada de alterações</span></li>
+          </ul>
+            <p class="ideal"><strong>Ideal para</strong> lojas, clínicas, escritórios, oficinas, profissionais liberais e pequenos negócios que hoje dependem apenas do Instagram.</p>
+          </article>
+        </div>
+
+        <div class="guia" aria-labelledby="t-guia">
+          <h4 id="t-guia">Qual escolher? Em uma frase</h4>
+          <ol>
+            <li><p class="fala">“Tenho uma oferta específica para divulgar.”</p><a href="#landing-express">Landing Express <span>R$ 497</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li><p class="fala">“Quero apresentar minha empresa inteira.”</p><a href="#site-start">Site Start <span>R$ 897</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li><p class="fala">“Preciso de várias páginas e acompanhamento.”</p><a href="#essencial">Essencial <span>R$ 1.490 + R$ 149/mês</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="nivel" id="crescer" aria-labelledby="t-crescer">
+        <div class="nivel-cab">
+          <p class="sobre">Para crescer</p>
+          <h3 id="t-crescer">Mais estrutura, com cuidado todo mês.</h3>
+          <p class="muted">Para empresas que já usam o site como canal de venda: mais páginas, atualizações mensais e, no Performance, anúncios com acompanhamento. As mesmas linhas nos três planos, para você comparar sem adivinhar.</p>
+        </div>
+
+        <div class="planos">
+          <article class="plano" id="essencial" aria-labelledby="p1">
+            <div>
+              <h4 id="p1">Essencial</h4>
+              <p class="para">Para empresas que já precisam de uma presença institucional mais completa.</p>
+            </div>
+            <div class="valor">
+              <p class="num"><strong>R$ 1.490</strong><span>criação</span></p>
+              <p class="cond">ou 3x de R$ 497<br>+ R$ 149/mês de administração</p>
+            </div>
+            <a class="btn sec2" href="#contato" data-wa="Olá! Tenho interesse no plano Essencial da Nítido Studio.">Quero o Essencial</a>
+          <ul class="linhas">
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Site institucional com até 3 páginas</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SEO básico</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Publicação e configuração</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>1 rodada por mês: fotos, preços, horários</small></span></li>
+            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span><span class="sr">Não incluso: </span>Páginas próprias para serviços, blog e equipe</span></li>
+            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span><span class="sr">Não incluso: </span>Gestão de anúncios no Google e na Meta</span></li>
+            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span><span class="sr">Não incluso: </span>Acompanhamento e relatório mensal de resultados</span></li>
+          </ul>
+          </article>
+
+          <article class="plano rec" id="profissional" aria-labelledby="p2">
+            <span class="tag">Indicado para vários serviços</span>
+            <div>
+              <h4 id="p2">Profissional</h4>
+              <p class="para">Para empresas com vários serviços que precisam usar o site como canal comercial.</p>
+            </div>
+            <div class="valor">
+              <p class="num"><strong>R$ 2.990</strong><span>criação</span></p>
+              <p class="cond">ou 3x de R$ 997<br>+ R$ 249/mês de administração</p>
+            </div>
+            <a class="btn" href="#contato" data-wa="Olá! Tenho interesse no plano Profissional da Nítido Studio.">Quero o Profissional</a>
+          <ul class="linhas">
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Site com até 5 páginas</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SEO básico</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Publicação e configuração</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>2 rodadas por mês, inclusive novas seções</small></span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Páginas próprias para serviços, blog e equipe</span></li>
+            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span><span class="sr">Não incluso: </span>Gestão de anúncios no Google e na Meta</span></li>
+            <li class="nao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span><span class="sr">Não incluso: </span>Acompanhamento e relatório mensal de resultados</span></li>
+          </ul>
+          </article>
+
+          <article class="plano" id="performance" aria-labelledby="p3">
+            <div>
+              <h4 id="p3">Performance</h4>
+              <p class="para">Para a empresa de médio porte que quer o site trazendo clientes todo mês, com anúncios e acompanhamento.</p>
+            </div>
+            <div class="valor">
+              <p class="num"><strong>R$ 4.990</strong><span>criação</span></p>
+              <p class="cond">ou 5x de R$ 998<br>+ R$ 1.290/mês de administração e gestão de anúncios</p>
+            </div>
+            <a class="btn sec2" href="#contato" data-wa="Olá! Tenho interesse no plano Performance da Nítido Studio.">Quero o Performance</a>
+          <ul class="linhas">
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Site completo com até 10 páginas e páginas para anúncios</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Textos escritos a partir de uma conversa com você</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Design próprio da sua marca</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Botão de WhatsApp, mapa e formulário</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SEO básico</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Publicação e configuração</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Atualizações mensais<small>Sem limite de rodadas</small></span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Páginas próprias para serviços, blog e equipe</span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gestão de anúncios no Google e na Meta<small>Google Ads e Meta Ads; a verba de mídia é separada</small></span></li>
+            <li class="sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Acompanhamento e relatório mensal de resultados</span></li>
+          </ul>
+          </article>
+        </div>
+      </section>
+
+      <p class="nota-preco">Valores para empresas do Brasil. Landing Express e Site Start têm pagamento único; Essencial, Profissional e Performance têm criação mais mensalidade. Projetos com muitas páginas, loja virtual ou sistemas sob medida recebem proposta própria. No Performance, a verba dos anúncios é paga direto ao Google e à Meta (recomendamos a partir de R$ 1.000/mês). Sem fidelidade: a mensalidade pode ser cancelada com 30 dias de aviso. Domínio e hospedagem ficam sempre no seu nome.</p>
     </div>
   </section>
 
@@ -544,6 +684,18 @@ footer a:hover{color:var(--foco)}
         <h2>Perguntas frequentes</h2>
       </div>
       <div class="faq">
+        <details name="faq">
+          <summary>Qual a diferença entre Landing Express e Site Start?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="resp"><p>A Landing Express é criada em torno de uma única oferta ou objetivo, como gerar contatos para um serviço ou campanha. O Site Start apresenta o negócio de forma mais completa, com serviços, empresa, localização, diferenciais e canais de contato.</p></div>
+        </details>
+        <details name="faq">
+          <summary>Os planos Landing Express e Site Start têm mensalidade?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="resp"><p>Não. O pagamento da criação é único. Se quiser que a Nítido continue fazendo alterações e cuidando do site depois da entrega, você pode contratar a manutenção separadamente.</p></div>
+        </details>
+        <details name="faq">
+          <summary>Posso começar pelo plano mais barato e melhorar o site depois?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="resp"><p>Sim. O projeto pode evoluir conforme o negócio cresce. Você pode começar com uma landing page ou Site Start e posteriormente migrar para uma estrutura maior.</p></div>
+        </details>
         <details name="faq">
           <summary>Quanto tempo leva para o site ficar pronto?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
           <div class="resp"><p>Depende do pacote e de quanto material você já tem (fotos, textos, logo). Na proposta enviamos um prazo fechado para o seu caso, e ele começa a contar quando o material chega.</p></div>
@@ -617,11 +769,14 @@ footer a:hover{color:var(--foco)}
   menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('aberto');hamb.setAttribute('aria-expanded','false');}});
   d.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('aberto')){menu.classList.remove('aberto');hamb.setAttribute('aria-expanded','false');hamb.focus();}});
 
-  /* WhatsApp: com número configurado, os botões abrem a conversa com a mensagem certa */
+  /* WhatsApp: com número configurado, cada botão de plano abre a conversa já dizendo qual plano originou o clique */
   var plano='';
-  d.querySelectorAll('[data-plano]').forEach(function(b){b.addEventListener('click',function(){plano=b.getAttribute('data-plano');});});
   var cta=d.getElementById('cta-wa'),txt=d.getElementById('wa-texto'),pend=d.getElementById('pend');
   if(WHATSAPP){
+    d.querySelectorAll('a[data-wa]').forEach(function(a){
+      a.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(a.getAttribute('data-wa'));
+      a.target='_blank';a.rel='noopener';
+    });
     txt.textContent='+'+WHATSAPP.replace(/^(\d{2})(\d{2})(\d{4,5})(\d{4})$/,'$1 $2 $3-$4');
     pend.style.display='none';
     cta.addEventListener('click',function(e){
@@ -629,7 +784,7 @@ footer a:hover{color:var(--foco)}
       var msg='Olá, Nítido Studio! Quero uma proposta'+(plano?' do pacote '+plano:'')+'. Meu negócio: ';
       window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg),'_blank','noopener');
     });
-    d.querySelectorAll('a.btn.sec2[href="#contato"]:not([data-plano])').forEach(function(a){a.href='https://wa.me/'+WHATSAPP;a.target='_blank';a.rel='noopener';});
+    d.querySelectorAll('a.btn.sec2[href="#contato"]:not([data-wa])').forEach(function(a){a.href='https://wa.me/'+WHATSAPP;a.target='_blank';a.rel='noopener';});
   }
 })();
 </script>
