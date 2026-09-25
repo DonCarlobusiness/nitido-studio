@@ -8,6 +8,8 @@
 <meta property="og:title" content="Nítido Studio">
 <meta property="og:description" content="Sites que deixam seu negócio nítido para quem procura — criação, administração mensal e tráfego pago.">
 <meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
@@ -62,20 +64,31 @@ p{margin:0}
 /* cabeçalho */
 header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--fundo) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
-.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:22px;letter-spacing:-.02em}
-.logo .marca{position:relative;padding:2px 8px}
-.logo .marca i{position:absolute;width:9px;height:9px;border:2px solid var(--foco)}
-.logo .marca i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
-.logo .marca i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
-.logo .marca i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
-.logo .marca i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
-.logo .studio{font-weight:400;color:var(--nevoa)}
+/* logo (imagem): altura controlada, largura proporcional */
+.logo{--logo-h:48px;display:inline-flex;align-items:center;flex:none;padding:6px 0;border-radius:6px;text-decoration:none;line-height:0}
+.logo img{display:block;height:var(--logo-h);width:auto;max-width:none;object-fit:contain}
+.logo .logo-escuro{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .logo .logo-claro{display:none}
+  :root:not([data-theme="light"]) .logo .logo-escuro{display:block}
+}
+:root[data-theme="dark"] .logo .logo-claro{display:none}
+:root[data-theme="dark"] .logo .logo-escuro{display:block}
+nav.menu{flex:none}
+nav.menu a{white-space:nowrap}
+.topo .btn.topo-cta{flex:none}
+.topo .logo{--logo-h:44px}
+@media (min-width:961px){.topo nav.menu ul{gap:24px}}
+@media (max-width:1180px){.topo .logo{--logo-h:40px}}
+@media (min-width:961px) and (max-width:1180px){.topo nav.menu ul{gap:22px}}
+@media (max-width:1120px) and (min-width:961px){.topo .btn.topo-cta{display:none}}
+@media (max-width:960px){.topo .logo{--logo-h:38px}}
 nav.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center}
 nav.menu a{text-decoration:none;font-weight:500}
 nav.menu a:hover{color:var(--foco)}
 .hamb{display:none;background:none;border:2px solid var(--tinta);border-radius:999px;width:48px;height:48px;align-items:center;justify-content:center;cursor:pointer;color:var(--tinta)}
 .hamb svg{width:22px;height:22px}
-@media (max-width:860px){
+@media (max-width:960px){
   nav.menu{position:fixed;inset:72px 0 auto 0;background:var(--fundo);border-bottom:1px solid var(--linha);padding:20px var(--pad) 28px;display:none}
   nav.menu.aberto{display:block}
   nav.menu ul{flex-direction:column;align-items:flex-start;gap:18px;font-size:22px}
@@ -274,6 +287,8 @@ footer{padding:36px 0 48px;color:var(--nevoa);font-size:15px}
 footer .cols{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--foco)}
+footer .rod-marca{display:grid;gap:10px;justify-items:start}
+footer .logo{--logo-h:32px;padding:4px 0}
 
 /* utilidades */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -286,9 +301,7 @@ footer a:hover{color:var(--foco)}
 <body>
 <header>
   <div class="wrap topo">
-    <a class="logo" href="#inicio" aria-label="Nítido Studio — início">
-      <span class="marca"><i></i><i></i><i></i><i></i>Nítido</span><span class="studio">Studio</span>
-    </a>
+    <a class="logo" href="#inicio" aria-label="Nítido Studio — início"><img class="logo-claro" src="assets/logo-nitido-studio.png" width="791" height="148" alt="" decoding="async"><img class="logo-escuro" src="assets/logo-nitido-studio-dark.png" width="791" height="148" alt="" decoding="async"></a>
     <button class="hamb" id="hamb" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -751,7 +764,10 @@ footer a:hover{color:var(--foco)}
 
 <footer>
   <div class="wrap cols">
-    <div>Nítido Studio — criação, administração e tráfego para sites de empresas.</div>
+    <div class="rod-marca">
+      <a class="logo" href="#inicio" aria-label="Nítido Studio — voltar ao início"><img class="logo-claro" src="assets/logo-nitido-studio.png" width="791" height="148" alt="" loading="lazy" decoding="async"><img class="logo-escuro" src="assets/logo-nitido-studio-dark.png" width="791" height="148" alt="" loading="lazy" decoding="async"></a>
+      <p>Criação, administração e tráfego para sites de empresas.</p>
+    </div>
     <div><a href="#como">Como funciona</a> &nbsp;&nbsp; <a href="#trabalhos">Trabalhos</a> &nbsp;&nbsp; <a href="#pacotes">Pacotes</a> &nbsp;&nbsp; <a href="#perguntas">Perguntas</a></div>
   </div>
 </footer>
