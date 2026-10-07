@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    {"source":"/demos","destination":"/api/demo?path="},
+    {"source":"/demos/","destination":"/api/demo?path="},
+    {"source":"/demos/:path*","destination":"/api/demo?path=:path*"}
+  ],
+  "headers": [
+    {"source":"/demos/:path*","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"}]}
+  ]
+}
