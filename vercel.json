@@ -1,10 +1,103 @@
 {
   "rewrites": [
-    {"source":"/demos","destination":"/api/demo?path="},
-    {"source":"/demos/","destination":"/api/demo?path="},
-    {"source":"/demos/:path*","destination":"/api/demo?path=:path*"}
+    {
+      "source": "/demos",
+      "destination": "/api/demo?path=index.html"
+    },
+    {
+      "source": "/demos/",
+      "destination": "/api/demo?path=index.html"
+    },
+    {
+      "source": "/demos/4d-arquitetura",
+      "destination": "/api/demo?path=4d-arquitetura/index.html"
+    },
+    {
+      "source": "/demos/4d-arquitetura/",
+      "destination": "/api/demo?path=4d-arquitetura/index.html"
+    },
+    {
+      "source": "/demos/cm-imoveis",
+      "destination": "/api/demo?path=cm-imoveis/index.html"
+    },
+    {
+      "source": "/demos/cm-imoveis/",
+      "destination": "/api/demo?path=cm-imoveis/index.html"
+    },
+    {
+      "source": "/demos/freiberger-porto",
+      "destination": "/api/demo?path=freiberger-porto/index.html"
+    },
+    {
+      "source": "/demos/freiberger-porto/",
+      "destination": "/api/demo?path=freiberger-porto/index.html"
+    },
+    {
+      "source": "/demos/ff-empreendimentos",
+      "destination": "/api/demo?path=ff-empreendimentos/index.html"
+    },
+    {
+      "source": "/demos/ff-empreendimentos/",
+      "destination": "/api/demo?path=ff-empreendimentos/index.html"
+    },
+    {
+      "source": "/demos/casa-bela",
+      "destination": "/api/demo?path=casa-bela/index.html"
+    },
+    {
+      "source": "/demos/casa-bela/",
+      "destination": "/api/demo?path=casa-bela/index.html"
+    },
+    {
+      "source": "/demos/bema-lofts",
+      "destination": "/api/demo?path=bema-lofts/index.html"
+    },
+    {
+      "source": "/demos/bema-lofts/",
+      "destination": "/api/demo?path=bema-lofts/index.html"
+    },
+    {
+      "source": "/demos/bmd-negocios",
+      "destination": "/api/demo?path=bmd-negocios/index.html"
+    },
+    {
+      "source": "/demos/bmd-negocios/",
+      "destination": "/api/demo?path=bmd-negocios/index.html"
+    },
+    {
+      "source": "/demos/hs-negocios",
+      "destination": "/api/demo?path=hs-negocios/index.html"
+    },
+    {
+      "source": "/demos/hs-negocios/",
+      "destination": "/api/demo?path=hs-negocios/index.html"
+    },
+    {
+      "source": "/demos/ml-empreendimentos",
+      "destination": "/api/demo?path=ml-empreendimentos/index.html"
+    },
+    {
+      "source": "/demos/ml-empreendimentos/",
+      "destination": "/api/demo?path=ml-empreendimentos/index.html"
+    },
+    {
+      "source": "/demos/reckers-patrimonial",
+      "destination": "/api/demo?path=reckers-patrimonial/index.html"
+    },
+    {
+      "source": "/demos/reckers-patrimonial/",
+      "destination": "/api/demo?path=reckers-patrimonial/index.html"
+    }
   ],
   "headers": [
-    {"source":"/demos/:path*","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"}]}
+    {
+      "source": "/demos/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    }
   ]
 }
