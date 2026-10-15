@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f9faff">
+<title>Nítido Studio | Websites for ambitious service businesses</title>
+<meta name="description" content="Nítido Studio designs responsive, conversion-focused websites for service businesses. Landing pages, business websites and redesigns. Remote projects worldwide.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nítido Studio — Make your business impossible to overlook">
+<meta property="og:description" content="Modern websites for service businesses. Clear design, mobile-first experiences and simple ways for customers to get in touch.">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a10;--soft:#5f6576;--blue:#1b33f0;--line:#dfe3ec;--surface:#f3f5f9;--max:1160px;font-family:"Bricolage Grotesque",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(calc(100% - 42px),var(--max));margin:auto}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(16px)}
+.header{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.055em;font-size:26px;white-space:nowrap}
+.brand-mark{width:25px;height:25px;display:inline-grid;place-items:center;background:var(--blue);color:white;border-radius:7px;transform:rotate(-8deg);font-size:18px}
+.brand small{font-size:10px;letter-spacing:.18em;color:var(--soft);margin-left:4px;vertical-align:middle}
+nav{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:700}
+nav a:not(.btn){color:#494f5f}nav a:hover{color:var(--blue)}
+.btn{border:1px solid var(--blue);background:var(--blue);color:white;display:inline-flex;align-items:center;justify-content:center;padding:14px 21px;font-size:14px;font-weight:800;border-radius:11px;min-height:49px;line-height:1.25}
+.btn:hover{filter:brightness(.92)}
+.btn.secondary{background:transparent;color:var(--ink);border-color:#bfc5d3}
+.section{padding:100px 0}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.hero{padding:100px 0 85px}
+.hero-grid{display:grid;grid-template-columns:1.16fr .84fr;gap:60px;align-items:center}
+h1{font-size:clamp(45px,5.75vw,79px);line-height:.98;letter-spacing:-.067em;margin:20px 0 25px;font-weight:800}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--soft);max-width:625px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:31px}
+.micro{color:var(--soft);font-size:12px;margin-top:20px}
+.stage{background:#0c1227;border-radius:24px;min-height:430px;padding:25px;position:relative;box-shadow:0 32px 70px -46px rgba(14,28,93,.7);overflow:hidden}
+.stage:before{content:"";position:absolute;width:300px;height:300px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-120px;top:-120px;box-shadow:0 0 0 60px rgba(255,255,255,.03),0 0 0 120px rgba(255,255,255,.03)}
+.browser{position:relative;background:white;border-radius:16px;overflow:hidden;margin-top:40px;transform:rotate(-3deg);box-shadow:0 25px 45px -25px #000c}
+.browser-top{height:31px;display:flex;align-items:center;gap:5px;padding:0 13px;background:#f2f4fb;border-bottom:1px solid #e8eaf3}
+.dot{height:6px;width:6px;background:#adb6ca;border-radius:50%}
+.sample{padding:22px 25px 27px}
+.sample .sub{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+.sample h3{font-size:30px;line-height:1.02;letter-spacing:-.05em;margin:14px 0;max-width:245px}
+.sample p{color:#667085;font-size:11px;max-width:230px;line-height:1.5}
+.sample .button{background:var(--blue);padding:10px 13px;display:inline-block;color:#fff;border-radius:6px;font-size:10px;font-weight:800;margin-top:12px}
+.float-note{position:absolute;right:9px;bottom:26px;background:#e4e9ff;color:#2530b6;padding:14px 17px;border-radius:12px;box-shadow:0 16px 40px #0003;font-size:13px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--line);padding:29px 0}
+.stats span{display:block;font-weight:800;font-size:14px}.stats small{color:var(--soft);font-size:12px;display:block;margin-top:6px}
+h2{font-size:clamp(33px,4.5vw,56px);letter-spacing:-.06em;line-height:1.05;margin:15px 0 16px}
+.intro{font-size:17px;color:var(--soft);line-height:1.6;max-width:650px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.tile{background:var(--surface);border:1px solid #ebedf3;border-radius:17px;padding:28px}
+.num{font-size:12px;color:var(--blue);font-weight:900;letter-spacing:.12em}
+.tile h3{font-size:25px;letter-spacing:-.04em;margin:38px 0 10px}
+.tile p{color:var(--soft);font-size:14px;line-height:1.6}
+.work{background:#f7f8fb}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:32px}
+.project{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.project img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#e5e8f0}
+.project-text{padding:22px}
+.project-tag{font-size:11px;color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.project h3{margin:12px 0 9px;letter-spacing:-.035em;font-size:21px}
+.project p{font-size:13px;line-height:1.6;color:var(--soft);margin:0 0 17px}
+.project a{font-size:13px;text-decoration:underline;text-underline-offset:3px;font-weight:800}
+.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:37px}
+.step{border-top:2px solid var(--blue);padding-top:21px}
+.step strong{font-size:21px;letter-spacing:-.03em}
+.step p{font-size:14px;line-height:1.65;color:var(--soft)}
+.contact{background:#0a0c1a;color:white}
+.contact .eyebrow{color:#95a4ff}
+.contact h2{max-width:730px}
+.contact p{color:#bcc1d6;font-size:16px;line-height:1.65;max-width:630px}
+.contact .btn{background:#7484ff;border-color:#7484ff;color:#0b1133}
+.contact small{display:block;color:#a8adc1;margin-top:15px}
+footer{background:#0a0c1a;color:#aeb4c9;padding:20px 0 32px;border-top:1px solid #282d41}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:12px}
+@media(max-width:900px){
+nav a:not(.btn){display:none}
+.hero-grid{grid-template-columns:1fr;gap:28px}.hero{padding-top:70px}
+.stage{min-height:360px}.browser{max-width:430px;margin:25px auto 0}
+.tiles,.projects,.step-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.wrap{width:min(calc(100% - 34px),var(--max))}
+.header{height:68px}.brand{font-size:21px}.brand small{display:none}
+nav{gap:8px}nav .btn{padding:10px 12px;min-height:42px;font-size:12px}
+.hero{padding:57px 0 50px}h1{font-size:clamp(43px,11.7vw,62px)}
+.lead{font-size:16px}
+.stage{min-height:315px;padding:16px}.browser{margin-top:10px}.sample h3{font-size:27px}
+.float-note{bottom:12px;right:12px;font-size:11px}
+.stats{grid-template-columns:1fr;gap:12px;padding:22px 0}.stats span{font-size:13px}.stats small{display:inline;margin-left:8px}
+.section{padding:67px 0}
+.tiles,.projects,.step-grid{grid-template-columns:1fr}
+.tile h3{margin-top:24px}
+.project img{aspect-ratio:16/9}
+.foot{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap header">
+  <a class="brand" href="/en/" aria-label="Nítido Studio home"><span class="brand-mark">✦</span>NÍTIDO <small>STUDIO</small></a>
+  <nav aria-label="Main navigation">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a>
+    <a class="btn" href="#contact">Let's talk ↗</a>
+  </nav>
+</div></header>
+<main>
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div><span class="eyebrow">Independent web design studio · Working worldwide</span>
+   <h1>Good businesses deserve <em>better websites.</em></h1>
+   <p class="lead">We design modern, mobile-first websites for service businesses that want to look credible, explain what they do and turn visitors into real conversations.</p>
+   <div class="actions"><a class="btn" href="#contact">Tell us about your business ↗</a><a class="btn secondary" href="#work">Explore our work</a></div>
+   <p class="micro">Straightforward scope. Direct communication. Project quotes available in USD.</p>
+  </div>
+  <div class="stage" aria-label="Illustrative website concept">
+   <div class="browser"><div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+    <div class="sample"><span class="sub">A better first impression</span><h3>Make it easy to choose you.</h3><p>Clear service information, proof of work and a simple way to request a quote.</p><span class="button">Get a quote →</span></div>
+   </div><div class="float-note">Mobile-first by design ↗</div>
+  </div>
+ </div>
+</section>
+<div class="wrap stats"><div><span>Custom design</span><small>Built around the business</small></div><div><span>Responsive layouts</span><small>Designed for phones first</small></div><div><span>Direct inquiry flow</span><small>Clear next steps for visitors</small></div></div>
+<section class="section" id="services">
+ <div class="wrap"><span class="eyebrow">What we do</span><h2>A website with a clear job to do.</h2><p class="intro">Your website should support the way people actually discover, evaluate and contact your business. We keep the design focused on that goal.</p>
+ <div class="tiles">
+  <article class="tile"><span class="num">01 / LAUNCH</span><h3>Landing pages</h3><p>A focused page to introduce one service, campaign or offer with a direct path to your contact channel.</p></article>
+  <article class="tile"><span class="num">02 / GROW</span><h3>Business websites</h3><p>Professional multi-section or multi-page sites with services, portfolio, FAQs and calls to action.</p></article>
+  <article class="tile"><span class="num">03 / IMPROVE</span><h3>Website redesign</h3><p>Make an outdated or difficult-to-use website clearer, more polished and easier to navigate on mobile.</p></article>
+ </div></div>
+</section>
+<section class="section work" id="work">
+ <div class="wrap"><span class="eyebrow">Selected design studies</span><h2>Different businesses.<br>Different digital experiences.</h2><p class="intro">These are self-initiated concept projects that show how we approach different industries. They are not presented as commissioned client work.</p>
+  <div class="projects">
+   <article class="project"><img src="../assets/projects/rota-thumb.webp" width="600" height="380" loading="lazy" alt="Agricultural parts website design study"><div class="project-text"><span class="project-tag">Concept · Agricultural supply</span><h3>Rota Agricultural Parts</h3><p>Product-code search, inventory details and a direct quotation flow for time-sensitive purchases.</p><a href="/#caso-rota" target="_blank" rel="noopener">Explore the concept (PT) ↗</a></div></article>
+   <article class="project"><img src="../assets/projects/marco-thumb.webp" width="600" height="380" loading="lazy" alt="Technical surveying website design study"><div class="project-text"><span class="project-tag">Concept · Land surveying</span><h3>Marco Zero Surveying</h3><p>Clear technical presentation and a guided service-request experience for property owners.</p><a href="/#caso-marco" target="_blank" rel="noopener">Explore the concept (PT) ↗</a></div></article>
+   <article class="project"><img src="../assets/projects/vet-thumb.webp" width="600" height="380" loading="lazy" alt="Veterinary field services website design study"><div class="project-text"><span class="project-tag">Concept · Veterinary services</span><h3>Vet Campo Cerrado</h3><p>Field care, emergency information and faster access to the right kind of assistance.</p><a href="/#caso-vet" target="_blank" rel="noopener">Explore the concept (PT) ↗</a></div></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="process">
+ <div class="wrap"><span class="eyebrow">How a project starts</span><h2>Simple from the first conversation.</h2>
+  <div class="step-grid">
+   <div class="step"><strong>01 · Tell us the goal</strong><p>Share your business, the audience you want to reach and what customers need to do on your website.</p></div>
+   <div class="step"><strong>02 · Review a direction</strong><p>We outline the proposed structure, visual approach, deliverables, timeline and a project quote.</p></div>
+   <div class="step"><strong>03 · Build and launch</strong><p>Once the scope is agreed, we create a responsive website and prepare it for publication.</p></div>
+  </div>
+ </div>
+</section>
+<section class="section contact" id="contact">
+ <div class="wrap"><span class="eyebrow">Let's talk about your website</span><h2>Your next customer might meet you online first.</h2><p>Tell us what your business does and what kind of website you have in mind. We can discuss a project remotely and provide a quote in USD.</p>
+  <div class="actions"><a class="btn" href="https://wa.me/5577998786875?text=Hi%21%20I%27d%20like%20to%20discuss%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer">Start a WhatsApp conversation ↗</a></div>
+  <small>Based in Brazil · Working remotely with international businesses · No obligation to buy</small>
+ </div>
+</section>
+</main>
+<footer><div class="wrap foot"><span>© Nítido Studio · Independent web design</span><a href="/" lang="pt-BR">Versão em português ↗</a></div></footer>
+</body>
+</html>
