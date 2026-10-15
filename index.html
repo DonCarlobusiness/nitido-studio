@@ -435,12 +435,25 @@ footer .logo{--logo-h:32px;padding:4px 0}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:1ms !important;animation-duration:1ms !important}
 }
+
+/* Seletor de idioma unificado; nenhum redirecionamento para outro site */
+.lang-wrap{display:flex;align-items:center;gap:6px;flex:none}
+.lang-wrap label{font-size:12px;font-weight:700;color:var(--nevoa)}
+.lang-select{border:1px solid var(--linha);background:var(--fundo);color:var(--tinta);border-radius:999px;padding:9px 12px;font:600 13px var(--fam);max-width:115px;cursor:pointer}
+@media(max-width:560px){.lang-wrap label{display:none}.lang-select{max-width:88px;padding:9px 5px;font-size:12px}.topo{gap:8px}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap topo">
     <a class="logo" href="#inicio" aria-label="Nítido Studio — início"><img class="logo-claro" src="assets/logo-nitido-studio.png" width="791" height="148" alt="" decoding="async"><img class="logo-escuro" src="assets/logo-nitido-studio-dark.png" width="791" height="148" alt="" decoding="async"></a>
+
+    <div class="lang-wrap">
+      <label for="site-language">Idioma</label>
+      <select id="site-language" class="lang-select" aria-label="Selecionar idioma do site">
+        <option value="pt-BR">PT · Brasil</option><option value="en">EN · English</option><option value="es">ES · Español</option><option value="zh-CN">中文 · 简体</option><option value="ja">日本語</option>
+      </select>
+    </div>
     <button class="hamb" id="hamb" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -1009,5 +1022,7 @@ footer .logo{--logo-h:32px;padding:4px 0}
   }
 })();
 </script>
+
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>
